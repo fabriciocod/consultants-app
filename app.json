@@ -30,7 +30,7 @@
       "expo-router"
     ],
     
-      "scheme": "you-app-scheme"
+    "scheme": "you-app-scheme"
       
   }
 }

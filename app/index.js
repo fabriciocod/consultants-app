@@ -1,16 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, ImageBackground } from 'react-native';
+import { Link } from 'expo-router';
 
 
-export default function App() {
+function App() {
   return (
     <View style={styles.container}>
-
+      <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
+        
       <View style={styles.logo}>
-        <Image source={require('./../assets/logo-top.png')}
+        <Image source={require('./../assets/logo.png')}
         style={styles.marca}
         />
         
+        <Text style={styles.textoLogo}>Consultants Orders</Text>
       </View>
 
       <View style={styles.content}>
@@ -31,12 +34,18 @@ export default function App() {
       </View>
 
       <View style={styles.base}>
-      <Text style={styles.texto}>Recupera Senha</Text>
-      <Text style={styles.texto}>Cadastrar</Text>
+        <Text style={styles.texto}>Recupera Senha</Text>
+            
+      <Link href="/telaCadastro">
+        <Text style={styles.texto}>Cadastrar</Text>
+      </Link>  
+
       </View>
 
       
       {/* <StatusBar style="auto" /> */}
+
+      </ImageBackground>
     </View>
   );
 }
@@ -44,20 +53,35 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d9d9d9',
-    // alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'column',
     padding: 1,
+    
+  },
+
+  imageBackground: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: "center",
+    width: '100%'
   },
 
   logo: {
+    flexDirection: 'row',
     alignItems: 'center',
     // borderWidth: 1,
-    // marginTop: 10,
-    padding: 8
+    // borderColor: '#fff',
+    marginTop: 10,
+    padding: 8,
+    position: 'absolute',
+    top: 10
   },
   
+  textoLogo: {
+    fontSize: 20
+  },
+
   content: {
     // borderWidth: 1,
     // flex: -1,
@@ -66,24 +90,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // columnGap: 50,
     gap: 20,
-    padding: 10
+    padding: 10,
+    position: 'absolute',
+    
 
   },
 
   input:{
-    borderWidth: 3,
-    borderColor: 'gray',
+    // borderWidth: 3,
+    // borderColor: 'gray',
+
     // textAlign: 'center',
     padding: 10,
     borderRadius: 8,
-    // backgroundColor: 'gray',
+    backgroundColor: '#D9D9D9',
     color: 'gray',
     width: 295,
+    
   },
 
   entrar: {
     borderWidth: 3,
-    borderColor: 'gray',
+    borderColor: '#D9D9D',
     textAlign: 'center',
     padding: 10,
     borderRadius: 8,
@@ -94,13 +122,17 @@ const styles = StyleSheet.create({
 
 base:{
   // borderWidth: 1,
-  // flex: -4,
+  // borderColor: '#fff',
+  flex: -1,
   backgroundColor:'gray',
   flexDirection: 'row',
   justifyContent:'space-between',
-  padding: 10
+  padding: 10,
 
-  // width: 400
+  position: 'absolute',
+  bottom: -1,
+
+  width: 360
 },
 
 texto: {
@@ -108,3 +140,5 @@ texto: {
 }
 
 });
+
+export default App;
