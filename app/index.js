@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, ImageBackground, Button } from 'react-native';
 import { Link } from 'expo-router';
 
 
@@ -38,6 +38,8 @@ function App() {
     <View style={styles.cont2}></View>
 
     <View style={styles.button}>
+      <Button
+      title="Entar"/>
       <Text style={styles.entrar}>Entrar</Text>
     </View>
 
