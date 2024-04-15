@@ -8,7 +8,7 @@ function App() {
     <View style={styles.container}>
       <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
         
-      <View style={styles.logo}>
+      <View style={styles.header}>
         <Image source={require('./../assets/logo.png')}
         style={styles.marca}
         />
@@ -16,7 +16,10 @@ function App() {
         <Text style={styles.textoLogo}>Consultants Orders</Text>
       </View>
 
-      <View style={styles.content}>
+    {/* espaço vazio */}
+    <View style={styles.cont1}></View>
+
+      <View style={styles.main}>
         <TextInput //Input email
         style={styles.input}
         placeholder='Email'
@@ -27,23 +30,31 @@ function App() {
         placeholder='Senha'
         />
 
-        <Text style={styles.entrar}>
-        Entrar
-        </Text>
+       
 
       </View>
 
-      <View style={styles.base}>
-        <Text style={styles.texto}>Recupera Senha</Text>
+    {/* espaço vazio */}
+    <View style={styles.cont2}></View>
+
+    <View style={styles.button}>
+      <Text style={styles.entrar}>Entrar</Text>
+    </View>
+
+    {/* espaço vazio */}
+    <View style={styles.cont3}></View>
+
+      <View style={styles.footer}>
+        <Link href='/layout'>
+          <Text style={styles.texto}>Recupera Senha</Text>
+        </Link>
+        
             
-      <Link href="/telaCadastro">
-        <Text style={styles.texto}>Cadastrar</Text>
-      </Link>  
+        <Link href="/telaCadastro">
+          <Text style={styles.texto}>Cadastrar</Text>
+        </Link>  
 
       </View>
-
-      
-      {/* <StatusBar style="auto" /> */}
 
       </ImageBackground>
     </View>
@@ -53,60 +64,73 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
     flexDirection: 'column',
-    padding: 1,
+    justifyContent: 'space-around',
     
+        
   },
 
   imageBackground: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     width: '100%'
   },
 
-  logo: {
+  cont1:{
+    flex:3, 
+  },
+
+  cont2:{
+    flex:1,
+   },
+
+
+  cont3:{
+    flex:6, 
+},
+  header: {
+    flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    // borderWidth: 1,
-    // borderColor: '#fff',
-    marginTop: 10,
+    justifyContent: 'center',
     padding: 8,
-    position: 'absolute',
-    top: 10
+    alignItems: 'center',
+        
   },
   
   textoLogo: {
     fontSize: 20
   },
 
-  content: {
+  main: {
     // borderWidth: 1,
-    // flex: -1,
+    flex: 3,
     flexDirection: 'column',
     justifyContent:'space-around',
-    alignItems: 'center',
-    // columnGap: 50,
     gap: 20,
-    padding: 10,
-    position: 'absolute',
-    
-
+    padding: 10
+        
   },
 
   input:{
-    // borderWidth: 3,
-    // borderColor: 'gray',
-
-    // textAlign: 'center',
-    padding: 10,
+    flex: 2,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
     borderRadius: 8,
     backgroundColor: '#D9D9D9',
     color: 'gray',
-    width: 295,
+    padding: 8
     
+    
+  },
+
+  button:{
+    flex: 2,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+
   },
 
   entrar: {
@@ -120,19 +144,16 @@ const styles = StyleSheet.create({
     width: 263
   },
 
-base:{
-  // borderWidth: 1,
-  // borderColor: '#fff',
-  flex: -1,
-  backgroundColor:'gray',
+footer:{
+  flex:1,
   flexDirection: 'row',
-  justifyContent:'space-between',
-  padding: 10,
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  backgroundColor: 'gray',
+  paddingLeft: 10,
+  paddingRight: 10
 
-  position: 'absolute',
-  bottom: -1,
-
-  width: 360
+ 
 },
 
 texto: {
