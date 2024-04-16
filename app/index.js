@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, ImageBackground, Button } from 'react-native';
+import { Button } from 'react-native-paper';
+import { StyleSheet, Text, View, Image, TextInput, ImageBackground } from 'react-native';
 import { Link } from 'expo-router';
+
 
 
 function App() {
@@ -38,9 +40,9 @@ function App() {
     <View style={styles.cont2}></View>
 
     <View style={styles.button}>
-      <Button
-      title="Entar"/>
-      <Text style={styles.entrar}>Entrar</Text>
+      <Button mode="text" onPress={() => console.log('Pressed')} style={styles.entrar}>
+      Entrar
+      </Button>
     </View>
 
     {/* espaço vazio */}
@@ -76,7 +78,6 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
-    // alignItems: "center",
     width: '100%'
   },
 
@@ -121,30 +122,30 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     borderRadius: 8,
     backgroundColor: '#D9D9D9',
-    color: 'gray',
     padding: 8
     
     
   },
 
   button:{
-    flex: 2,
+    flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center'
-
+  
   },
 
   entrar: {
     borderWidth: 3,
-    borderColor: '#D9D9D',
-    textAlign: 'center',
-    padding: 10,
+    borderColor: '#',
     borderRadius: 8,
-    // backgroundColor: 'gray',
-    color: 'gray',
-    width: 263
+    buttonColor: 'gray',
+    textColor: '#fff',
+    width: 265,
+    height: 50
   },
+
+
 
 footer:{
   flex:1,
@@ -155,7 +156,6 @@ footer:{
   paddingLeft: 10,
   paddingRight: 10
 
- 
 },
 
 texto: {

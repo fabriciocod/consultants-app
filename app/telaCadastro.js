@@ -1,4 +1,6 @@
+import { Button } from 'react-native-paper';
 import { View, Text, StyleSheet, ImageBackground, Image, TextInput} from 'react-native';
+import { Link } from 'expo-router';
 
 
 
@@ -6,13 +8,23 @@ const Telacadastro = () => {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
-            <View style={styles.iconLogo}>
-                <Image source={require('./../assets/ico_voltar.png')} style={styles.ico}/>
 
-                <Image source={require('./../assets/logo.png')} style={styles.logo}/>
+            <View style={styles.header}>
+                <View style={styles.ico}>
+                   
+                    <Image source={require('./../assets/ico_voltar.png')}/>
+                    
+                </View>
+
+                <View style={styles.logo}>
+                <Image source={require('./../assets/logo.png')} />
 
                 <Text style={styles.textoLogo}>Consultants Orders</Text>
+                </View>
             </View>
+
+            {/* espaço vazio */}
+            <View style={styles.cont1}></View>
 
             <View style={styles.main}>
                 <TextInput
@@ -29,14 +41,20 @@ const Telacadastro = () => {
                 
                 <TextInput
                 style={styles.input}
-                placeholder='Confirma Senha'/>
-
-               
+                placeholder='Confirma Senha'/>     
             </View>
+
+            {/* espaço vazio */}
+            <View style={styles.cont2}></View>
 
             <View style={styles.button}>
-             <Text style={styles.btCadastrar}>Cadastrar</Text>
+             <Button mode="text" onPress={() => console.log('Pressed')} style={styles.cadastrar}>
+             Cadastrar
+             </Button>
             </View>
+
+            {/* espaço vazio */}
+            <View style={styles.cont3}></View>
 
             </ImageBackground>
         </View>
@@ -47,30 +65,44 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
-        // alignItems: 'center',
-        padding: 1
+        justifyContent: 'space-around',
+        
     },
 
     imageBackground: {
         flex: 1,
         resizeMode: "cover",
         justifyContent: "center",
-        alignItems: "center",
         width: '100%'
     },
+
+    cont1:{
+        flex:2,
+    },
+
+    cont2:{
+        flex:1, 
+    },
+
+    cont3:{
+        flex:3, 
+    },
+
     // Definir regras do logo
-    iconLogo: {
-    flexDirection: 'row',
-    
-    alignItems: 'center',
-    borderWidth: 1,
-    // borderColor: '#fff',
-    marginTop: 10,
-    padding: 8,
-    position: 'absolute',
-    top: 10,
-    width: 360
+    header: {
+        // borderWidth:1,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap:10,
+        padding: 8,
+        
+    },
+
+       logo: {
+        flexDirection: 'row',
+        alignItems: 'center'
     },
 
     textoLogo: {
@@ -79,38 +111,39 @@ const styles = StyleSheet.create({
 
     // Define regras do main
     main: {
-    // borderWidth: 1,
-    // flex: -1,
-    flexDirection: 'column',
-    justifyContent:'space-around',
-    alignItems: 'center',
-    // columnGap: 50,
-    gap: 20,
-    padding: 10,
-    position: 'absolute',
+        flex: 4,
+        flexDirection: 'column',
+        justifyContent:'space-around',
+        gap: 10,
+        padding: 5
     },
 
     input: {
-        backgroundColor: '#D9D9D9',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         borderRadius: 8,
-        padding: 10,
-        width: 295
+        backgroundColor: '#D9D9D9',
+        padding: 8
     },
 
     button: {
-        // flex: 1,
+        flex: 1,
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center'
     },
-    btCadastrar: {
+
+    cadastrar: {
         borderWidth: 3,
-        borderColor: '#000',
+        borderColor: '#',
         borderRadius: 8,
-        textAlign: 'center',
-        padding: 10,
-        width: 263
-    }
+        buttonColor: 'gray',
+        textColor: '#fff',
+        width: 265,
+        height: 50
+      },
+   
 });
 
 export default Telacadastro;
