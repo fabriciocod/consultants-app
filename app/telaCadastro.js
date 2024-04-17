@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent:'space-around',
         gap: 10,
-        padding: 5
+        padding: 20
     },
 
     input: {

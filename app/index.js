@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent:'space-around',
     gap: 20,
-    padding: 10
+    padding: 20
         
   },
 
