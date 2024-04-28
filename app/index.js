@@ -40,7 +40,7 @@ function App() {
     <View style={styles.cont2}></View>
 
     <View style={styles.button}>
-      <Button mode="text" onPress={() => console.log('Pressed')} style={styles.entrar}>
+      <Button mode="outlined" onPress={() => console.log('Pressed')} style={styles.entrar}>
       Entrar
       </Button>
     </View>
@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    
-        
+    backgroundColor: '#f2f2f2'
+            
   },
 
   imageBackground: {
@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
   },
   
   textoLogo: {
-    fontSize: 20
+    fontSize: 20,
+    color: '#120f0f'
   },
 
   main: {
@@ -131,16 +132,19 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+
+    
   
   },
 
   entrar: {
-    borderWidth: 3,
-    borderColor: '#',
-    borderRadius: 8,
-    buttonColor: 'gray',
-    textColor: '#fff',
+    // borderWidth: 3,
+    // borderColor: '#',
+    // borderRadius: 8,
+    // buttonColor: 'gray',
+    // textColor: '#fff',
+    buttonColor:'#000',
     width: 265,
     height: 50
   },
@@ -152,7 +156,7 @@ footer:{
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: 'gray',
+  backgroundColor: '#8c8c8c',
   paddingLeft: 10,
   paddingRight: 10
 
