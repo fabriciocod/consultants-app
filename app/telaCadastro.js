@@ -1,5 +1,5 @@
 import { Button } from 'react-native-paper';
-import { View, Text, StyleSheet, ImageBackground, Image, TextInput} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image, TextInput, TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router';
 
 
@@ -48,9 +48,9 @@ const Telacadastro = () => {
             <View style={styles.cont2}></View>
 
             <View style={styles.button}>
-             <Button mode="text" onPress={() => console.log('Pressed')} style={styles.cadastrar}>
-             Cadastrar
-             </Button>
+             <TouchableOpacity style={styles.bntCadastrar}>
+             <Text style={styles.cadastrar}>Cadastrar</Text>
+             </TouchableOpacity>
             </View>
 
             {/* espaço vazio */}
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
+        backgroundColor:'#B0C9D9'
         
     },
 
@@ -106,7 +107,8 @@ const styles = StyleSheet.create({
     },
 
     textoLogo: {
-        fontSize: 20
+        fontSize: 18,
+        color:'#044D8C'
     },
 
     // Define regras do main
@@ -123,26 +125,30 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-between',
         borderRadius: 8,
-        backgroundColor: '#D9D9D9',
+        backgroundColor: '#fff',
         padding: 8
     },
 
     button: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         alignItems: 'center'
     },
 
-    cadastrar: {
-        borderWidth: 3,
-        borderColor: '#',
+    bntCadastrar: {
+        
+        backgroundColor:'#044D8C',
         borderRadius: 8,
-        buttonColor: 'gray',
-        textColor: '#fff',
+        justifyContent:'center',
+        alignItems:'center',
         width: 265,
         height: 50
-      },
+    },
+
+    cadastrar: {
+        color:'#fff'
+    }
    
 });
 
