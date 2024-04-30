@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
 
     cont1: {
-        flex:2,
+        flex:0.1,
         // backgroundColor:'#fff'
     },
 
