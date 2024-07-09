@@ -1,4 +1,4 @@
-import { Button } from 'react-native-paper';
+import { Icon, MD3Colors } from 'react-native-paper';
 import { View, Text, StyleSheet, ImageBackground, Image, TextInput, TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router';
 
@@ -9,17 +9,18 @@ const Telacadastro = () => {
         <View style={styles.container}>
             <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
 
+        <View style={styles.cont0}></View>
             <View style={styles.header}>
-                <View style={styles.ico}>
+                {/* <View style={styles.ico}>
                    
                     <Image source={require('./../assets/ico_voltar.png')}/>
                     
-                </View>
+                </View> */}
 
                 <View style={styles.logo}>
                 <Image source={require('./../assets/logo.png')} />
 
-                <Text style={styles.textoLogo}>Consultants Orders</Text>
+                <Text style={styles.textoLogo}></Text>
                 </View>
             </View>
 
@@ -55,6 +56,18 @@ const Telacadastro = () => {
 
             {/* espaço vazio */}
             <View style={styles.cont3}></View>
+            
+            <View style={styles.footer}>
+
+                <Link href='/'>
+                    <Icon
+                    source="arrow-left-bold-box-outline"
+                    color={MD3Colors.error100}
+                    size={35}
+                    />
+                </Link>
+
+            </View>
 
             </ImageBackground>
         </View>
@@ -76,7 +89,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         width: '100%'
     },
-
+    cont0:{
+        flex:1,
+    },
     cont1:{
         flex:2,
     },
@@ -113,11 +128,11 @@ const styles = StyleSheet.create({
 
     // Define regras do main
     main: {
-        flex: 4,
+        flex: 7,
         flexDirection: 'column',
         justifyContent:'space-around',
-        gap: 10,
-        padding: 20
+        gap: 25,
+        padding: 10
     },
 
     input: {
@@ -125,7 +140,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-between',
         borderRadius: 8,
-        backgroundColor: '#fff',
+        backgroundColor: '#D9D9D9',
         padding: 8
     },
 
@@ -142,13 +157,24 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         justifyContent:'center',
         alignItems:'center',
-        width: 265,
+        width: 156,
         height: 50
     },
 
     cadastrar: {
         color:'#fff'
-    }
+    },
+
+    footer:{
+        flex:1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#044D8C',
+        paddingLeft: 10,
+        paddingRight: 10
+      
+      },
    
 });
 

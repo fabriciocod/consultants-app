@@ -9,13 +9,13 @@ function App() {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
-        
+
+    <View style={styles.cont0}></View>   
       <View style={styles.header}>
         <Image source={require('./../assets/logo.png')}
         style={styles.marca}
         />
         
-        <Text style={styles.textoLogo}>Consultants Orders</Text>
       </View>
 
     {/* espaço vazio */}
@@ -48,7 +48,7 @@ function App() {
     <View style={styles.cont3}></View>
 
       <View style={styles.footer}>
-        <Link href='/recuperaSenha'>
+        <Link href='/recuperarSenhaModal'>
           <Text style={styles.texto}>Recupera Senha</Text>
         </Link>
         
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    backgroundColor: '#B0C9D9'         
+    // backgroundColor: '#B0C9D9'         
   },
 
   imageBackground: {
@@ -79,17 +79,20 @@ const styles = StyleSheet.create({
     width: '100%'
   },
 
+  cont0:{
+    flex: 1
+  },
+
   cont1:{
-    flex:3 
+    flex:2
   },
 
   cont2:{
-    flex:1
+    flex:2
    },
 
-
   cont3:{
-    flex:6 
+    flex:4
 },
   header: {
     flex: 1,
@@ -106,11 +109,11 @@ const styles = StyleSheet.create({
 
   main: {
     // borderWidth: 1,
-    flex: 3,
+    flex: 4,
     flexDirection: 'column',
     justifyContent:'space-around',
-    gap: 20,
-    padding: 20
+    gap: 50,
+    padding: 10
         
   },
 
@@ -119,7 +122,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     borderRadius: 8,
-    backgroundColor: '#fff',
+    // placeholderTextColor: "#333",
+    backgroundColor: '#D9D9D9',
     padding: 8
         
   },
@@ -137,7 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent:'center',
     alignItems:'center',
-    width: 265,
+    width: 350,
     height: 50
   },
 

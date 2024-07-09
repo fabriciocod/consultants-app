@@ -13,14 +13,14 @@ const alterarSenha = () => {
             styles={styles.marca}
             />
 
-            <Text style={styles.textoLogo}>Consultants Orders</Text>
+            <Text style={styles.textoLogo}></Text>
         </View>
 
         {/* espaço vazio */}
         <View style={styles.cont1}></View>
 
         <View style={styles.main}>
-          <Text style={styles.titulo}>Alerar Senha</Text>
+          <Text style={styles.titulo}>Alterar Senha</Text>
 
           <Text style={styles.informe}>
             Por favor, informe o código recebido

@@ -14,7 +14,7 @@ const recuperaSenha = () => {
                 style={styles.marca}
                 />
 
-                <Text style={styles.textoLogo}>Concultants Orders</Text>
+                <Text style={styles.textoLogo}></Text>
             </View>
 
         {/* espaço vazio */}
