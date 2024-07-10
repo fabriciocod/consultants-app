@@ -48,7 +48,7 @@ function App() {
     <View style={styles.cont3}></View>
 
       <View style={styles.footer}>
-        <Link href='/recuperarSenhaModal'>
+        <Link href='/recuperaSenha'>
           <Text style={styles.texto}>Recupera Senha</Text>
         </Link>
         
@@ -157,13 +157,16 @@ footer:{
   justifyContent: 'space-between',
   alignItems: 'center',
   backgroundColor: '#044D8C',
-  paddingLeft: 10,
-  paddingRight: 10
+  paddingLeft: 20,
+  paddingRight: 20,
+  paddingTop: 5,
+  paddingBottom: 5
 
 },
 
 texto: {
-  color:'white'
+  color:'white',
+  fontSize: 15
 }
 
 });

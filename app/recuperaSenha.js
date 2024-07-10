@@ -9,19 +9,19 @@ const recuperaSenha = () => {
         <ImageBackground source={require('./../assets/background.png')}
         style={styles.ImageBackground}>
         
-            <View style={styles.header}>
+            {/* <View style={styles.header}>
                 <Image source={require('./../assets/logo.png')}
                 style={styles.marca}
                 />
 
                 <Text style={styles.textoLogo}></Text>
-            </View>
+            </View> */}
 
         {/* espaço vazio */}
         <View style={styles.cont1}></View>
 
             <View style={styles.main}>
-                <Text style={styles.titulo}>Recupera Senha</Text>
+                <Text style={styles.titulo}>Recuperar Senha</Text>
 
                 <Text style={styles.informe}>
                     Por favor, confirme seu e-mail para
@@ -39,13 +39,15 @@ const recuperaSenha = () => {
 
             <View style={styles.button}>
 
-                <TouchableOpacity style={styles.bntCancelar}>
-                <Text style={styles.cancelar}>Cancelar</Text>
+                <TouchableOpacity style={styles.bntconfirmar}>
+                <Link href="./alterarSenha">  
+                <Text style={styles.confirmar}>Confirmar</Text>
+                </Link>  
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.bntconfirmar}>
-                <Link href="./alterarSenha">
-                <Text style={styles.confirmar}>Confirmar</Text>
+                <TouchableOpacity style={styles.bntCancelar}>
+                <Link href='/'>
+                <Text style={styles.cancelar}>Cancelar</Text>
                 </Link>
                 </TouchableOpacity>
             
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
     },
 
     cont1: {
-        flex:0.1,
+        flex:4,
         // backgroundColor:'#fff'
     },
 
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     },
 
     cont3:{
-        flex:3,
+        flex:4,
         // backgroundColor:'#fff'
     },
 
@@ -99,11 +101,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    textoLogo: {
-        fontSize: 20,
-        color: '#044D8C'
-    },
-
     main: {
         flex: 4,
         flexDirection: 'column',
@@ -113,12 +110,12 @@ const styles = StyleSheet.create({
     },
 
     titulo: {
-        fontSize: 16,
+        fontSize: 25,
         paddingLeft: 20
     },
 
     informe:{
-        fontSize: 16,
+        fontSize: 17,
         paddingLeft: 20
     },
 
@@ -127,9 +124,8 @@ const styles = StyleSheet.create({
         // flexDirection: 'column',
         justifyContent: 'space-around',
         borderRadius:8,
-        backgroundColor: '#fff',
+        backgroundColor: '#D9D9D9',
         padding: 20,
-
         height: 20
     },
     
@@ -145,7 +141,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent:'center',
         alignItems:'center',
-        width: 130,
+        width: 140,
         height: 50
     },
     
@@ -158,7 +154,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent:'center',
         alignItems:'center',
-        width: 130,
+        width: 140,
         height: 50
     },
     

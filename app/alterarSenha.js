@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import {ImageBackground, StyleSheet, Text, View, image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { TextInput } from 'react-native-paper'
 import { Link } from 'expo-router'
@@ -8,13 +8,13 @@ const alterarSenha = () => {
     <View style={styles.container}>
         <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
         
-        <View style={styles.header}>
+        {/* <View style={styles.header}>
             <Image source={require('./../assets/logo.png')}
             styles={styles.marca}
             />
 
             <Text style={styles.textoLogo}></Text>
-        </View>
+        </View> */}
 
         {/* espaço vazio */}
         <View style={styles.cont1}></View>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:'column',
         justifyContent:'space-around',
-        backgroundColor: '#B0C9D9'
+        // backgroundColor: '#B0C9D9'
     },
 
     imageBackground: {
@@ -78,11 +78,11 @@ const styles = StyleSheet.create({
     },
 
     cont1: {
-      flex:0.1
+      flex:4
     },
 
     cont2:{
-      flex:1
+      flex:4
     },
 
     cont3:{
@@ -97,10 +97,10 @@ const styles = StyleSheet.create({
         alignItems: 'center'   
       },
 
-    textoLogo:{
-      fontSize: 20,
-      color: '#044D8C'
-    },
+    // textoLogo:{
+    //   fontSize: 20,
+    //   color: '#044D8C'
+    // },
 
     main: {
       flex: 4,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     },
 
     titulo:{
-      fontSize:16,
+      fontSize:22,
       paddingLeft:20
     },
 
@@ -122,9 +122,23 @@ const styles = StyleSheet.create({
 
     input:{
       borderRadius:8,
-      backgroundColor:'#fff',
+      backgroundColor:'#D9D9D9',
       justifyContent:'space-around',
       padding:20,
       height:20
+    },
+
+    bntconfirmar:{
+        backgroundColor:'#044D8C',
+        borderRadius: 5,
+        justifyContent:'center',
+        alignItems:'center',
+        width: 140,
+        height: 50
+    },
+    
+    confirmar:{
+
     }
+
 })
