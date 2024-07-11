@@ -27,11 +27,14 @@ const alterarSenha = () => {
             para recuperação da senha.
           </Text>
 
+        <View>
           <TextInput
           style={styles.input}
           placeholder='Código'
           />
+        </View>
 
+        <View>
           <TextInput
           style={styles.input}
           placeholder='Nova Senha'
@@ -41,6 +44,7 @@ const alterarSenha = () => {
           style={styles.input}
           placeholder='Confirme a Senha'
           />
+        </View>
 
         </View>
 
@@ -53,9 +57,13 @@ const alterarSenha = () => {
               <Text style={styles.confirmar}>Confirmar</Text>
             </Link>
           </TouchableOpacity>
+
         </View>
-     
-      </ImageBackground>
+
+         {/* espaço vazio */}
+         <View style={styles.cont3}></View>
+
+     </ImageBackground>
     </View>
   )
 }
@@ -78,15 +86,15 @@ const styles = StyleSheet.create({
     },
 
     cont1: {
-      flex:4
+      flex:3
     },
 
     cont2:{
-      flex:4
+      flex:0.1
     },
 
     cont3:{
-      flex:3
+      flex:1
     },
 
     header: {
@@ -111,12 +119,12 @@ const styles = StyleSheet.create({
     },
 
     titulo:{
-      fontSize:22,
+      fontSize:26,
       paddingLeft:20
     },
 
     informe:{
-      fontSize:16,
+      fontSize:17,
       padding: 20
     },
 
@@ -128,17 +136,24 @@ const styles = StyleSheet.create({
       height:20
     },
 
+    button:{
+      flex:3,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center'
+    },
+
     bntconfirmar:{
         backgroundColor:'#044D8C',
-        borderRadius: 5,
+        borderRadius: 10,
         justifyContent:'center',
         alignItems:'center',
-        width: 140,
+        width: 188,
         height: 50
     },
     
     confirmar:{
-
+        color: '#fff'
     }
 
 })
