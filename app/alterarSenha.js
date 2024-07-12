@@ -27,14 +27,14 @@ const alterarSenha = () => {
             para recuperação da senha.
           </Text>
 
-        <View>
+        <View style={styles.codigo}>
           <TextInput
           style={styles.input}
           placeholder='Código'
           />
         </View>
 
-        <View>
+        <View style={styles.senhas}>
           <TextInput
           style={styles.input}
           placeholder='Nova Senha'
@@ -86,15 +86,15 @@ const styles = StyleSheet.create({
     },
 
     cont1: {
-      flex:3
+      flex:2
     },
 
     cont2:{
-      flex:0.1
+      flex:1
     },
 
     cont3:{
-      flex:1
+      flex:2
     },
 
     header: {
@@ -119,13 +119,30 @@ const styles = StyleSheet.create({
     },
 
     titulo:{
-      fontSize:26,
+      fontSize:20,
       paddingLeft:20
     },
 
     informe:{
-      fontSize:17,
+      fontSize:15,
       padding: 20
+    },
+
+    codigo:{
+      flex: 1,
+      flexDirection: 'row' ,
+      justifyContent: 'left',
+
+
+    },
+
+    senhas:{
+      flex: 1,
+      flexDirection: 'row' ,
+      justifyContent:'space-around',
+      // padding: 20,
+      height:20
+
     },
 
     input:{
@@ -137,7 +154,7 @@ const styles = StyleSheet.create({
     },
 
     button:{
-      flex:3,
+      flex:1,
       flexDirection: 'row',
       justifyContent: 'space-around',
       alignItems: 'center'

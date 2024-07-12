@@ -110,12 +110,12 @@ const styles = StyleSheet.create({
     },
 
     titulo: {
-        fontSize: 25,
+        fontSize: 20,
         paddingLeft: 20
     },
 
     informe:{
-        fontSize: 17,
+        fontSize: 14,
         paddingLeft: 20
     },
 
