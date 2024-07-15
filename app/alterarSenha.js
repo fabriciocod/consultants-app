@@ -1,21 +1,17 @@
-import {ImageBackground, StyleSheet, Text, View, image, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { TextInput } from 'react-native-paper'
-import { Link } from 'expo-router'
+import {ImageBackground, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import * as React from 'react';
+import { TextInput } from 'react-native-paper';
+import { Link } from 'expo-router';
 
 const alterarSenha = () => {
+  const [text, setText] = React.useState("");
   return (
+    
     <View style={styles.container}>
         <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
+       
         
-        {/* <View style={styles.header}>
-            <Image source={require('./../assets/logo.png')}
-            styles={styles.marca}
-            />
-
-            <Text style={styles.textoLogo}></Text>
-        </View> */}
-
+        
         {/* espaço vazio */}
         <View style={styles.cont1}></View>
 
@@ -28,10 +24,20 @@ const alterarSenha = () => {
           </Text>
 
         <View style={styles.codigo}>
+
           <TextInput
+            style={styles.input}
+             label='Código'
+             secureTextEntry
+             right={<TextInput.Icon icon="close"/>}
+             value={text}
+             onChangeText={text => setText(Text)}
+             />
+
+          {/* <TextInput
           style={styles.input}
           placeholder='Código'
-          />
+          /> */}
         </View>
 
         <View style={styles.senhas}>
@@ -63,8 +69,10 @@ const alterarSenha = () => {
          {/* espaço vazio */}
          <View style={styles.cont3}></View>
 
+          
      </ImageBackground>
     </View>
+    
   )
 }
 
@@ -106,7 +114,7 @@ const styles = StyleSheet.create({
       },
 
     // textoLogo:{
-    //   fontSize: 20,
+    // height:20  fontSize: 20,
     //   color: '#044D8C'
     // },
 
@@ -146,11 +154,14 @@ const styles = StyleSheet.create({
     },
 
     input:{
-      borderRadius:8,
-      backgroundColor:'#D9D9D9',
-      justifyContent:'space-around',
-      padding:20,
-      height:20
+      alignItems: 'left',
+      fontSize: 12,
+      // borderRadius:8,
+      backgroundColor:'#fff',
+      // justifyContent:'space-around',
+      // padding:20,
+      // height:20
+      width: 120
     },
 
     button:{

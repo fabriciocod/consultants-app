@@ -1,16 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-// import { Button } from 'react-native-paper';
-import { StyleSheet, Text, View, Image, TextInput, ImageBackground, TouchableOpacity } from 'react-native';
+import * as React from 'react'; 
+import { TextInput } from 'react-native-paper';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
 
 
 function App() {
+  const [text, setText] = React.useState("");
   return (
     <View style={styles.container}>
       <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
 
-    <View style={styles.cont0}></View>   
+    <View style={styles.cont0}></View>
+
       <View style={styles.header}>
         <Image source={require('./../assets/logo.png')}
         style={styles.marca}
@@ -22,10 +24,23 @@ function App() {
     <View style={styles.cont1}></View>
 
       <View style={styles.main}>
-        <TextInput //Input email
+      {/* Ajuste de input do app em teste */}
+        <TextInput
+        mode='flat'
+        style={styles.input}
+        label='Email'
+        value={text}
+        textColor='#fff'
+        right={<TextInput.Icon icon="email-outline" color="#000"/>}
+        
+        
+        onChangeText={text => setText(Text)}
+        />
+
+        {/* <TextInput //Input email
         style={styles.input}
         placeholder='Email'
-        />
+        /> */}
 
         <TextInput //Input senha
         style={styles.input}
@@ -121,10 +136,12 @@ const styles = StyleSheet.create({
     flex: 2,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    borderRadius: 8,
-    // placeholderTextColor: "#333",
-    backgroundColor: '#D9D9D9',
-    padding: 8
+    fontSize:14,
+    backgroundColor: 'none',
+    padding: 8,
+    width: 320,
+    borderBottomWidth:2,
+    borderColor:'#d9d9d9'
         
   },
 
