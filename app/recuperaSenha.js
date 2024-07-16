@@ -1,11 +1,12 @@
 import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import * as React from 'react'
 import { TextInput } from 'react-native-paper'
 import { Link } from 'expo-router'
 
 const recuperaSenha = () => {
-  return (
-    <View style={styles.container}>
+    const [text, setText] = React.useState("");
+    return (
+        <View style={styles.container}>
         <ImageBackground source={require('./../assets/background.png')}
         style={styles.ImageBackground}>
         
@@ -29,8 +30,14 @@ const recuperaSenha = () => {
                 </Text>
 
                 <TextInput
+                mode='flat'
                 style={styles.input}
-                placeholder='E-mail'
+                label='Email'
+                value={text}
+                textColor='#000'
+                right={<TextInput.Icon icon="close" color="#000"/>}
+
+                onChangeText={text => setText(Text)}
                 />
             </View>
 
@@ -120,13 +127,11 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        // flex: -2,
-        // flexDirection: 'column',
-        justifyContent: 'space-around',
-        borderRadius:8,
-        backgroundColor: '#D9D9D9',
-        padding: 20,
-        height: 20
+        fontSize: 14,
+        backgroundColor: "none",
+        width:320,
+        borderBottomWidth:2,
+        borderColor:'#d9d9d9'
     },
     
     button: {

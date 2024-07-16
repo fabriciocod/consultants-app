@@ -59,7 +59,7 @@ const alterarSenha = () => {
 
         <View style={styles.button}>
           <TouchableOpacity style={styles.bntconfirmar}>
-            <Link href="#">
+            <Link href="/">
               <Text style={styles.confirmar}>Confirmar</Text>
             </Link>
           </TouchableOpacity>
@@ -132,15 +132,18 @@ const styles = StyleSheet.create({
     },
 
     informe:{
-      fontSize:15,
-      padding: 20
+      fontSize:14,
+      padding: 20,
+      marginTop: -15,
+      
     },
 
     codigo:{
       flex: 1,
       flexDirection: 'row' ,
       justifyContent: 'left',
-
+      marginLeft: 7,
+      marginBottom: 20
 
     },
 
@@ -158,10 +161,10 @@ const styles = StyleSheet.create({
       fontSize: 12,
       // borderRadius:8,
       backgroundColor:'#fff',
-      // justifyContent:'space-around',
+       justifyContent:'space-around',
       // padding:20,
       // height:20
-      width: 120
+      width: 150
     },
 
     button:{
