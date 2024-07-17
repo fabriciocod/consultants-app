@@ -42,7 +42,9 @@ const Telacadastro = () => {
                 
                 <TextInput
                 style={styles.input}
-                placeholder='Confirma Senha'/>     
+                placeholder='Confirma S  source="arrow-left-bold-box-outline"
+            color={MD3Colors.error100}
+            size={35}enha'/>     
             </View>
 
             {/* espaço vazio */}
@@ -176,7 +178,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10
       
-      },
+      }
    
 });
 

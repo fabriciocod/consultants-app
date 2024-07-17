@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     },
 
     informe:{
-      fontSize:14,
+      fontSize:15,
       padding: 20,
       marginTop: -15,
       
@@ -158,13 +158,13 @@ const styles = StyleSheet.create({
 
     input:{
       alignItems: 'left',
-      fontSize: 12,
+      fontSize: 14,
       // borderRadius:8,
       backgroundColor:'#fff',
        justifyContent:'space-around',
       // padding:20,
       // height:20
-      width: 150
+      width: 157
     },
 
     button:{
