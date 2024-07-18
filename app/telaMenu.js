@@ -105,12 +105,8 @@ const telaMenu = () => {
         <Text style={styles.texto}>Suporte</Text>
 
       </View>
+
       </ImageBackground>
-
-
-
-
-
     </View>
   );
 }
@@ -148,7 +144,8 @@ const styles = StyleSheet.create({
 
   perfil: {
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderStyle: 1
     
   },
 
