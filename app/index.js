@@ -25,26 +25,25 @@ function App() {
 
       <View style={styles.main}>
       {/* Ajuste de input do app em teste */}
-        <TextInput
-        mode='flat'
-        style={styles.input}
-        label='Email'
-        value={text}
-        textColor='#fff'
-        right={<TextInput.Icon icon="email-outline" color="#000"/>}
-        
-        
-        onChangeText={text => setText(Text)}
+        <TextInput // Input Email
+          mode='flat'
+          style={styles.input}
+          label='Email'
+          value={text}
+          textColor='#000'
+          right={<TextInput.Icon icon="email-outline" color="#000"/>}
+          onChangeText={text => setText(Text)}
         />
 
-        {/* <TextInput //Input email
-        style={styles.input}
-        placeholder='Email'
-        /> */}
-
         <TextInput //Input senha
-        style={styles.input}
-        placeholder='Senha'
+          mode='flat'
+          style={styles.input}
+          label='Senha'
+          value={text}
+          textColor='#000'
+          secureTextEntry
+          right={<TextInput.Icon icon="shield-outline" color="#000"/>}
+          onChangeText={text => setText(Text)}
         /> 
 
       </View>
@@ -53,10 +52,13 @@ function App() {
     <View style={styles.cont2}></View>
 
     <View style={styles.button}>
+      
       <TouchableOpacity style={styles.bntEntrar}>
+      <Link href='/telaMenu'>
         <Text style={styles.entrar}>Entrar</Text>
+      </Link>
       </TouchableOpacity>
-     
+      
     </View>
 
     {/* espaço vazio */}
@@ -139,7 +141,7 @@ const styles = StyleSheet.create({
     fontSize:14,
     backgroundColor: 'none',
     padding: 8,
-    width: 320,
+    width: 340,
     borderBottomWidth:2,
     borderColor:'#d9d9d9'
         
@@ -158,11 +160,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent:'center',
     alignItems:'center',
-    width: 350,
+    width: 300,
     height: 50
   },
 
   entrar: {
+    fontSize: 17,
     color:'#fff',
   },
 

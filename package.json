@@ -11,7 +11,11 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
+<<<<<<< HEAD
     "expo": "^51.0.21",
+=======
+    "expo": "~51.0.21",
+>>>>>>> 38bcc2d63a999c9987ca00ef0c64dd84544c4a13
     "expo-constants": "~16.0.2",
     "expo-linking": "~6.3.1",
     "expo-router": "~3.5.18",
