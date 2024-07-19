@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import {StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import * as React from 'react'
 import { TextInput } from 'react-native-paper'
 import { Link } from 'expo-router'
@@ -7,8 +7,8 @@ const recuperaSenha = () => {
     const [text, setText] = React.useState("");
     return (
         <View style={styles.container}>
-        <ImageBackground source={require('./../assets/background.png')}
-        style={styles.ImageBackground}>
+        {/* <ImageBackground source={require('./../assets/background.png')} */}
+        {/* style={styles.ImageBackground}> */}
         
             {/* <View style={styles.header}>
                 <Image source={require('./../assets/logo.png')}
@@ -63,7 +63,7 @@ const recuperaSenha = () => {
         {/* espaço vazio */}
         <View style={styles.cont3}></View>
 
-      </ImageBackground>
+      {/* </ImageBackground> */}
     </View>
   )
 }
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection: 'column',
         justifyContent:'space-around',
-        backgroundColor:'#B0C9D9'
+        backgroundColor:'#fff'
     },
 
     ImageBackground: {
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
         fontSize: 14,
         backgroundColor: "none",
         width:320,
-        borderBottomWidth:2,
-        borderColor:'#d9d9d9'
+        // borderBottomWidth:2,
+        // borderColor:'#d9d9d9'
     },
     
     button: {

@@ -1,4 +1,4 @@
-import {ImageBackground, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
 import * as React from 'react';
 import { TextInput } from 'react-native-paper';
 import { Link } from 'expo-router';
@@ -8,7 +8,7 @@ const alterarSenha = () => {
   return (
     
     <View style={styles.container}>
-        <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
+        {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
        
         
         
@@ -41,14 +41,23 @@ const alterarSenha = () => {
         </View>
 
         <View style={styles.senhas}>
+
           <TextInput
           style={styles.input}
-          placeholder='Nova Senha'
+          label='Nova Senha'
+          secureTextEntry
+          right={<TextInput.Icon icon="close"/>}
+          value={text}
+          onChangeText={text => setText(Text)}
           />
 
           <TextInput
           style={styles.input}
-          placeholder='Confirme a Senha'
+          label='Confirme a Senha'
+          secureTextEntry
+          right={<TextInput.Icon icon="close"/>}
+          value={text}
+          onChangeText={text => setText(Text)}
           />
         </View>
 
@@ -70,7 +79,7 @@ const alterarSenha = () => {
          <View style={styles.cont3}></View>
 
           
-     </ImageBackground>
+     {/* </ImageBackground> */}
     </View>
     
   )
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:'column',
         justifyContent:'space-around',
-        // backgroundColor: '#B0C9D9'
+        // backgroundColor: '#fff'
     },
 
     imageBackground: {
@@ -151,6 +160,7 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row' ,
       justifyContent:'space-around',
+      alignItems: 'center',
       // padding: 20,
       height:20
 
@@ -159,12 +169,13 @@ const styles = StyleSheet.create({
     input:{
       alignItems: 'left',
       fontSize: 14,
+      
       // borderRadius:8,
       backgroundColor:'#fff',
        justifyContent:'space-around',
       // padding:20,
       // height:20
-      width: 157
+      width: 150
     },
 
     button:{

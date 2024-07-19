@@ -1,13 +1,17 @@
 import { Icon, MD3Colors } from 'react-native-paper';
-import { View, Text, StyleSheet, ImageBackground, Image, TextInput, TouchableOpacity} from 'react-native';
+import { TextInput } from 'react-native-paper';
+import * as React from 'react'
+import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router';
 
 
 
+
 const Telacadastro = () => {
+    const [text, setText] = React.useState("");
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
+            {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
 
         <View style={styles.cont0}></View>
             <View style={styles.header}>
@@ -27,25 +31,55 @@ const Telacadastro = () => {
             {/* espaço vazio */}
             <View style={styles.cont1}></View>
 
-            <View style={styles.main}>
-                <TextInput
-                style={styles.input}
-                placeholder='Nome'/>
+                <View style={styles.main}>
+                    <TextInput
+                    mode='flat'
+                    style={styles.input}
+                    label='Nome'
+                    value={text}
+                    textColor='Black'
+                    right={<TextInput.Icon icon="note-edit-outline" color="#000"/>}
 
-                <TextInput
-                style={styles.input}
-                placeholder='Email'/>
 
-                <TextInput
-                style={styles.input}
-                placeholder='Senha'/>
+                    onChangeText={text => setText(Text)}
+                    />
+
+                    <TextInput
+                    mode='flat'
+                    style={styles.input}
+                    label='E-mail'
+                    value={text}
+                    textColor='Black'
+                    right={<TextInput.Icon icon="email-outline" color="#000"/>}
+
+                    onChangeText={text => setText(Text)}
+                    />
+
+                    <TextInput
+                    mode='flat'
+                    style={styles.input}
+                    label='Senha'
+                    secureTextEntry
+                    value={text}
+                    textColor='Black'
+                    right={<TextInput.Icon icon="shield-outline" color="#000"/>}
+
+                    onChangeText={text => setText(Text)}
+                    />
                 
-                <TextInput
-                style={styles.input}
-                placeholder='Confirma S  source="arrow-left-bold-box-outline"
-            color={MD3Colors.error100}
-            size={35}enha'/>     
-            </View>
+                    <TextInput
+                    mode='flat'
+                    style={styles.input}
+                    label='Confirmar Senha'
+                    secureTextEntry
+                    value={text}
+                    textColor='Black'
+                    right={<TextInput.Icon icon="shield-outline" color="#000"/>}
+
+                    onChangeText={text => setText(Text)}
+                    />
+               
+                </View>
 
             {/* espaço vazio */}
             <View style={styles.cont2}></View>
@@ -63,15 +97,15 @@ const Telacadastro = () => {
 
                 <Link href='/'>
                     <Icon
-                    source="arrow-left-bold-box-outline"
+                    source="arrow-left"
                     color={MD3Colors.error100}
-                    size={35}
+                    size={25}
                     />
                 </Link>
 
             </View>
 
-            </ImageBackground>
+            {/* </ImageBackground> */}
         </View>
     );
 }
@@ -80,8 +114,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-around',
-        backgroundColor:'#B0C9D9'
+        justifyContent: 'space-around'
         
     },
 
@@ -141,9 +174,10 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-between',
-        borderRadius: 8,
-        backgroundColor: '#D9D9D9',
-        padding: 8
+        fontSize: 14,
+        backgroundColor:'none',
+        width: 340,
+        padding: 1,
     },
 
     button: {
@@ -175,8 +209,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#044D8C',
         paddingLeft: 10,
         paddingRight: 10,
-        paddingTop: 10,
-        paddingBottom: 10
+        paddingTop: 5,
+        paddingBottom: 5
       
       }
    

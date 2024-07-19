@@ -9,7 +9,7 @@ function App() {
   const [text, setText] = React.useState("");
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>
+      {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
 
     <View style={styles.cont0}></View>
 
@@ -76,7 +76,7 @@ function App() {
 
       </View>
 
-      </ImageBackground>
+      {/* </ImageBackground> */}
     </View>
   );
 }
@@ -141,9 +141,8 @@ const styles = StyleSheet.create({
     fontSize:14,
     backgroundColor: 'none',
     padding: 8,
-    width: 340,
-    borderBottomWidth:2,
-    borderColor:'#d9d9d9'
+    // borderBottomWidth:2,
+    // borderColor:'#d9d9d9'
         
   },
 
