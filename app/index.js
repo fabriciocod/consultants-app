@@ -1,4 +1,4 @@
-import * as React from 'react'; 
+import React, { useState } from 'react'; 
 import { TextInput } from 'react-native-paper';
 import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
@@ -6,7 +6,9 @@ import { Link } from 'expo-router';
 
 
 function App() {
-  const [text, setText] = React.useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [ hidePass, setHidePass] = useState(true);
   return (
     <View style={styles.container}>
       {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
@@ -29,22 +31,26 @@ function App() {
           mode='flat'
           style={styles.input}
           label='Email'
-          value={text}
+          value={email}
           textColor='#000'
           right={<TextInput.Icon icon="email-outline" color="#000"/>}
-          onChangeText={text => setText(Text)}
+          onChangeText={(email) => setEmail(email)}
         />
 
-        <TextInput //Input senha
+        <TextInput //Input senha inmplementada a função mostra e ocultar senha
           mode='flat'
           style={styles.input}
           label='Senha'
-          value={text}
+          value={senha}
           textColor='#000'
-          secureTextEntry
-          right={<TextInput.Icon icon="shield-outline" color="#000"/>}
-          onChangeText={text => setText(Text)}
-        /> 
+          secureTextEntry={hidePass}
+          right={
+              <TextInput.Icon icon="shield-outline" color="#000"
+              onPress={ () => setHidePass(!hidePass)}/>
+
+          }
+          onChangeText={(senha) => setSenha(senha)}
+        />
 
       </View>
 
