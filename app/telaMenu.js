@@ -6,7 +6,7 @@ import { Link } from 'expo-router';
 const telaMenu = () => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> 
+      {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>  */}
       
       <View style={styles.header}>
 
@@ -16,13 +16,13 @@ const telaMenu = () => {
           <Icon
               source="account"
               color='#fff'
-              size={70}
+              size={55}
             />
 
           </Link>
           <Text style={styles.usuario}>Usuário Ativo</Text>
 
-          <Text style={styles.usuario}>Função do Usuário</Text>
+          <Text style={styles.usarioFuncao}>Função do Usuário</Text>
 
       </View>
 
@@ -34,13 +34,13 @@ const telaMenu = () => {
           />
 
           <Icon
-          source="account"
+          source="refresh"
           color='#fff'
           size={30}
           />
 
           <Icon
-          source="account"
+          source="bell"
           color='#fff'
           size={30}
           />
@@ -57,9 +57,9 @@ const telaMenu = () => {
 
       <Link href='#'>
         <Icon
-          source="arrow-left-bold-box-outline"
+          source="package-variant-closed"
           color='#579dd9'
-          size={35}
+          size={25}
         />
 
       <Text style={styles.menu}>Receber</Text>
@@ -67,9 +67,9 @@ const telaMenu = () => {
 
       <Link href='#'>
         <Icon
-          source="arrow-left-bold-box-outline"
+          source="account"
           color= "#579dd9"
-          size={35}
+          size={25}
         />
         
       <Text style={styles.menu}>Contatos</Text>
@@ -77,9 +77,9 @@ const telaMenu = () => {
 
       <Link href='#'>
         <Icon
-          source="arrow-left-bold-box-outline"
+          source="note-edit-outline"
           color= "#579dd9"
-          size={35}
+          size={25}
         />
         
       <Text style={styles.menu}>Relatório</Text>
@@ -96,17 +96,21 @@ const telaMenu = () => {
        
         <Link href='/'>
           <Icon
-            source="arrow-left-bold-box-outline"
+            source="arrow-left"
             color='#fff'
-            size={35}
+            size={25}
           />
         </Link>
         
         <Text style={styles.texto}>Suporte</Text>
 
       </View>
+      {/* </ImageBackground> */}
 
-      </ImageBackground>
+
+
+
+
     </View>
   );
 }
@@ -118,13 +122,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 
-  imageBackground: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    width: '100%'
+  // imageBackground: {
+  //   flex: 1,
+  //   resizeMode: 'cover',
+  //   justifyContent: 'center',
+  //   width: '100%'
 
-  },
+  // },
 
   cont1: {
     flex: 1,
@@ -135,11 +139,21 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    flex: 2,
+    flex: 2.7,
     backgroundColor: "#044d8c",
     flexDirection: 'row',
     justifyContent: 'space-between',
 
+  },
+
+  usuario: {
+    fontSize: 19,
+    color: '#fff'
+  },
+
+  usarioFuncao: {
+    fontSize: 12,
+    color: '#848282'
   },
 
   perfil: {
@@ -153,16 +167,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
-    backgroundColor: '#044D8C'
+    backgroundColor: '#044D8C',
+    marginLeft: 10,
+
   },
 
   main: {
-    flex: 7,
+    flex: 10,
   },
 
   menu: {
     fontSize: 16,
-    color: '#808080'
+    color: '#808080',
 
   },
 
@@ -174,8 +190,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#044D8C',
     paddingLeft: 10,
     paddingRight: 10,
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingTop: 1,
+    paddingBottom: 1
   
   },
   texto: {
