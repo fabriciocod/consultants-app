@@ -1,7 +1,10 @@
 import React, { useState } from 'react'; 
-import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
-import { StyleSheet, Text, View, Image, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Text, View, Image, ImageBackground, TextInput, Pressable } from 'react-native';
 import { Link } from 'expo-router';
+import { firebaseApp } from '../firebaseConfig'
+import { signInWithEmailAndPassword, initializeAuth, getReactNativePersistence } from "firebase/auth";
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -35,8 +38,8 @@ function App() {
           placeholderTextColor='#000'
           />
 
-          {/* <Ionicons style={styles.icon} name='Lette' color='#000' size={25} /> */}
-          <SimpleLineIcons name="envelope" size={24} color="black" />
+          <Ionicons style={styles.icon} name='mail-outline' color='#000' size={25} />
+          
         </View>
 
         <View style={styles.inputArea}>
@@ -44,55 +47,40 @@ function App() {
             style={styles.input}
             value={senha}
             placeholder='Senha'
+            placeholderTextColor='#000'
             onChangeText={(senha) => setSenha(senha)}
             secureTextEntry={hidePass}
           />
-          <TouchableOpacity style={styles.icon} onPress={ () => setHidePass(!hidePass)}>
+          <Pressable style={styles.icon} onPress={() => setHidePass(!hidePass)}>
             { hidePass ? //Formatação condicional para estado do icones
             <Ionicons name='lock-closed-outline' color='#000' size={25}/>
             :
             <Ionicons name='lock-open-outline' color='#000' size={25}/>
             }
             
-          </TouchableOpacity>
+          </Pressable>
         </View>
-
-       
-
-        {/* <TextInput //Input senha inmplementada a função mostra e ocultar senha
-          mode='flat'
-          style={styles.input}
-          label='Senha'
-          value={senha}
-          textColor='#000'
-          secureTextEntry={hidePass}
-          right={
-              <TextInput.Icon icon="shield-outline" color="#000"
-              onPress={ () => setHidePass(!hidePass)}/>
-
-          }
-          onChangeText={(senha) => setSenha(senha)}
-        /> */}
 
       </View>
 
     {/* espaço vazio */}
     <View style={styles.cont2}></View>
 
-    <View style={styles.button}>
-      
-      <TouchableOpacity style={styles.bntEntrar}>
-      <Link href='/telaMenu'>
-        <Text style={styles.entrar}>Entrar</Text>
-      </Link>
-      </TouchableOpacity>
-      
-    </View>
+      <View style={styles.button}>
+        {/*  */}
+        <Pressable onPress={() => {fazerLogin();}} style={styles.bntEntrar}>
+          
+          <Text style={styles.entrar}>Entrar</Text>
+          
+        </Pressable>
+        
+      </View>
 
     {/* espaço vazio */}
     <View style={styles.cont3}></View>
 
       <View style={styles.footer}>
+      
         <Link href='/recuperaSenha'>
           <Text style={styles.texto}>Recupera Senha</Text>
         </Link>
@@ -109,6 +97,31 @@ function App() {
   );
 }
 
+// Teste de login de usuário cadastrado diretamento no firebase
+
+const fazerLogin = () => {
+  // Initialize Firebase Authentication and get a reference to the service
+  const auth = initializeAuth(firebaseApp, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+  });
+
+  signInWithEmailAndPassword(auth, 'fa3@aluno.ifal.edu.br', '123456')
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log('Login realizado com sucesso!');
+      console.log(user.uid);
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+}
+// Fim do teste de usuário no firebase
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -134,7 +147,7 @@ const styles = StyleSheet.create({
 
   cont2:{
     flex:2
-   },
+  },
 
   cont3:{
     flex:4
@@ -153,15 +166,14 @@ const styles = StyleSheet.create({
   },
 
   main: {
-    // borderWidth: 1,
     flex: 4,
     flexDirection: 'column',
     justifyContent:'space-around',
     gap: 50,
     alignItems: 'center'
-    // padding: 10
-        
+            
   },
+
 // Inicio do estilo do inputs
   inputArea:{
     flexDirection: 'row',
@@ -188,18 +200,6 @@ const styles = StyleSheet.create({
     // alignItems: 'center'
   },
 // Fim do estilo input
-
-  // input:{
-  //   flex: 2,
-  //   flexDirection: 'column',
-  //   justifyContent: 'space-around',
-  //   fontSize:14,
-  //   backgroundColor: 'none',
-  //   padding: 8,
-  //   borderBottomWidth:2,
-  //   borderColor:'#d9d9d9'
-        
-  // },
 
   button: {
     flex: 1,

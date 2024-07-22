@@ -1,89 +1,77 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
-import * as React from 'react';
-import { TextInput } from 'react-native-paper';
+import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
+import React, { useState} from 'react';
 import { Link } from 'expo-router';
 
 const alterarSenha = () => {
-  const [text, setText] = React.useState("");
+  const [text, setText] = useState("");
   return (
     
-    <View style={styles.container}>
-        {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
-       
-        
-        
-        {/* espaço vazio */}
-        <View style={styles.cont1}></View>
+          <View style={styles.container}>
+            {/* espaço vazio */}
+            <View style={styles.cont1}></View>
 
-        <View style={styles.main}>
-          <Text style={styles.titulo}>Alterar Senha</Text>
+              <View style={styles.main}>
+                  <Text style={styles.titulo}>Alterar Senha</Text>
 
-          <Text style={styles.informe}>
-            Por favor, informe o código recebido
-            para recuperação da senha.
-          </Text>
+                  <Text style={styles.informe}>
+                    Por favor, informe o código recebido
+                    para recuperação da senha.
+                  </Text>
 
-        <View style={styles.codigo}>
+                <View style={styles.codigo}>
 
-          <TextInput
-            style={styles.input}
-             label='Código'
-             secureTextEntry
-             right={<TextInput.Icon icon="close"/>}
-             value={text}
-             onChangeText={text => setText(Text)}
-             />
+                  <TextInput
+                    style={styles.input}
+                    label='Código'
+                    secureTextEntry
+                    right={<TextInput.Icon icon="close"/>}
+                    value={text}
+                    onChangeText={text => setText(Text)}
+                  />
 
-          {/* <TextInput
-          style={styles.input}
-          placeholder='Código'
-          /> */}
-        </View>
+              </View>
 
-        <View style={styles.senhas}>
+              <View style={styles.senhas}>
 
-          <TextInput
-          style={styles.input}
-          label='Nova Senha'
-          secureTextEntry
-          right={<TextInput.Icon icon="close"/>}
-          value={text}
-          onChangeText={text => setText(Text)}
-          />
+                  <TextInput
+                    style={styles.input}
+                    label='Nova Senha'
+                    secureTextEntry
+                    right={<TextInput.Icon icon="close"/>}
+                    value={text}
+                    onChangeText={text => setText(Text)}
+                  />
 
-          <TextInput
-          style={styles.input}
-          label='Confirme a Senha'
-          secureTextEntry
-          right={<TextInput.Icon icon="close"/>}
-          value={text}
-          onChangeText={text => setText(Text)}
-          />
-        </View>
+                  <TextInput
+                    style={styles.input}
+                    label='Confirme a Senha'
+                    secureTextEntry
+                    right={<TextInput.Icon icon="close"/>}
+                    value={text}
+                    onChangeText={text => setText(Text)}
+                  />
+              </View>
 
-        </View>
+            </View>
 
-        {/* espaço vazio */}
-        <View style={styles.cont2}></View>
+                {/* espaço vazio */}
+              <View style={styles.cont2}></View>
 
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.bntconfirmar}>
-            <Link href="/">
-              <Text style={styles.confirmar}>Confirmar</Text>
-            </Link>
-          </TouchableOpacity>
+                <View style={styles.button}>
+                  <Pressable style={styles.bntconfirmar}>
+                    <Link href="/">
+                      <Text style={styles.confirmar}>Confirmar</Text>
+                    </Link>
+                  </Pressable>
 
-        </View>
+                </View>
 
-         {/* espaço vazio */}
-         <View style={styles.cont3}></View>
-
-          
-     {/* </ImageBackground> */}
-    </View>
+                {/* espaço vazio */}
+              <View style={styles.cont3}></View>
+            </View>
     
-  )
-}
+          );
+        }
 
 export default alterarSenha
 

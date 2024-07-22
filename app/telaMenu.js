@@ -27,24 +27,12 @@ const telaMenu = () => {
       </View>
 
       <View style={styles.icones}>
-          <Icon
-          source="qrcode"
-          color='#fff'
-          size={30}
-          />
+        {/* Icones do header lado direito */}
+          <Icon source="qrcode" color='#fff' size={30}/>
 
-          <Icon
-          source="refresh"
-          color='#fff'
-          size={30}
-          />
+          <Icon source="refresh" color='#fff' size={30}/>
 
-          <Icon
-          source="bell"
-          color='#fff'
-          size={30}
-          />
-
+          <Icon source="bell" color='#fff' size={30}/>
       </View>
 
       </View>
@@ -54,37 +42,22 @@ const telaMenu = () => {
 
 
       <View style={styles.main}>
+      {/* Inicio navegação do app */}
+        <Link href='#'>
+          <Icon source="package-variant-closed" color='#579dd9' size={25}/>
+          <Text style={styles.menu}>Receber</Text>
+        </Link>
 
-      <Link href='#'>
-        <Icon
-          source="package-variant-closed"
-          color='#579dd9'
-          size={25}
-        />
+        <Link href='#'>
+          <Icon source="account" color= "#579dd9" size={25} />
+          <Text style={styles.menu}>Contatos</Text>
+        </Link>
 
-      <Text style={styles.menu}>Receber</Text>
-      </Link>
-
-      <Link href='#'>
-        <Icon
-          source="account"
-          color= "#579dd9"
-          size={25}
-        />
-        
-      <Text style={styles.menu}>Contatos</Text>
-      </Link>
-
-      <Link href='#'>
-        <Icon
-          source="note-edit-outline"
-          color= "#579dd9"
-          size={25}
-        />
-        
-      <Text style={styles.menu}>Relatório</Text>
-      </Link>
-
+        <Link href='#'>
+          <Icon source="note-edit-outline" color= "#579dd9" size={25} />
+          <Text style={styles.menu}>Relatório</Text>
+        </Link>
+      {/* Fim navegação do app */}
       </View>
       
       {/* espaço vazio*/}
@@ -95,11 +68,7 @@ const telaMenu = () => {
       <View style={styles.footer}>
        
         <Link href='/'>
-          <Icon
-            source="arrow-left"
-            color='#fff'
-            size={25}
-          />
+          <Icon source="arrow-left" color='#fff' size={25}/>
         </Link>
         
         <Text style={styles.texto}>Suporte</Text>
@@ -159,7 +128,7 @@ const styles = StyleSheet.create({
   perfil: {
     flexDirection: 'column',
     justifyContent: 'center',
-    borderStyle: 1
+    // borderStyle: '1'
     
   },
 

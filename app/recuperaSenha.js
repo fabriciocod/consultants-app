@@ -1,23 +1,13 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import * as React from 'react'
-import { TextInput } from 'react-native-paper'
+import {StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
+import React, { useState } from 'react'
+import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router'
 
 const recuperaSenha = () => {
-    const [text, setText] = React.useState("");
+    const [recuperaEmail, setRecuperaEmail] = useState("");
     return (
         <View style={styles.container}>
-        {/* <ImageBackground source={require('./../assets/background.png')} */}
-        {/* style={styles.ImageBackground}> */}
-        
-            {/* <View style={styles.header}>
-                <Image source={require('./../assets/logo.png')}
-                style={styles.marca}
-                />
-
-                <Text style={styles.textoLogo}></Text>
-            </View> */}
-
+                
         {/* espaço vazio */}
         <View style={styles.cont1}></View>
 
@@ -28,17 +18,19 @@ const recuperaSenha = () => {
                     Por favor, confirme seu e-mail para
                     receber um código de verificação
                 </Text>
+                {/* Ajuste do campo de email para recuperar senha */}
+                <View style={styles.inputArea}>
+                    <TextInput
+                    style={styles.input}
+                    value={recuperaEmail}
+                    onChangeText={setRecuperaEmail}
+                    placeholder='Informe o email'
+                    placeholderTextColor='#000'
+                    />
 
-                <TextInput
-                mode='flat'
-                style={styles.input}
-                label='Email'
-                value={text}
-                textColor='#000'
-                right={<TextInput.Icon icon="close" color="#000"/>}
+                    <Ionicons style={styles.icon} name='mail-outline' color='#000' size={25} />
 
-                onChangeText={text => setText(Text)}
-                />
+                </View>
             </View>
 
          {/* espaço vazio */}
@@ -46,29 +38,26 @@ const recuperaSenha = () => {
 
             <View style={styles.button}>
 
-                <TouchableOpacity style={styles.bntconfirmar}>
+                <Pressable style={styles.bntconfirmar}>
                 <Link href="./alterarSenha">  
                 <Text style={styles.confirmar}>Confirmar</Text>
                 </Link>  
-                </TouchableOpacity>
+                </Pressable>
 
-                <TouchableOpacity style={styles.bntCancelar}>
+                <Pressable style={styles.bntCancelar}>
                 <Link href='/'>
                 <Text style={styles.cancelar}>Cancelar</Text>
                 </Link>
-                </TouchableOpacity>
+                </Pressable>
             
             </View>
 
         {/* espaço vazio */}
         <View style={styles.cont3}></View>
 
-      {/* </ImageBackground> */}
     </View>
-  )
+    );
 }
-
-
 
 const styles = StyleSheet.create({
     container: {
@@ -76,13 +65,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent:'space-around',
         backgroundColor:'#fff'
-    },
-
-    ImageBackground: {
-        flex:1,
-        resizeMode: 'cover',
-        justifyContent: 'center',
-        width: '100%'
     },
 
     cont1: {
@@ -111,47 +93,53 @@ const styles = StyleSheet.create({
     main: {
         flex: 4,
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'space-aroundc',
+        alignItems: 'center',
         gap: 20,
-        padding: 20
+        // padding: 20
     },
 
     titulo: {
         fontSize: 20,
-        paddingLeft: 20
+        marginHorizontal: 10
     },
 
     informe:{
         fontSize: 14,
-        paddingLeft: 20
+        // paddingLeft: 20
     },
 
-    input: {
-        fontSize: 14,
-        backgroundColor: "none",
-        width:320,
-        // borderBottomWidth:2,
-        // borderColor:'#d9d9d9'
+    // Inicio do estilo do inputs
+    inputArea:{
+        flexDirection: 'row',
+        width: '90%',
+        borderRadius: 5,
+        borderColor: '#000',
+        borderBottomWidth: 1,
+        height: 50,
+        alignItems: 'center'
     },
+
+    input:{
+        width: '85%',
+        height: 50,
+        color: '#000',
+        padding: 8,
+        fontSize: 14,
+        alignItems: 'center'
+    },
+
+    icon:{
+        width: '15%',
+    
+    },
+// Fim do estilo input
     
     button: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center' 
-    },
-
-    bntCancelar: {
-        backgroundColor:'#6D0909',
-        borderRadius: 10,
-        justifyContent:'center',
-        alignItems:'center',
-        width: 140,
-        height: 50
-    },
-    
-    cancelar: {
-        color:'#fff'
     },
 
     bntconfirmar: {
@@ -167,7 +155,18 @@ const styles = StyleSheet.create({
         color:'#fff'
     },
 
-   
+    bntCancelar: {
+        backgroundColor:'#6D0909',
+        borderRadius: 10,
+        justifyContent:'center',
+        alignItems:'center',
+        width: 140,
+        height: 50
+    },
+    
+    cancelar: {
+        color:'#fff'
+    },
 });
 
 export default recuperaSenha
