@@ -1,14 +1,14 @@
 import React, { useState } from 'react'; 
-import { TextInput } from 'react-native-paper';
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
+import { StyleSheet, Text, View, Image, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
 
 
 function App() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [ hidePass, setHidePass] = useState(true);
+  const [email, setEmail] = useState(""); //recebe texto do input email
+  const [senha, setSenha] = useState(""); // recebe texto do input senha
+  const [ hidePass, setHidePass] = useState(true); // mantei estado true fixo
   return (
     <View style={styles.container}>
       {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
@@ -24,20 +24,42 @@ function App() {
 
     {/* espaço vazio */}
     <View style={styles.cont1}></View>
-
+      
       <View style={styles.main}>
-      {/* Ajuste de input do app em teste */}
-        <TextInput // Input Email
-          mode='flat'
+        <View style={styles.inputArea}>
+          <TextInput
           style={styles.input}
-          label='Email'
           value={email}
-          textColor='#000'
-          right={<TextInput.Icon icon="email-outline" color="#000"/>}
-          onChangeText={(email) => setEmail(email)}
-        />
+          onChangeText={setEmail}
+          placeholder='Email'
+          placeholderTextColor='#000'
+          />
 
-        <TextInput //Input senha inmplementada a função mostra e ocultar senha
+          {/* <Ionicons style={styles.icon} name='Lette' color='#000' size={25} /> */}
+          <SimpleLineIcons name="envelope" size={24} color="black" />
+        </View>
+
+        <View style={styles.inputArea}>
+          <TextInput
+            style={styles.input}
+            value={senha}
+            placeholder='Senha'
+            onChangeText={(senha) => setSenha(senha)}
+            secureTextEntry={hidePass}
+          />
+          <TouchableOpacity style={styles.icon} onPress={ () => setHidePass(!hidePass)}>
+            { hidePass ? //Formatação condicional para estado do icones
+            <Ionicons name='lock-closed-outline' color='#000' size={25}/>
+            :
+            <Ionicons name='lock-open-outline' color='#000' size={25}/>
+            }
+            
+          </TouchableOpacity>
+        </View>
+
+       
+
+        {/* <TextInput //Input senha inmplementada a função mostra e ocultar senha
           mode='flat'
           style={styles.input}
           label='Senha'
@@ -50,7 +72,7 @@ function App() {
 
           }
           onChangeText={(senha) => setSenha(senha)}
-        />
+        /> */}
 
       </View>
 
@@ -92,7 +114,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    // backgroundColor: '#B0C9D9'         
+            
   },
 
   imageBackground: {
@@ -136,21 +158,48 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent:'space-around',
     gap: 50,
-    padding: 10
+    alignItems: 'center'
+    // padding: 10
         
+  },
+// Inicio do estilo do inputs
+  inputArea:{
+    flexDirection: 'row',
+    width: '90%',
+    borderRadius: 5,
+    borderColor: '#000',
+    borderBottomWidth: 1,
+    height: 50,
+    alignItems: 'center'
   },
 
   input:{
-    flex: 2,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    fontSize:14,
-    backgroundColor: 'none',
+    width: '85%',
+    height: 50,
+    color: '#000',
     padding: 8,
-    // borderBottomWidth:2,
-    // borderColor:'#d9d9d9'
-        
+    fontSize: 14
   },
+
+  icon:{
+    width: '15%',
+     // height: 50,
+    // justifyContent: 'center',
+    // alignItems: 'center'
+  },
+// Fim do estilo input
+
+  // input:{
+  //   flex: 2,
+  //   flexDirection: 'column',
+  //   justifyContent: 'space-around',
+  //   fontSize:14,
+  //   backgroundColor: 'none',
+  //   padding: 8,
+  //   borderBottomWidth:2,
+  //   borderColor:'#d9d9d9'
+        
+  // },
 
   button: {
     flex: 1,
