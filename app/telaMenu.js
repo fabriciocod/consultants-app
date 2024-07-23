@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon } from 'react-native-paper'; 
+import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
@@ -7,19 +7,14 @@ const telaMenu = () => {
   return (
     <View style={styles.container}>
       {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>  */}
-      
+      {/* Inicio do Header */}
       <View style={styles.header}>
 
         <View style={styles.perfil}>
           <Link href="#">
-
-          <Icon
-              source="account"
-              color='#fff'
-              size={55}
-            />
-
+            <Ionicons name="person-sharp" size={24} color="#fff" />
           </Link>
+
           <Text style={styles.usuario}>Usuário Ativo</Text>
 
           <Text style={styles.usarioFuncao}>Função do Usuário</Text>
@@ -28,14 +23,13 @@ const telaMenu = () => {
 
       <View style={styles.icones}>
         {/* Icones do header lado direito */}
-          <Icon source="qrcode" color='#fff' size={30}/>
-
-          <Icon source="refresh" color='#fff' size={30}/>
-
-          <Icon source="bell" color='#fff' size={30}/>
+          <Ionicons name="qr-code-outline" size={24} color="#fff"/>
+          <Ionicons name="refresh-outline" size={24} color="#fff"/>
+          <Ionicons name="notifications" size={24} color="#fff"/>
       </View>
 
       </View>
+      {/* Fim do Header */}
 
       {/* espaço vazio*/}
       <View style={styles.cont1}></View>
@@ -43,20 +37,28 @@ const telaMenu = () => {
 
       <View style={styles.main}>
       {/* Inicio navegação do app */}
-        <Link href='#'>
-          <Icon source="package-variant-closed" color='#579dd9' size={25}/>
-          <Text style={styles.menu}>Receber</Text>
-        </Link>
 
-        <Link href='#'>
-          <Icon source="account" color= "#579dd9" size={25} />
-          <Text style={styles.menu}>Contatos</Text>
-        </Link>
+        <View style={styles.menu}>
+          <Link href='#'>
+          < Ionicons name="person-sharp" size={24} color="#000" style={styles.icon_topico}/>
+          <Text style={styles.topico}>Receber</Text>
+          </Link>
+        </View>
 
-        <Link href='#'>
-          <Icon source="note-edit-outline" color= "#579dd9" size={25} />
-          <Text style={styles.menu}>Relatório</Text>
-        </Link>
+        <View style={styles.menu}>
+          <Link href='#'>
+          < Ionicons name="person-sharp" size={24} color="#000" style={styles.icon_topico}/>
+          <Text style={styles.topico}>Receber</Text>
+          </Link>
+        </View>
+
+        <View style={styles.menu}>
+          <Link href='#'>
+          < Ionicons name="person-sharp" size={24} color="#000" style={styles.icon_topico}/>
+          <Text style={styles.topico}>Receber</Text>
+          </Link>
+        </View>
+        
       {/* Fim navegação do app */}
       </View>
       
@@ -66,9 +68,9 @@ const telaMenu = () => {
 
 
       <View style={styles.footer}>
-       
+      
         <Link href='/'>
-          <Icon source="arrow-left" color='#fff' size={25}/>
+          <Ionicons name="person-sharp" size={24} color="#fff" />
         </Link>
         
         <Text style={styles.texto}>Suporte</Text>
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#044D8C',
     marginLeft: 10,
+    gap: 5
 
   },
 
@@ -146,10 +149,20 @@ const styles = StyleSheet.create({
   },
 
   menu: {
-    fontSize: 16,
-    color: '#808080',
-
+    borderColor: '#808080',
+    borderBottomWidth: 2,
+    marginLeft: 16,
+    marginRight: 16,
+    padding: 5,
+  
   },
+
+  topico:{
+    fontSize: 18,
+    color: '#808080',
+    
+  },
+
 
   footer:{
     flex:1,

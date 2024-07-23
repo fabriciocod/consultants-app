@@ -1,10 +1,11 @@
 import React, { useState } from 'react'; 
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View, Image, ImageBackground, TextInput, Pressable } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, router, useRouter } from 'expo-router';
 import { firebaseApp } from '../firebaseConfig'
 import { signInWithEmailAndPassword, initializeAuth, getReactNativePersistence } from "firebase/auth";
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 
@@ -12,6 +13,7 @@ function App() {
   const [email, setEmail] = useState(""); //recebe texto do input email
   const [senha, setSenha] = useState(""); // recebe texto do input senha
   const [ hidePass, setHidePass] = useState(true); // mantei estado true fixo
+  const router = useRouter();
   return (
     <View style={styles.container}>
       {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
@@ -67,11 +69,15 @@ function App() {
     <View style={styles.cont2}></View>
 
       <View style={styles.button}>
-        {/*  */}
-        <Pressable onPress={() => {fazerLogin();}} style={styles.bntEntrar}>
-          
+        {/* o parametro onPress com a função fazerLogin redireciona para tela menu digitar o usuáro e a senha */}
+        <Pressable style={styles.bntEntrar}>
+          <Link href='/telaMenu'>
+            <Text style={styles.entrar}>Entrar</Text>
+          </Link>
+        </Pressable>
+
+        <Pressable  onPress={() => {fazerLogin(email, senha, router);}} style={styles.bntEntrar}>
           <Text style={styles.entrar}>Entrar</Text>
-          
         </Pressable>
         
       </View>
@@ -99,13 +105,14 @@ function App() {
 
 // Teste de login de usuário cadastrado diretamento no firebase
 
-const fazerLogin = () => {
+const fazerLogin = (email, senha, router) => {
   // Initialize Firebase Authentication and get a reference to the service
   const auth = initializeAuth(firebaseApp, {
     persistence: getReactNativePersistence(ReactNativeAsyncStorage)
   });
 
-  signInWithEmailAndPassword(auth, 'fa3@aluno.ifal.edu.br', '123456')
+  // Chamada dos useState email e senha
+  signInWithEmailAndPassword(auth, email, senha)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
@@ -113,6 +120,7 @@ const fazerLogin = () => {
       console.log(user.uid);
       console.log(user);
       // ...
+      router.replace('/telaMenu')
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -122,6 +130,7 @@ const fazerLogin = () => {
     });
 }
 // Fim do teste de usuário no firebase
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -183,6 +192,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     height: 50,
     alignItems: 'center'
+    
   },
 
   input:{
@@ -206,6 +216,7 @@ const styles = StyleSheet.create({
     flexDirection: 'colunm',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 20
         
   },
 
