@@ -1,30 +1,33 @@
 import * as React from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import { Link } from 'expo-router';
 
 const telaMenu = () => {
   return (
     <View style={styles.container}>
-      {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}>  */}
       {/* Inicio do Header */}
       <View style={styles.header}>
 
         <View style={styles.perfil}>
-          <Link href="#">
-            <Ionicons name="person-sharp" size={24} color="#fff" />
-          </Link>
-
-          <Text style={styles.usuario}>Usuário Ativo</Text>
-
-          <Text style={styles.usarioFuncao}>Função do Usuário</Text>
+          <View style={styles.avatar}>
+            <Link href='/telaPerfilUsuario'>
+              <Ionicons name="person-sharp" size={50} color="#fff" />
+            </Link>
+          </View>
+          
+          <View style={styles.info_perfil}>
+            <Text style={styles.usuario}>Usuário Ativo</Text>
+            <Text style={styles.usarioFuncao}>Função do Usuário</Text>
+          </View>
+          
 
       </View>
 
       <View style={styles.icones}>
         {/* Icones do header lado direito */}
           <Ionicons name="qr-code-outline" size={24} color="#fff"/>
-          <Ionicons name="refresh-outline" size={24} color="#fff"/>
+          <Ionicons name="sync-outline" size={24} color="#fff"/>
           <Ionicons name="notifications" size={24} color="#fff"/>
       </View>
 
@@ -40,22 +43,22 @@ const telaMenu = () => {
 
         <View style={styles.menu}>
           <Link href='#'>
-          < Ionicons name="person-sharp" size={24} color="#000" style={styles.icon_topico}/>
+          < Ionicons name="cube" size={24} color="#579DD9" style={styles.icon_topico}/>
           <Text style={styles.topico}>Receber</Text>
           </Link>
         </View>
 
         <View style={styles.menu}>
           <Link href='#'>
-          < Ionicons name="person-sharp" size={24} color="#000" style={styles.icon_topico}/>
-          <Text style={styles.topico}>Receber</Text>
+          < Ionicons name="person-sharp" size={24} color="#579DD9" style={styles.icon_topico}/>
+          <Text style={styles.topico}>Contatos</Text>
           </Link>
         </View>
 
         <View style={styles.menu}>
           <Link href='#'>
-          < Ionicons name="person-sharp" size={24} color="#000" style={styles.icon_topico}/>
-          <Text style={styles.topico}>Receber</Text>
+          < Ionicons name="reader" size={24} color="#579DD9" style={styles.icon_topico}/>
+          <Text style={styles.topico}>Relatório</Text>
           </Link>
         </View>
         
@@ -69,19 +72,14 @@ const telaMenu = () => {
 
       <View style={styles.footer}>
       
-        <Link href='/'>
+        {/* <Link href='/'>
           <Ionicons name="person-sharp" size={24} color="#fff" />
+        </Link> */}
+        <Link href='#'>
+          <Text style={styles.suporte}>Suporte</Text>
         </Link>
-        
-        <Text style={styles.texto}>Suporte</Text>
 
       </View>
-      {/* </ImageBackground> */}
-
-
-
-
-
     </View>
   );
 }
@@ -92,14 +90,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
   },
-
-  // imageBackground: {
-  //   flex: 1,
-  //   resizeMode: 'cover',
-  //   justifyContent: 'center',
-  //   width: '100%'
-
-  // },
 
   cont1: {
     flex: 1,
@@ -116,6 +106,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
 
   },
+  
+  perfil: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    widht: 50,
+    alignItems: 'center',
+    gap: 10,
+    paddingLeft: 16
+    
+  },
 
   usuario: {
     fontSize: 19,
@@ -127,12 +127,7 @@ const styles = StyleSheet.create({
     color: '#848282'
   },
 
-  perfil: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    // borderStyle: '1'
-    
-  },
+  
 
   icones: {
     flexDirection: 'row',
@@ -158,7 +153,7 @@ const styles = StyleSheet.create({
   },
 
   topico:{
-    fontSize: 18,
+    fontSize: 14,
     color: '#808080',
     
   },
@@ -167,20 +162,19 @@ const styles = StyleSheet.create({
   footer:{
     flex:1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: '#044D8C',
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 1,
-    paddingBottom: 1
-  
+    paddingBottom: 1,  
   },
-  texto: {
-    color:'#fff',
-    fontSize: 15
-  }
 
+  suporte: {
+    color:'#fff',
+    fontSize: 15,
+  }
  
 });
 
