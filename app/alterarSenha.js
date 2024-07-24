@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
       
       // borderRadius:8,
       backgroundColor:'#fff',
-       justifyContent:'space-around',
+      justifyContent:'space-around',
       // padding:20,
       // height:20
       width: 150

@@ -72,9 +72,6 @@ const telaMenu = () => {
 
       <View style={styles.footer}>
       
-        {/* <Link href='/'>
-          <Ionicons name="person-sharp" size={24} color="#fff" />
-        </Link> */}
         <Link href='#'>
           <Text style={styles.suporte}>Suporte</Text>
         </Link>
@@ -89,6 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
+    
   },
 
   cont1: {
@@ -101,7 +99,7 @@ const styles = StyleSheet.create({
 
   header: {
     flex: 2.7,
-    backgroundColor: "#044d8c",
+    backgroundColor: '#044d8c',
     flexDirection: 'row',
     justifyContent: 'space-between',
 
