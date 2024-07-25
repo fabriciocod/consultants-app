@@ -68,8 +68,6 @@ const telaMenu = () => {
       {/* espaço vazio*/}
       <View style={styles.cont2}></View>
 
-
-
       <View style={styles.footer}>
       
         <Link href='#'>

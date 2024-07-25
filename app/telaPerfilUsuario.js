@@ -13,7 +13,9 @@ const TelaPerfilUsuario = () => {
     <View style={styles.container}>
         {/* Inicio do Header */}
         <View style={styles.header}>
+
             <View style={styles.perfAvatar}>
+
             <View style={styles.avatar}>
                 <Link href='/telaPerfilUsuario'>
                 <Ionicons name="person-sharp" size={50} color="#fff" />
@@ -36,62 +38,67 @@ const TelaPerfilUsuario = () => {
         <View style={styles.main}>
         {/* Inicio navegação do app */}
 
-            <View styles={styles.infoStatus}>
-                <Text style={styles.infoTexto}>Você</Text>
-                <Text stle={styles.infoFuncao}>Função</Text>
+            <View style={styles.infoStatus}>
+                <Text style={styles.textVoce}>Você</Text>
+                <Text style={styles.textColabora}>Função</Text>
             </View>
 
             <View style={styles.infoCodigo}>
+                <Text style={styles.login}>Login</Text>
                 <Text style={styles.codigo}>Codigo Alfabetico</Text>
             </View>
 
-            <View style={styles.inputArea}>
-                <View style={styles.input}> 
-                <TextInput
-                    value={senhaAtual}
-                    placeholder='Senha Atual'
-                    placeholderTextColor='#000'
-                    onChangeText={(senhaAtual) => setSenhaAtual(senhaAtual)}
-                    secureTextEntry={hideCurretPass}
-                />
+            <View style={styles.alteraSenha}>
 
-                <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
-                    { hideCurretPass ? //Formatação condicional para estado do icones
-                    <Ionicons name='lock-closed-outline' color='#000' size={25}/>
-                    :
-                    <Ionicons name='lock-open-outline' color='#000' size={25}/>
-                    }
+                <View style={styles.inputArea}>
                 
-                </Pressable>
+                    <TextInput
+                        style={styles.input}
+                        value={senhaAtual}
+                        placeholder='Senha Atual'
+                        placeholderTextColor='#fff'
+                        onChangeText={(senhaAtual) => setSenhaAtual(senhaAtual)}
+                        secureTextEntry={hideCurretPass}
+                    />
+
+                    <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
+                        { hideCurretPass ? //Formatação condicional para estado do icones
+                        <Ionicons name='lock-closed-outline' color='#fff' size={25}/>
+                        :
+                        <Ionicons name='lock-open-outline' color='#fff' size={25}/>
+                        }
+                    </Pressable>
                 </View>
-                
-                <View style={styles.input}>
-                <TextInput
-                    
-                    value={novaSenha}
-                    placeholder='Nova Senha'
-                    placeholderTextColor='#000'
-                    onChangeText={(novaSenha) => setNovaSenha(novaSenha)}
-                    secureTextEntry={hideNewPass}
-                />
-
-                <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
-                    { hideNewPass ? //Formatação condicional para estado do icones
-                    <Ionicons name='lock-closed-outline' color='#000' size={25}/>
-                    :
-                    <Ionicons name='lock-open-outline' color='#000' size={25}/>
-                    }
             
-                </Pressable>
+                <View style={styles.inputArea}>
+                <TextInput
+                        style={styles.input}
+                        value={novaSenha}
+                        placeholder='Nova Senha'
+                        placeholderTextColor='#fff'
+                        onChangeText={(novaSenha) => setNovaSenha(novaSenha)}
+                        secureTextEntry={hideNewPass}
+                    />
+
+                    <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
+                        { hideNewPass ? //Formatação condicional para estado do icones
+                        <Ionicons name='lock-closed-outline' color='#fff' size={25}/>
+                        :
+                        <Ionicons name='lock-open-outline' color='#fff' size={25}/>
+                        }
+                
+                    </Pressable>
                 </View>
 
             </View>
 
-            {/* <View style={styles.inputArea}>
-            
-            </View> */}
-
-            
+            <View style={styles.cont_Altera}>
+                <Pressable style={styles.bntRedefinir}>
+                    <Link href='/telaMenu'>
+                        <Text style={styles.redefinirSenha}>Altera Senha</Text>
+                    </Link>
+                </Pressable>
+            </View>    
             
             
         {/* Fim navegação do app */}
@@ -122,7 +129,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
-        backgroundColor: '#044d8c'
+        backgroundColor: '#044d8c',
     },
 
     cont1: {
@@ -134,7 +141,7 @@ const styles = StyleSheet.create({
     },
 
     header: {
-        flex: 2.7,
+        flex: 2,
         backgroundColor: "#044d8c",
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -146,55 +153,116 @@ const styles = StyleSheet.create({
         widht: 50,
         alignItems: 'center',
         gap: 1,
-        paddingLeft: 16
+        paddingLeft: 16,
         
     },
     
     altera:{
         fontSize: 10,
-        color: '#808080'
+        color: '#808080',
     },
 
     main: {
         flex: 10,
-        // flexDirection: 'column',
-        // justifyContent:'space-around'
+        paddingLeft: 16,
+        paddingRight: 16,
+        flexDirection: 'column',
+        justifyContent:'space-around'
 
     },
 
+    infoStatus:{
+        flex: 1,
+    },
+
+    textVoce:{
+        fontSize: 18,
+        color: '#fff'
+    },
+    
+    textColabora:{
+        fontSize: 14,
+        color: '#808080' 
+    },
+
+    infoCodigo:{
+        flex: 1
+    },
+
+    login:{
+        fontSize: 18,
+        color:'#fff',
+        paddingTop: 5
+    },
+
+    codigo:{
+        fontSize: 12,
+        color:'#fff',
+        borderColor: '#fff',
+        borderBottomWidth: 1,
+        paddingTop: 5
+    },
+
     // Inicio do estilo do inputs
-inputArea:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderRadius: 5,
-    borderColor: '#000',
-    backgroundColor: '#fff',
-    // borderBottomWidth: 1,
-    width: '90%',
-    height: 50,
-    gap: 20,
-    
-    
-  },
 
-input:{
-    width: '30%',
-    height: 50,
-    color: '#000',
-    padding: 8,
-    fontSize: 10,
+    alteraSenha:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         
-  },
+    },
+    inputArea:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderRadius: 5,
+        borderColor: '#fff',
+        borderBottomWidth: 1,
+        width: 150,
+        height: 50,
+        gap: 20,
+            
+    },
 
-icon:{
-    width: '50%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-// Fim do estilo input
+    input:{
+        width: 70,
+        height: 50,
+        padding: 8,
+        fontSize: 9,
+            
+    },
 
+    icon:{
+        width: '15%',
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    // Fim do estilo input
+
+    // Inicio do bntAlterarSenha
+    cont_Altera:{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+
+    bntRedefinir:{
+        borderColor: '#fff',
+        borderWidth: 2,
+        borderRadius: 5,
+        width: 200,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    redefinirSenha:{
+        fontSize: 12,
+        color: '#fff'
+    },
     footer:{
         flex:1,
         flexDirection: 'row',
