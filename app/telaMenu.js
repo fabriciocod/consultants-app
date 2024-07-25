@@ -10,13 +10,13 @@ const telaMenu = () => {
       <View style={styles.header}>
 
         <View style={styles.perfil}>
-          <View style={styles.avatar}>
+          <View>
             <Link href='/telaPerfilUsuario'>
               <Ionicons name="person-sharp" size={50} color="#fff" />
             </Link>
           </View>
           
-          <View style={styles.info_perfil}>
+          <View>
             <Text style={styles.usuario}>Usuário Ativo</Text>
             <Text style={styles.usarioFuncao}>Função do Usuário</Text>
           </View>
@@ -43,22 +43,28 @@ const telaMenu = () => {
 
         <View style={styles.menu}>
           <Link href='#'>
-          < Ionicons name="cube" size={24} color="#579DD9" style={styles.icon_topico}/>
-          <Text style={styles.topico}>Receber</Text>
+            <View style={styles.card}>
+            < Ionicons name="cube" size={40} color="#579DD9" style={styles.icon_topico}/>
+            <Text style={styles.topico}>Receber</Text>
+            </View>
           </Link>
-        </View>
+        
 
-        <View style={styles.menu}>
+        
           <Link href='#'>
-          < Ionicons name="person-sharp" size={24} color="#579DD9" style={styles.icon_topico}/>
-          <Text style={styles.topico}>Contatos</Text>
+            <View style={styles.card}>
+            < Ionicons name="person-sharp" size={40} color="#579DD9" style={styles.icon_topico}/>
+            <Text style={styles.topico}>Contatos</Text>
+            </View>
           </Link>
-        </View>
+        
 
-        <View style={styles.menu}>
+        
           <Link href='#'>
-          < Ionicons name="reader" size={24} color="#579DD9" style={styles.icon_topico}/>
-          <Text style={styles.topico}>Relatório</Text>
+            <View style={styles.card}>
+            < Ionicons name="reader" size={40} color="#579DD9" style={styles.icon_topico}/>
+            <Text style={styles.topico}>Relatório</Text>
+            </View>
           </Link>
         </View>
         
@@ -137,16 +143,40 @@ const styles = StyleSheet.create({
 
   main: {
     flex: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    
   },
 
   menu: {
-    borderColor: '#808080',
-    borderBottomWidth: 2,
-    marginLeft: 16,
-    marginRight: 16,
-    padding: 5,
-  
+    flexDirection: 'row',
+    marginLeft: 5,
+    marginRight: 5,
+    gap: 10
   },
+
+  card:{
+    flexDirection:'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: '#808080',
+    padding: 10,
+    width: 100,
+    height: 120,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+
+    shadowOffset: {
+      width: 0,
+      height: 2,
+  },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  
 
   topico:{
     fontSize: 14,
@@ -171,7 +201,7 @@ const styles = StyleSheet.create({
     color:'#fff',
     fontSize: 15,
   }
- 
+
 });
 
 export default telaMenu;

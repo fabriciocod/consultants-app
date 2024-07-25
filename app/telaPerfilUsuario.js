@@ -1,284 +1,238 @@
 import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { Pressable, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Pressable, StyleSheet, Text, View, TextInput, Image } from 'react-native';
 import { Link } from 'expo-router';
-
+import * as ImagePicker from 'expo-image-picker';
 
 const TelaPerfilUsuario = () => {
-    const [senhaAtual, setSenhaAtual] = useState(''); // receber o input senha atual
-    const [novaSenha, setNovaSenha] = useState(''); // rececebe o input nova senha
-    const [ hideCurretPass, setHideCurretPass ] = useState(true);
-    const [ hideNewPass, setHideNewPass ] = useState(true);
-    return(
-    <View style={styles.container}>
-        {/* Inicio do Header */}
-        <View style={styles.header}>
+    const [senhaAtual, setSenhaAtual] = useState('');
+    const [novaSenha, setNovaSenha] = useState('');
+    const [hideCurretPass, setHideCurretPass] = useState(true);
+    const [hideNewPass, setHideNewPass] = useState(true);
+    const [avatar, setAvatar] = useState(null);
+    const [userRole, setUserRole] = useState('Admin'); // Exemplo de função do usuário
+    const [userCode, setUserCode] = useState('ABC123'); // Exemplo de código de usuário
 
-            <View style={styles.perfAvatar}>
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
 
-            <View style={styles.avatar}>
-                <Link href='/telaPerfilUsuario'>
-                <Ionicons name="person-sharp" size={50} color="#fff" />
+        if (!result.canceled) {
+            setAvatar(result.uri);
+        }
+    };
+
+    return (
+        <View style={styles.container}>
+            {/* Inicio do Header */}
+            <View style={styles.header}>
+                <View style={styles.perfAvatar}>
+                    <Pressable onPress={pickImage}>
+                        {avatar ? (
+                            <Image source={{ uri: avatar }} style={styles.avatarImage} />
+                        ) : (
+                            <Ionicons name="person-sharp" size={50} color="#fff" />
+                        )}
+                    </Pressable>
+                    <Text style={styles.altera}>Alterar Foto</Text>
+                </View>
+            </View>
+            {/* Fim do Header */}
+
+            {/* espaço vazio*/}
+            <View style={styles.cont1}></View>
+
+            <View style={styles.main}>
+                {/* Inicio navegação do app */}
+                <View style={styles.infoStatus}>
+                    <Text style={styles.textVoce}>Você</Text>
+                    <Text style={styles.textColabora}>{userRole}</Text>
+                </View>
+
+                <View style={styles.infoCodigo}>
+                    <Text style={styles.login}>Login</Text>
+                    <Text style={styles.codigo}>{userCode}</Text>
+                </View>
+
+                <View style={styles.alteraSenha}>
+                    <View style={styles.inputArea}>
+                        <TextInput
+                            style={styles.input}
+                            value={senhaAtual}
+                            placeholder='Senha Atual'
+                            placeholderTextColor='#bbb'
+                            onChangeText={(senhaAtual) => setSenhaAtual(senhaAtual)}
+                            secureTextEntry={hideCurretPass}
+                        />
+                        <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
+                            {hideCurretPass ? (
+                                <Ionicons name='lock-closed-outline' color='#fff' size={25} />
+                            ) : (
+                                <Ionicons name='lock-open-outline' color='#fff' size={25} />
+                            )}
+                        </Pressable>
+                    </View>
+
+                    <View style={styles.inputArea}>
+                        <TextInput
+                            style={styles.input}
+                            value={novaSenha}
+                            placeholder='Nova Senha'
+                            placeholderTextColor='#bbb'
+                            onChangeText={(novaSenha) => setNovaSenha(novaSenha)}
+                            secureTextEntry={hideNewPass}
+                        />
+                        <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
+                            {hideNewPass ? (
+                                <Ionicons name='lock-closed-outline' color='#fff' size={25} />
+                            ) : (
+                                <Ionicons name='lock-open-outline' color='#fff' size={25} />
+                            )}
+                        </Pressable>
+                    </View>
+                </View>
+
+                <View style={styles.cont_Altera}>
+                    <Pressable style={styles.bntRedefinir}>
+                        <Link href='/telaMenu'>
+                            <Text style={styles.redefinirSenha}>Alterar Senha</Text>
+                        </Link>
+                    </Pressable>
+                </View>
+                {/* Fim navegação do app */}
+            </View>
+
+            {/* espaço vazio*/}
+            <View style={styles.cont2}></View>
+
+            <View style={styles.footer}>
+                <Link href='/telaMenu'>
+                    <Ionicons name="chevron-back-outline" size={24} color="#fff" />
+                </Link>
+                <Link href='#'>
+                    <Text style={styles.desconectar}>Desconectar</Text>
                 </Link>
             </View>
-            
-            <View style={styles.info_perfil}>
-                <Text style={styles.altera}>Altera Foto</Text>
-            </View>
-
         </View>
-
-        </View>
-      {/* Fim do Header */}
-
-    {/* espaço vazio*/}
-    <View style={styles.cont1}></View>
-
-
-        <View style={styles.main}>
-        {/* Inicio navegação do app */}
-
-            <View style={styles.infoStatus}>
-                <Text style={styles.textVoce}>Você</Text>
-                <Text style={styles.textColabora}>Função</Text>
-            </View>
-
-            <View style={styles.infoCodigo}>
-                <Text style={styles.login}>Login</Text>
-                <Text style={styles.codigo}>Codigo Alfabetico</Text>
-            </View>
-
-            <View style={styles.alteraSenha}>
-
-                <View style={styles.inputArea}>
-                
-                    <TextInput
-                        style={styles.input}
-                        value={senhaAtual}
-                        placeholder='Senha Atual'
-                        placeholderTextColor='#fff'
-                        onChangeText={(senhaAtual) => setSenhaAtual(senhaAtual)}
-                        secureTextEntry={hideCurretPass}
-                    />
-
-                    <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
-                        { hideCurretPass ? //Formatação condicional para estado do icones
-                        <Ionicons name='lock-closed-outline' color='#fff' size={25}/>
-                        :
-                        <Ionicons name='lock-open-outline' color='#fff' size={25}/>
-                        }
-                    </Pressable>
-                </View>
-            
-                <View style={styles.inputArea}>
-                <TextInput
-                        style={styles.input}
-                        value={novaSenha}
-                        placeholder='Nova Senha'
-                        placeholderTextColor='#fff'
-                        onChangeText={(novaSenha) => setNovaSenha(novaSenha)}
-                        secureTextEntry={hideNewPass}
-                    />
-
-                    <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
-                        { hideNewPass ? //Formatação condicional para estado do icones
-                        <Ionicons name='lock-closed-outline' color='#fff' size={25}/>
-                        :
-                        <Ionicons name='lock-open-outline' color='#fff' size={25}/>
-                        }
-                
-                    </Pressable>
-                </View>
-
-            </View>
-
-            <View style={styles.cont_Altera}>
-                <Pressable style={styles.bntRedefinir}>
-                    <Link href='/telaMenu'>
-                        <Text style={styles.redefinirSenha}>Altera Senha</Text>
-                    </Link>
-                </Pressable>
-            </View>    
-            
-            
-        {/* Fim navegação do app */}
-        </View>
-      
-    {/* espaço vazio*/}
-    <View style={styles.cont2}></View>
-
-
-
-        <View style={styles.footer}>
-            <Link href='/telaMenu'>
-                <Ionicons name="chevron-back-outline" size={24} color="#fff" />
-            </Link>
-
-            <Link href='#'>
-                <Text style={styles.desconectar}>Desconcetar</Text>
-            </Link>
-
-        </View>
-    </View>
-
     );
-}
+};
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-around',
         backgroundColor: '#044d8c',
     },
-
     cont1: {
         flex: 1,
     },
-    
-    cont2:{
+    cont2: {
         flex: 1,
     },
-
     header: {
         flex: 2,
         backgroundColor: "#044d8c",
         flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-
-    perfAvatar: {
-        flexDirection: 'column',
         justifyContent: 'center',
-        widht: 50,
         alignItems: 'center',
-        gap: 1,
-        paddingLeft: 16,
-        
+        paddingVertical: 20,
     },
-    
-    altera:{
-        fontSize: 10,
-        color: '#808080',
+    perfAvatar: {
+        alignItems: 'center',
     },
-
+    avatarImage: {
+        width: 80,
+        height: 80,
+        borderRadius: 40,
+    },
+    altera: {
+        fontSize: 12,
+        color: '#fff',
+        marginTop: 8,
+    },
     main: {
         flex: 10,
-        paddingLeft: 16,
-        paddingRight: 16,
-        flexDirection: 'column',
-        justifyContent:'space-around'
-
+        paddingHorizontal: 20,
+        paddingVertical: 10,
     },
-
-    infoStatus:{
-        flex: 1,
+    infoStatus: {
+        marginBottom: 20,
     },
-
-    textVoce:{
+    textVoce: {
+        fontSize: 22,
+        color: '#fff',
+        fontWeight: 'bold',
+    },
+    textColabora: {
+        fontSize: 16,
+        color: '#bbb',
+    },
+    infoCodigo: {
+        marginBottom: 20,
+    },
+    login: {
         fontSize: 18,
-        color: '#fff'
+        color: '#fff',
     },
-    
-    textColabora:{
+    codigo: {
         fontSize: 14,
-        color: '#808080' 
-    },
-
-    infoCodigo:{
-        flex: 1
-    },
-
-    login:{
-        fontSize: 18,
-        color:'#fff',
-        paddingTop: 5
-    },
-
-    codigo:{
-        fontSize: 12,
-        color:'#fff',
-        borderColor: '#fff',
+        color: '#bbb',
+        borderBottomColor: '#bbb',
         borderBottomWidth: 1,
-        paddingTop: 5
+        paddingTop: 5,
     },
-
-    // Inicio do estilo do inputs
-
-    alteraSenha:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        
+    alteraSenha: {
+        marginBottom: 20,
     },
-    inputArea:{
+    inputArea: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'center',
-        borderRadius: 5,
-        borderColor: '#fff',
+        borderBottomColor: '#bbb',
         borderBottomWidth: 1,
-        width: 150,
-        height: 50,
-        gap: 20,
-            
+        marginBottom: 20,
     },
-
-    input:{
-        width: 70,
-        height: 50,
-        padding: 8,
-        fontSize: 9,
-            
-    },
-
-    icon:{
-        width: '15%',
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    // Fim do estilo input
-
-    // Inicio do bntAlterarSenha
-    cont_Altera:{
+    input: {
         flex: 1,
-        flexDirection: 'column',
+        color: '#fff',
+        paddingVertical: 10,
+        paddingHorizontal: 5,
+        fontSize: 16,
+    },
+    icon: {
+        padding: 10,
+    },
+    cont_Altera: {
+        alignItems: 'center',
+    },
+    bntRedefinir: {
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        width: '100%',
+        paddingVertical: 15,
         justifyContent: 'center',
         alignItems: 'center',
-        
+        marginBottom: 10,
     },
-
-    bntRedefinir:{
-        borderColor: '#fff',
-        borderWidth: 2,
-        borderRadius: 5,
-        width: 200,
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center'
+    redefinirSenha: {
+        fontSize: 16,
+        color: '#044d8c',
+        fontWeight: 'bold',
     },
-
-    redefinirSenha:{
-        fontSize: 12,
-        color: '#fff'
-    },
-    footer:{
-        flex:1,
+    footer: {
         flexDirection: 'row',
         justifyContent: "space-between",
         alignItems: 'center',
-        backgroundColor: '#044D8C',
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingTop: 1,
-        paddingBottom: 1,  
+        backgroundColor: '#044d8c',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
     },
-    
     desconectar: {
-        color:'#fff',
-        fontSize: 15,
-    }
+        color: '#fff',
+        fontSize: 16,
+    },
 });
 
 export default TelaPerfilUsuario;
