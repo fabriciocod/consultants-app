@@ -51,7 +51,7 @@ const telaMenu = () => {
         
 
         
-          <Link href='#'>
+          <Link href='/telaContatos'>
             <View style={styles.card}>
             < Ionicons name="person-sharp" size={40} color="#579DD9" style={styles.icon_topico}/>
             <Text style={styles.topico}>Contatos</Text>

@@ -130,7 +130,6 @@ const telaReceberEncomenda = () => {
     },
   
     footer: {
-      flex: 1,
       flexDirection: 'row',
       justifyContent: 'flex-end',
       alignItems: 'center',
@@ -139,6 +138,7 @@ const telaReceberEncomenda = () => {
       paddingRight: 10,
       paddingTop: 1,
       paddingBottom: 1,
+      height: 50
     },
   
     suporte: {

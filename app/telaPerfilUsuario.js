@@ -228,6 +228,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#044d8c',
         paddingHorizontal: 20,
         paddingVertical: 10,
+        height: 50
     },
     desconectar: {
         color: '#fff',
