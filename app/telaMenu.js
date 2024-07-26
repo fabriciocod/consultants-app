@@ -42,7 +42,7 @@ const telaMenu = () => {
       {/* Inicio navegação do app */}
 
         <View style={styles.menu}>
-          <Link href='#'>
+          <Link href='/telaReceberEncomenda'>
             <View style={styles.card}>
             < Ionicons name="cube" size={40} color="#579DD9" style={styles.icon_topico}/>
             <Text style={styles.topico}>Receber</Text>
