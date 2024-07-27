@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { auth } from '../firebaseConfig';
+import { signOut} from 'firebase-auth';
+import { useRouter} from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View, TextInput, Image } from 'react-native';
 import { Link } from 'expo-router';
@@ -111,7 +114,9 @@ const TelaPerfilUsuario = () => {
 
             <View style={styles.footer}>
                 <Link href='/telaMenu'>
-                    <Ionicons name="chevron-back-outline" size={24} color="#fff" />
+                    <Ionicons name="chevron-back-outline" size={24} color="#fff" onPress={() => {
+                fazerLogout(auth, router);
+            }}/>
                 </Link>
                 <Link href='#'>
                     <Text style={styles.desconectar}>Desconectar</Text>
@@ -120,6 +125,23 @@ const TelaPerfilUsuario = () => {
         </View>
     );
 };
+
+// Teste de implementação do LogOut
+const Cliques = () => {
+    const [getCliques, setCliques] = useState(0);
+    const user = auth.currentUser;
+    const router = useRouter();
+
+    const fazerLogout = (auth, router) => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            console.log('Logout com sucesso');
+            router.replace('/');
+        }).catch((error) => {
+            // An error happened.
+            console.error(error);
+        });
+    }
 
 const styles = StyleSheet.create({
     container: {

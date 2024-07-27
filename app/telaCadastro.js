@@ -1,93 +1,112 @@
-import { Icon, MD3Colors } from 'react-native-paper';
-import { TextInput } from 'react-native-paper';
-import * as React from 'react'
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import React, { useState} from 'react'
+import { View, Text, StyleSheet, Pressable, Image, TextInput, TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router';
 
 
 
 
 const Telacadastro = () => {
-    const [text, setText] = React.useState("");
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [confirmarSenha, setConfirmaSenha] = useState("");
+    const [ hideSenha, setHideSenha] = useState(true);
+    const [ hideConfirmarSenha, setHideConfirmarSenha] = useState(true);
     return (
         <View style={styles.container}>
-            {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
 
-        <View style={styles.cont0}></View>
+                {/* View vázia */}
+                <View style={styles.cont0}></View>
+
             <View style={styles.header}>
-                {/* <View style={styles.ico}>
-                   
-                    <Image source={require('./../assets/ico_voltar.png')}/>
-                    
-                </View> */}
-
                 <View style={styles.logo}>
                 <Image source={require('./../assets/logo.png')} />
-
-                <Text style={styles.textoLogo}></Text>
                 </View>
             </View>
 
-            {/* espaço vazio */}
-            <View style={styles.cont1}></View>
+                {/* espaço vazio */}
+                <View style={styles.cont1}></View>
 
-                <View style={styles.main}>
+            <View style={styles.main}>
+
+                <View style={styles.inputArea}>
                     <TextInput
-                    mode='flat'
                     style={styles.input}
-                    label='Nome'
-                    value={text}
-                    textColor='Black'
-                    right={<TextInput.Icon icon="note-edit-outline" color="#000"/>}
-
-
-                    onChangeText={text => setText(Text)}
+                    value={nome}
+                    placeholder='Nome'
+                    placeholderTextColor='#000'
+                    onChangeText={setNome}
                     />
 
-                    <TextInput
-                    mode='flat'
-                    style={styles.input}
-                    label='E-mail'
-                    value={text}
-                    textColor='Black'
-                    right={<TextInput.Icon icon="email-outline" color="#000"/>}
+                    <Ionicons style={styles.icon} name='document-outline' color='#000' size={25} />
 
-                    onChangeText={text => setText(Text)}
-                    />
-
-                    <TextInput
-                    mode='flat'
-                    style={styles.input}
-                    label='Senha'
-                    secureTextEntry
-                    value={text}
-                    textColor='Black'
-                    right={<TextInput.Icon icon="shield-outline" color="#000"/>}
-
-                    onChangeText={text => setText(Text)}
-                    />
-                
-                    <TextInput
-                    mode='flat'
-                    style={styles.input}
-                    label='Confirmar Senha'
-                    secureTextEntry
-                    value={text}
-                    textColor='Black'
-                    right={<TextInput.Icon icon="shield-outline" color="#000"/>}
-
-                    onChangeText={text => setText(Text)}
-                    />
-               
                 </View>
+
+                <View style={styles.inputArea}>
+                    <TextInput
+                    style={styles.input}
+                    value={email}
+                    placeholder='Email'
+                    placeholderTextColor='#000'
+                    onChangeText={setEmail}
+                    />
+
+                    <Ionicons style={styles.icon} name='mail-outline' color='#000' size={25} />
+
+                </View>
+
+                <View style={styles.inputArea}>
+                    <TextInput
+                    style={styles.input}
+                    value={senha}
+                    placeholder='Senha'
+                    placeholderTextColor='#000'
+                    onChangeText={setSenha}
+                    secureTextEntry={hideSenha}
+                    />
+
+                <Pressable style={styles.icon} onPress={() => setHideSenha(!hideSenha)}>
+                    { hideSenha ? //Formatação condicional para estado do icones
+                    <Ionicons name='lock-closed-outline' color='#000' size={25}/>
+                    :
+                    <Ionicons name='lock-open-outline' color='#000' size={25}/>
+                    }
+                    
+                </Pressable>
+
+                </View>
+
+                <View style={styles.inputArea}>
+                    <TextInput
+                    style={styles.input}
+                    value={confirmarSenha}
+                    placeholder='Confirmar Senha'
+                    placeholderTextColor='#000'
+                    onChangeText={setConfirmaSenha}
+                    secureTextEntry={hideConfirmarSenha}
+                    />
+
+                    <Pressable style={styles.icon} onPress={() => setHideConfirmarSenha(!hideConfirmarSenha)}>
+                        { hideConfirmarSenha ? //Formatação condicional para estado do icones
+                        <Ionicons name='lock-closed-outline' color='#000' size={25}/>
+                        :
+                        <Ionicons name='lock-open-outline' color='#000' size={25}/>
+                        }
+                        
+                    </Pressable>
+
+                </View>
+
+            </View>
 
             {/* espaço vazio */}
             <View style={styles.cont2}></View>
 
             <View style={styles.button}>
-             <TouchableOpacity style={styles.bntCadastrar}>
-             <Text style={styles.cadastrar}>Cadastrar</Text>
-             </TouchableOpacity>
+            <TouchableOpacity style={styles.bntCadastrar}>
+            <Text style={styles.cadastrar}>Cadastrar</Text>
+            </TouchableOpacity>
             </View>
 
             {/* espaço vazio */}
@@ -96,11 +115,7 @@ const Telacadastro = () => {
             <View style={styles.footer}>
 
                 <Link href='/'>
-                    <Icon
-                    source="arrow-left"
-                    color={MD3Colors.error100}
-                    size={25}
-                    />
+                <Ionicons name="chevron-back" size={25} color="#fff" />
                 </Link>
 
             </View>
@@ -151,14 +166,9 @@ const styles = StyleSheet.create({
         
     },
 
-       logo: {
+    logo: {
         flexDirection: 'row',
         alignItems: 'center'
-    },
-
-    textoLogo: {
-        fontSize: 18,
-        color:'#044D8C'
     },
 
     // Define regras do main
@@ -166,19 +176,36 @@ const styles = StyleSheet.create({
         flex: 7,
         flexDirection: 'column',
         justifyContent:'space-around',
-        gap: 25,
-        padding: 10
+        alignItems:'center'
+        // gap: 25,
+        // padding: 10
     },
 
-    input: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        fontSize: 14,
-        backgroundColor:'none',
-        width: 340,
-        padding: 1,
+    // Inicio do estilo do inputs
+    inputArea:{
+        flexDirection: 'row',
+        width: '90%',
+        borderRadius: 5,
+        borderColor: '#000',
+        borderBottomWidth: 1,
+        height: 50,
+        alignItems: 'center'
+    
     },
+
+    input:{
+        width: '85%',
+        height: 50,
+        color: '#000',
+        padding: 8,
+        fontSize: 14
+    },
+
+    icon:{
+        width: '15%',
+    
+    },
+// Fim do estilo input
 
     button: {
         flex: 1,

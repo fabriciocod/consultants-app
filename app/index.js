@@ -169,11 +169,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'   
   },
   
-  textoLogo: {
-    fontSize: 20,
-    color: '#044D8C'
-  },
-
   main: {
     flex: 4,
     flexDirection: 'column',
