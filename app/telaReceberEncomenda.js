@@ -29,7 +29,7 @@ const telaReceberEncomenda = () => {
   
         <View style={styles.button}>
             <Pressable style={styles.bntReceber}>
-              <Link href='#'>
+              <Link href='/telaContatos'>
                 <Text style={styles.textReceber}>+ Receber</Text>
               </Link>
             </Pressable>

@@ -1,9 +1,15 @@
-import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
+import { Text, View, TextInput, Pressable } from 'react-native'
 import React, { useState} from 'react';
 import { Link } from 'expo-router';
+import styles from './styles/styles_Alterar';
+import {Ionicons} from '@expo/vector-icons';
 
 const alterarSenha = () => {
-  const [text, setText] = useState("");
+  const [codigo, setCodigo] = useState("");
+  const [novaSenha, setNovaSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [hidePass, setHidePass] = useState("");
+
   return (
     
           <View style={styles.container}>
@@ -18,39 +24,74 @@ const alterarSenha = () => {
                     para recuperação da senha.
                   </Text>
 
-                <View style={styles.codigo}>
-
+                  <View style={styles.inputArea}>
                   <TextInput
-                    style={styles.input}
-                    label='Código'
-                    secureTextEntry
-                    right={<TextInput.Icon icon="close"/>}
-                    value={text}
-                    onChangeText={text => setText(Text)}
-                  />
+                  style={styles.input}
+                  value={codigo}
+                  onChangeText={setCodigo}
+                  placeholder='Código'
+                  placeholderTextColor='#000'
+                  secureTextEntry={hidePass}
+                   />
 
-              </View>
+                  <Pressable style={styles.icon} onPress={() => setHidePass(!hidePass)}>
+                    { hidePass ? //Formatação condicional para estado do icones
+                    <Ionicons name='lock-closed-outline' color='#000' size={25}/>
+                    :
+                    <Ionicons name='lock-open-outline' color='#000' size={25}/>
+                    }
+                    
+                  </Pressable>
+          
+                  </View>
 
               <View style={styles.senhas}>
 
-                  <TextInput
-                    style={styles.input}
-                    label='Nova Senha'
-                    secureTextEntry
-                    right={<TextInput.Icon icon="close"/>}
-                    value={text}
-                    onChangeText={text => setText(Text)}
-                  />
+              <View style={styles.inputArea}>
 
                   <TextInput
+                  style={styles.input}
+                  value={novaSenha}
+                  onChangeText={setNovaSenha}
+                  placeholder='Nova Senha'
+                  placeholderTextColor='#000'
+                  secureTextEntry={hidePass}
+                   />
+
+                  <Pressable style={styles.icon} onPress={() => setHidePass(!hidePass)}>
+                    { hidePass ? //Formatação condicional para estado do icones
+                    <Ionicons name='lock-closed-outline' color='#000' size={25}/>
+                    :
+                    <Ionicons name='lock-open-outline' color='#000' size={25}/>
+                    }
+                    
+                  </Pressable>
+          
+                  </View>
+
+                  <View style={styles.inputArea}>
+
+                    <TextInput
                     style={styles.input}
-                    label='Confirme a Senha'
-                    secureTextEntry
-                    right={<TextInput.Icon icon="close"/>}
-                    value={text}
-                    onChangeText={text => setText(Text)}
-                  />
-              </View>
+                    value={confirmarSenha}
+                    onChangeText={setConfirmarSenha}
+                    placeholder='Confirmar Senha'
+                    placeholderTextColor='#000'
+                    secureTextEntry={hidePass}
+                    />
+
+                  <Pressable style={styles.icon} onPress={() => setHidePass(!hidePass)}>
+                    { hidePass ? //Formatação condicional para estado do icones
+                    <Ionicons name='lock-closed-outline' color='#000' size={25}/>
+                    :
+                    <Ionicons name='lock-open-outline' color='#000' size={25}/>
+                    }
+                    
+                  </Pressable>
+
+                    </View>
+
+                 
 
             </View>
 
@@ -59,7 +100,7 @@ const alterarSenha = () => {
 
                 <View style={styles.button}>
                   <Pressable style={styles.bntconfirmar}>
-                    <Link href="/">
+                    <Link href="">
                       <Text style={styles.confirmar}>Confirmar</Text>
                     </Link>
                   </Pressable>
@@ -69,121 +110,11 @@ const alterarSenha = () => {
                 {/* espaço vazio */}
               <View style={styles.cont3}></View>
             </View>
-    
+
+          </View>
+
           );
         }
 
 export default alterarSenha
 
-const styles = StyleSheet.create({
-    container: {
-        flex:1,
-        flexDirection:'column',
-        justifyContent:'space-around',
-        // backgroundColor: '#fff'
-    },
-
-    imageBackground: {
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center",
-        width: '100%'
-    },
-
-    cont1: {
-      flex:2
-    },
-
-    cont2:{
-      flex:1
-    },
-
-    cont3:{
-      flex:2
-    },
-
-    header: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        padding: 20,
-        alignItems: 'center'   
-      },
-
-    // textoLogo:{
-    // height:20  fontSize: 20,
-    //   color: '#044D8C'
-    // },
-
-    main: {
-      flex: 4,
-      flexDirection:'column',
-      justifyContent:'space-around',
-      gap: 20,
-      padding:20
-    },
-
-    titulo:{
-      fontSize:20,
-      paddingLeft:20
-    },
-
-    informe:{
-      fontSize:15,
-      padding: 20,
-      marginTop: -15,
-      
-    },
-
-    codigo:{
-      flex: 1,
-      flexDirection: 'row' ,
-      justifyContent: 'left',
-      marginLeft: 7,
-      marginBottom: 20
-
-    },
-
-    senhas:{
-      flex: 1,
-      flexDirection: 'row' ,
-      justifyContent:'space-around',
-      alignItems: 'center',
-      // padding: 20,
-      height:20
-
-    },
-
-    input:{
-      alignItems: 'left',
-      fontSize: 14,
-      
-      // borderRadius:8,
-      backgroundColor:'#fff',
-      justifyContent:'space-around',
-      // padding:20,
-      // height:20
-      width: 150
-    },
-
-    button:{
-      flex:1,
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      alignItems: 'center'
-    },
-
-    bntconfirmar:{
-        backgroundColor:'#044D8C',
-        borderRadius: 10,
-        justifyContent:'center',
-        alignItems:'center',
-        width: 188,
-        height: 50
-    },
-    
-    confirmar:{
-        color: '#fff'
-    }
-
-})
