@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../firebaseConfig';
-import { signOut} from 'firebase-auth';
+import { signOut} from 'firebase/auth';
 import { useRouter} from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View, TextInput, Image } from 'react-native';
@@ -38,7 +38,7 @@ const TelaPerfilUsuario = () => {
                         {avatar ? (
                             <Image source={{ uri: avatar }} style={styles.avatarImage} />
                         ) : (
-                            <Ionicons name="person-sharp" size={50} color="#fff" />
+                        <Ionicons name="person-sharp" size={50} color="#fff" />
                         )}
                     </Pressable>
                     <Text style={styles.altera}>Alterar Foto</Text>
@@ -141,7 +141,8 @@ const Cliques = () => {
             // An error happened.
             console.error(error);
         });
-    }
+    }}
+
 
 const styles = StyleSheet.create({
     container: {
@@ -170,6 +171,7 @@ const styles = StyleSheet.create({
         height: 80,
         borderRadius: 40,
     },
+
     altera: {
         fontSize: 12,
         color: '#fff',

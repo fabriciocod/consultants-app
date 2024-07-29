@@ -1,10 +1,10 @@
 import React, { useState } from 'react'; 
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View, Image, ImageBackground, TextInput, Pressable } from 'react-native';
-import { Link, router, useRouter } from 'expo-router';
-import { firebaseApp } from '../firebaseConfig'
-import { signInWithEmailAndPassword, initializeAuth, getReactNativePersistence } from "firebase/auth";
-import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+import { Link, useRouter } from 'expo-router';
+import { auth } from '../firebaseConfig'
+import { signInWithEmailAndPassword} from "firebase/auth";
+
 
 
 
@@ -14,6 +14,24 @@ function App() {
   const [senha, setSenha] = useState(""); // recebe texto do input senha
   const [ hidePass, setHidePass] = useState(true); // mantei estado true fixo
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  // Teste de login de usuário cadastrado diretamento no firebase
+  const handleLogin = async () => {
+    try {
+      setLoading(true);
+      await signInWithEmailAndPassword(auth, email, senha);
+      setLoading(false);
+      router.replace('/telaMenu');
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorCode);
+      console.error(errorMessage);
+      setLoading(false);
+    }    
+  }
+
   return (
     <View style={styles.container}>
       {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
@@ -76,10 +94,12 @@ function App() {
           </Link>
         </Pressable>
 
-        <Pressable  onPress={() => {fazerLogin(email, senha, router);}} style={styles.bntEntrar}>
-          <Text style={styles.entrar}>Entrar</Text>
+        <Pressable onPress={() => {handleLogin(email, senha, router);}} loading={loading} style={styles.bntEntrar}>
+          {/* <Link href='/telaMenu'> */}
+            <Text style={styles.entrar}>Login</Text>
+          {/* </Link> */}
         </Pressable>
-        
+
       </View>
 
     {/* espaço vazio */}
@@ -100,35 +120,31 @@ function App() {
 
       {/* </ImageBackground> */}
     </View>
+
+    
   );
 }
 
-// Teste de login de usuário cadastrado diretamento no firebase
 
-const fazerLogin = (email, senha, router) => {
-  // Initialize Firebase Authentication and get a reference to the service
-  const auth = initializeAuth(firebaseApp, {
-    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-  });
-
-  // Chamada dos useState email e senha
-  signInWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      console.log('Login realizado com sucesso!');
-      console.log(user.uid);
-      console.log(user);
-      // ...
-      router.replace('/telaMenu')
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
-    });
-}
+// const fazerLogin = (email, senha, router) => {
+//     // Chamada dos useState email e senha
+//   signInWithEmailAndPassword(auth, email, senha)
+//     .then((userCredential) => {
+//       // Signed in 
+//       const user = userCredential.user;
+//       console.log('Login realizado com sucesso!');
+//       console.log(user.uid);
+//       console.log(user);
+//       // ...
+//       router.replace('/telaMenu')
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       console.log(errorCode);
+//       console.log(errorMessage);
+//     });
+// }
 // Fim do teste de usuário no firebase
 
 const styles = StyleSheet.create({
