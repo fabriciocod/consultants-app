@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     
     cont_Button:{
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor:'#fff' 
     },
