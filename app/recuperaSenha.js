@@ -9,18 +9,17 @@ const recuperaSenha = () => {
     
     return (
         <View style={styles.container}>
-                
-        {/* espaço vazio */}
-        <View style={styles.cont1}></View>
-
+        
             <View style={styles.main}>
-                <Text style={styles.titulo}>Recuperar Senha</Text>
+                <View style={styles.texto}>
+                    <Text style={styles.titulo}>Recuperar Senha</Text>
 
-                <Text style={styles.informe}>
-                    Por favor, confirme seu e-mail para
-                    receber um código de verificação
-                </Text>
-                {/* Ajuste do campo de email para recuperar senha */}
+                    <Text style={styles.paragrafo}>
+                        Por favor, confirme seu e-mail para
+                        receber um código de verificação
+                    </Text>
+                </View>
+
                 <View style={styles.inputArea}>
                     <TextInput
                     style={styles.input}
@@ -33,31 +32,23 @@ const recuperaSenha = () => {
                     <Ionicons style={styles.icon} name='mail-outline' color='#000' size={25} />
 
                 </View>
-            </View>
 
-         {/* espaço vazio */}
-        <View style={styles.cont2}></View>
-
-            <View style={styles.button}>
-
-                <Pressable style={styles.bntconfirmar}>
-                <Link href="./telaAlterarSenha">  
-                <Text style={styles.confirmar}>Confirmar</Text>
-                </Link>  
-                </Pressable>
-
-                <Pressable style={styles.bntCancelar}>
-                <Link href='/'>
-                <Text style={styles.cancelar}>Cancelar</Text>
-                </Link>
-                </Pressable>
+                <View style={styles.cont_Button}>
+                    <Pressable style={styles.bntconfirmar}>
+                        <Link href="./telaAlterarSenha">  
+                        <Text style={styles.confirmar}>Confirmar</Text>
+                        </Link>  
+                    </Pressable>
+                
+                    <Pressable style={styles.bntCancelar}>
+                        <Link href='/'>
+                        <Text style={styles.cancelar}>Cancelar</Text>
+                        </Link>
+                    </Pressable>
             
+                </View>
             </View>
-
-        {/* espaço vazio */}
-        <View style={styles.cont3}></View>
-
-    </View>
+        </View>
     );
 }
 

@@ -3,69 +3,55 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        flexDirection: 'column',
-        justifyContent:'space-around',
+        justifyContent:'center',
+        alignItems:'center',
         backgroundColor:'#fff'
     },
 
-    cont1: {
-        flex:4,
-        // backgroundColor:'#fff'
-    },
-
-    cont2: {
-        flex:1,
-        // backgroundColor:'#fff'
-    },
-
-    cont3:{
-        flex:4,
-        // backgroundColor:'#fff'
-    },
-
-    header: {
-        flex:1,
-        flexDirection: 'row',
-        justifyContent:'center',
-        padding: 20,
-        alignItems: 'center'
-    },
-
     main: {
-        flex: 4,
         flexDirection: 'column',
-        justifyContent: 'space-aroundc',
-        alignItems: 'center',
-        gap: 20,
-        // padding: 20
+        justifyContent: 'center',
+        // alignItems: 'center',
+        backgroundColor:'#dcf',
     },
 
-    titulo: {
-        fontSize: 20,
-        marginHorizontal: 10
-    },
-
-    informe:{
-        fontSize: 14,
-        // paddingLeft: 20
-    },
+    texto:{
+        marginBottom:25,
+        // backgroundColor: 'blue'
+        
+      },
+    
+      titulo:{
+        fontSize: 24,
+        fontWeight:'bold',
+        marginBottom: 25
+      },
+    
+      paragrafo:{
+        fontSize: 16,
+        // fontWeight:'bold',
+        marginBottom: 25
+      },
 
     // Inicio do estilo do inputs
     inputArea:{
         flexDirection: 'row',
-        width: '90%',
+        alignItems: 'center',
         borderRadius: 5,
         borderColor: '#000',
         borderBottomWidth: 1,
+        marginBottom: 50,
+        width: '90%',
         height: 50,
-        alignItems: 'center'
+        // backgroundColor:'yellow'
+        
     },
 
     input:{
         width: '85%',
         height: 50,
         color: '#000',
-        padding: 8,
+        // padding: 8,
         fontSize: 14,
         alignItems: 'center'
     },
@@ -76,18 +62,18 @@ const styles = StyleSheet.create({
     },
 // Fim do estilo input
     
-    button: {
-        flex: 1,
+    cont_Button:{
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center' 
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor:'#fff' 
     },
 
-    bntconfirmar: {
-        backgroundColor:'#044D8C',
-        borderRadius: 10,
+    bntconfirmar:{
         justifyContent:'center',
         alignItems:'center',
+        backgroundColor:'#044D8C',
+        borderRadius: 10,
         width: 140,
         height: 50
     },

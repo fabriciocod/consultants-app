@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'column',
       // justifyContent: 'space-around',
-              
     },
   
     imageBackground: {
@@ -15,21 +14,6 @@ const styles = StyleSheet.create({
       width: '100%'
     },
   
-  //   cont0:{
-  //     flex: 1
-  //   },
-  
-  //   cont1:{
-  //     flex:2
-  //   },
-  
-  //   cont2:{
-  //     flex:2
-  //   },
-  
-  //   cont3:{
-  //     flex:4
-  // },
     header: {
       flexDirection: 'row',
       justifyContent: 'center',
@@ -40,7 +24,7 @@ const styles = StyleSheet.create({
     
     main: {
       flexDirection: 'column',
-      justifyContent:'center',
+      // justifyContent:'space-between',
       // gap: 5,
       alignItems: 'center',
       // backgroundColor: '#dcf',
@@ -52,13 +36,13 @@ const styles = StyleSheet.create({
   // Inicio do estilo do inputs
     inputArea:{
       flexDirection: 'row',
-      width: '90%',
+      alignItems: 'center',
       borderRadius: 5,
       borderColor: '#000',
-      borderWidth: 1,
+      borderBottomWidth: 1,
+      marginTop: 30,
+      width: '90%',
       height: 50,
-      alignItems: 'center'
-      
     },
   
     input:{
@@ -66,25 +50,20 @@ const styles = StyleSheet.create({
       height: 50,
       color: '#000',
       padding: 8,
-      fontSize: 14
+      fontSize: 14,
+      
     },
   
     icon:{
       width: '15%',
-       // height: 50,
-      // justifyContent: 'center',
-      // alignItems: 'center'
     },
   // Fim do estilo input
   
     button: {
-      flex: 1,
       flexDirection: 'colunm',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: 20
-      
-          
+      marginTop: 50,
     },
   
     bntEntrar: {
@@ -92,13 +71,15 @@ const styles = StyleSheet.create({
       borderRadius: 8,
       justifyContent:'center',
       alignItems:'center',
+      marginBottom:25,
       width: 300,
       height: 50
     },
   
     entrar: {
-      fontSize: 17,
       color:'#fff',
+      fontSize: 17,
+      fontWeight:'bold'
     },
   
   
