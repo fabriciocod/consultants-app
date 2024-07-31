@@ -2,118 +2,101 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-      flex:1,
-      flexDirection:'column',
-      justifyContent:'space-around',
-      // backgroundColor: '#fff'
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: '#dcdcdc',
+    // padding: 8,
   },
 
-  imageBackground: {
-      flex: 1,
-      resizeMode: "cover",
-      justifyContent: "center",
-      width: '100%'
+  main:{
+    flexDirection: 'column',
+    // backgroundColor:'#dcf',
+    marginLeft: 5,
+    marginRight:5
   },
 
-  cont1: {
-    flex:2
-  },
-
-  cont2:{
-    flex:1
-  },
-
-  cont3:{
-    flex:2
-  },
-
-  header: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'center',
-      padding: 20,
-      alignItems: 'center' 
-},
-
-  main: {
-    flex: 4,
-    flexDirection:'column',
-    justifyContent:'space-around',
-    gap: 20,
-    padding:20
+  texto:{
+    marginBottom:25
   },
 
   titulo:{
-    fontSize:20,
-    paddingLeft:20
+    fontSize: 24,
+    fontWeight:'bold',
+    marginBottom: 25
   },
 
-  informe:{
-    fontSize:15,
-    padding: 20,
-    marginTop: -15,
-    
-  },
-  // Inicio do estilo do inputs
-  inputArea:{
-    flexDirection: 'row',
-    width: '90%',
-    borderRadius: 5,
-    borderColor: '#000',
-    borderBottomWidth: 1,
-    height: 50,
-    alignItems: 'center'
-    
+  paragrafo:{
+    fontSize: 16,
+    // fontWeight:'bold',
+    marginBottom: 25
   },
 
-  input:{
-    width: '85%',
-    height: 50,
-    color: '#000',
-    padding: 8,
-    fontSize: 14
+  cont_codigo:{
+    marginLeft: 5,
+    width:'90%'
   },
 
-  icon:{
-    width: '15%',
-     // height: 50,
-    // justifyContent: 'center',
-    // alignItems: 'center'
-  },
-// Fim do estilo input
-  
-  input:{
-    alignItems: 'left',
-    fontSize: 14,
-    
-    // borderRadius:8,
-    backgroundColor:'#fff',
-    justifyContent:'space-around',
-    // padding:20,
-    // height:20
-    width: 150
-  },
-
-  button:{
-    flex:1,
-    flexDirection: 'row',
+  cont_AlterarSenhas:{
+    flexDirection:'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems:'center',
+    gap: 10,
+    
+    
   },
 
-  bntconfirmar:{
-      backgroundColor:'#044D8C',
-      borderRadius: 10,
-      justifyContent:'center',
-      alignItems:'center',
-      width: 188,
-      height: 50
+  // Inicio do estilo do inputs
+    inputArea:{
+      flexDirection: 'row',
+      justifyContent:'flex-end',
+      alignItems: 'center',
+      borderColor: '#000',
+      borderRadius: 4,
+      borderWidth: 1,
+      marginBottom: 25,
+      width: '45%',
+      height: 50,
+            
+    },
+  
+    input:{
+      color: '#000',
+      fontSize: 14,
+      padding: 8,
+      width: '65%',
+      height: 50,
+    },
+  
+    icon:{
+     width: 30,
+      height: 25,
+    },
+  // Fim do estilo input
+
+  // Definição Botão confirmar
+  cont_Confirmar:{
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30
   },
   
-  confirmar:{
-      color: '#fff'
-  }
+  bntConfirmar:{
+    backgroundColor:'#044D8C',
+    borderRadius: 8,
+    justifyContent:'center',
+    width: 150,
+    height: 50
+  },
 
+  textConfirmar:{
+    color:'#fff',
+    fontSize: 18,
+    fontWeight:'bold',
+    textAlign:'center'
+
+  }
 });
 
 

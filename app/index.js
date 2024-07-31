@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 import { Ionicons } from '@expo/vector-icons';
-import { Text, View, Image, ImageBackground, TextInput, Pressable } from 'react-native';
+import { Text, View, Image, TextInput, Pressable } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import { auth } from '../firebaseConfig'
 import { signInWithEmailAndPassword} from "firebase/auth";
@@ -31,21 +31,15 @@ function App() {
 
   return (
     <View style={styles.container}>
-      {/* <ImageBackground source={require('./../assets/background.png')} style={styles.imageBackground}> */}
-
-    <View style={styles.cont0}></View>
-
-      <View style={styles.header}>
+      
+      <View style={[styles.header, {flex:1}]}>
         <Image source={require('./../assets/logo.png')}
         style={styles.marca}
         />
         
       </View>
-
-    {/* espaço vazio */}
-    <View style={styles.cont1}></View>
       
-      <View style={styles.main}>
+      <View style={[styles.main, {flex:5}]}>
         <View style={styles.inputArea}>
           <TextInput
           style={styles.input}
@@ -74,35 +68,27 @@ function App() {
             :
             <Ionicons name='lock-open-outline' color='#000' size={25}/>
             }
-            
           </Pressable>
         </View>
+        
+        <View style={styles.button}>
+          {/* o parametro onPress com a função fazerLogin redireciona para tela menu digitar o usuáro e a senha */}
+          <Pressable style={styles.bntEntrar}>
+            <Link href='/telaMenu'>
+              <Text style={styles.entrar}>Entrar</Text>
+            </Link>
+          </Pressable>
 
+          <Pressable onPress={() => {handleLogin(email, senha, router);}} loading={loading} style={styles.bntEntrar}>
+            {/* <Link href='/telaMenu'> */}
+              <Text style={styles.entrar}>Login</Text>
+            {/* </Link> */}
+          </Pressable>
+
+        </View>
       </View>
 
-    {/* espaço vazio */}
-    <View style={styles.cont2}></View>
-
-      <View style={styles.button}>
-        {/* o parametro onPress com a função fazerLogin redireciona para tela menu digitar o usuáro e a senha */}
-        <Pressable style={styles.bntEntrar}>
-          <Link href='/telaMenu'>
-            <Text style={styles.entrar}>Entrar</Text>
-          </Link>
-        </Pressable>
-
-        <Pressable onPress={() => {handleLogin(email, senha, router);}} loading={loading} style={styles.bntEntrar}>
-          {/* <Link href='/telaMenu'> */}
-            <Text style={styles.entrar}>Login</Text>
-          {/* </Link> */}
-        </Pressable>
-
-      </View>
-
-    {/* espaço vazio */}
-    <View style={styles.cont3}></View>
-
-      <View style={styles.footer}>
+      <View style={[styles.footer, {flex:1}]}>
       
         <Link href='/recuperaSenha'>
           <Text style={styles.texto}>Recupera Senha</Text>
@@ -115,7 +101,7 @@ function App() {
 
       </View>
 
-      {/* </ImageBackground> */}
+      
     </View>
 
     

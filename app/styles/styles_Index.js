@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'column',
-      justifyContent: 'space-around',
+      // justifyContent: 'space-around',
               
     },
   
@@ -15,35 +15,37 @@ const styles = StyleSheet.create({
       width: '100%'
     },
   
-    cont0:{
-      flex: 1
-    },
+  //   cont0:{
+  //     flex: 1
+  //   },
   
-    cont1:{
-      flex:2
-    },
+  //   cont1:{
+  //     flex:2
+  //   },
   
-    cont2:{
-      flex:2
-    },
+  //   cont2:{
+  //     flex:2
+  //   },
   
-    cont3:{
-      flex:4
-  },
+  //   cont3:{
+  //     flex:4
+  // },
     header: {
-      flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',
       padding: 20,
-      alignItems: 'center'   
+      alignItems: 'center',
+      // backgroundColor:'blue'   
     },
     
     main: {
-      flex: 4,
       flexDirection: 'column',
-      justifyContent:'space-around',
-      gap: 50,
-      alignItems: 'center'
+      justifyContent:'center',
+      // gap: 5,
+      alignItems: 'center',
+      // backgroundColor: '#dcf',
+      marginTop: 50,
+      marginBottom: 50
               
     },
   
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
       width: '90%',
       borderRadius: 5,
       borderColor: '#000',
-      borderBottomWidth: 1,
+      borderWidth: 1,
       height: 50,
       alignItems: 'center'
       
@@ -81,6 +83,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       gap: 20
+      
           
     },
   
@@ -101,21 +104,22 @@ const styles = StyleSheet.create({
   
   
   footer:{
-    flex:1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#044D8C',
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 1,
+    paddingBottom: 1,
+    maxHeight: 50
   
   },
   
   texto: {
     color:'white',
-    fontSize: 15
+    fontSize: 15,
+    fontWeight:'bold'
   }
   
   });

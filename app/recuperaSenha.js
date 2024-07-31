@@ -41,7 +41,7 @@ const recuperaSenha = () => {
             <View style={styles.button}>
 
                 <Pressable style={styles.bntconfirmar}>
-                <Link href="./alterarSenha">  
+                <Link href="./telaAlterarSenha">  
                 <Text style={styles.confirmar}>Confirmar</Text>
                 </Link>  
                 </Pressable>

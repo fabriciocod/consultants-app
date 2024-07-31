@@ -1,119 +1,98 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    
+  container: {
+  flex: 1,
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 },
 
-  cont1: {
-    flex: 1,
+// Inicio do Componente Header
+header:{
+backgroundColor:'#044d8c',
+maxHeight: 400
 },
 
-  cont2:{
-    flex: 1,
+icones:{
+flexDirection:'row',
+justifyContent: 'flex-end',
+alignContent:'space-around',
+marginTop: 5,
+marginRight:16,
+gap:5
 },
 
-  header: {
-    flex: 2.7,
-    backgroundColor: '#044d8c',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-
-},
-  
-  perfil: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    width: 50,
-    alignItems: 'center',
-    gap: 10,
-    paddingLeft: 16
-    
+info_perfil_usuario:{
+flexDirection:'row',
+alignItems:'center',
+marginLeft:16,
+marginBottom: 16,
+gap: 15
 },
 
-  usuario: {
-    fontSize: 19,
-    color: '#fff'
-},
-
-  usarioFuncao: {
-    fontSize: 12,
-    color: '#848282'
-},
-
-  icones: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-    backgroundColor: '#044D8C',
-    marginLeft: 10,
-    gap: 5
+usuario: {
+color: '#fff',
+fontSize: 19,
+fontWeight:'bold'
 
 },
 
-  main: {
-    flex: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    
+usuarioFuncao:{
+fontSize: 12,
+color:'#848282'
+},
+// Fim do Componente Header
+
+// Inicio do Componente Main
+main:{
+flexDirection: 'row',
+justifyContent: 'space-around',
+marginTop: 25
 },
 
-  menu: {
-    flexDirection: 'row',
-    marginLeft: 5,
-    marginRight: 5,
-    gap: 10
+card:{
+  flexDirection:'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: 8,
+  borderWidth: 2,
+  borderColor: '#808080',
+  padding: 10,
+  width: 100,
+  height: 120,
+  backgroundColor: '#fff',
+  shadowColor: '#000',
+
+  shadowOffset: {
+  width: 0,
+  height: 2,
+},
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+},
+// Fim do Componente Main
+
+// Inicio do Componente Footer
+
+footer:{
+  // flex:1,
+  flexDirection: 'row',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  backgroundColor: '#044D8C',
+  paddingLeft: 10,
+  paddingRight: 10,
+  paddingTop: 1,
+  paddingBottom: 1, 
+  maxHeight:50 
 },
 
-  card:{
-    flexDirection:'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-    borderWidth: 2,
-    borderColor: '#808080',
-    padding: 10,
-    width: 100,
-    height: 120,
-    backgroundColor: '#fff',
-    shadowColor: '#000',
-
-    shadowOffset: {
-    width: 0,
-    height: 2,
+suporte: {
+  color:'#fff',
+  fontSize: 15,
+  fontWeight:'bold'
 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-},
-  
-
-  topico:{
-    fontSize: 14,
-    color: '#808080',
-    
-},
-
-
-  footer:{
-    flex:1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    backgroundColor: '#044D8C',
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 1,
-    paddingBottom: 1,  
-},
-
-  suporte: {
-    color:'#fff',
-    fontSize: 15,
-}
 
 });
 
