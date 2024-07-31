@@ -17,21 +17,6 @@ const TelaPerfilUsuario = () => {
     const [userCode, setUserCode] = useState('ABC123'); // Exemplo de código de usuário
     const router = useRouter();
 
-
-    const pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.Images,
-            allowsEditing: true,
-            aspect: [4, 3],
-            quality: 1,
-        });
-
-        if (!result.canceled) {
-            setAvatar(result.uri);
-        }
-
-    };
-
     const handleSair = async () => {
         try {
         await signOut(auth);
@@ -45,98 +30,82 @@ const TelaPerfilUsuario = () => {
 
     return (
         <View style={styles.container}>
-            {/* Inicio do Header */}
-            <View style={styles.header}>
-                <View style={styles.perfAvatar}>
-                    <Pressable onPress={pickImage}>
-                        {avatar ? (
-                            <Image source={{ uri: avatar }} style={styles.avatarImage} />
-                        ) : (
-                        <Ionicons name="person-sharp" size={50} color="#fff" />
-                        )}
-                    </Pressable>
-                    <Text style={styles.altera}>Alterar Foto</Text>
+            <View style={[styles.header, {flex:1}]}>
+            <Ionicons name="person-sharp" size={60} color="#fff" />
+            <Text style={styles.alterar}>Alterar foto</Text>
+          </View>
+    
+           <View style={[styles.main, {flex:5}]}>
+    
+              <View style={styles.infoStatus}>
+                <Text style={styles.textVoce}>Você</Text>
+                <Text style={styles.textColabora}>Admin</Text>
+              </View>
+    
+              <View style={styles.infoCodigo}>
+                <Text style={styles.login}>Login</Text>
+                <Text style={styles.codigo}>ABC123</Text>  
+              </View>
+    
+              <View style={styles.alteraSenha}>
+                <View style={styles.inputArea}>
+                   <TextInput
+                      style={styles.input}
+                      value={senhaAtual}
+                      onChangeText={setSenhaAtual}
+                      placeholder='Senha Atual'
+                      placeholderTextColor='#bbb'
+                      secureTextEntry={hideCurretPass}
+                      />
+                      <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
+                        {hideCurretPass ? 
+                          <Ionicons name='lock-closed-outline' color='#fff' size={25} />
+                          :
+                          <Ionicons name='lock-open-outline' color='#fff' size={25} />
+                        }
+                      </Pressable>
                 </View>
-            </View>
-            {/* Fim do Header */}
-
-            {/* espaço vazio*/}
-            <View style={styles.cont1}></View>
-
-            <View style={styles.main}>
-                {/* Inicio navegação do app */}
-                <View style={styles.infoStatus}>
-                    <Text style={styles.textVoce}>Você</Text>
-                    <Text style={styles.textColabora}>{userRole}</Text>
+    
+                 <View style={styles.inputArea}>
+                   <TextInput
+                      style={styles.input}
+                      value={novaSenha}
+                      onChangeText={setNovaSenha}
+                      placeholder='Nova Senha'
+                      placeholderTextColor='#bbb'
+                      secureTextEntry={hideNewPass}
+                      />
+                      <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
+                        {hideNewPass ? 
+                          <Ionicons name='lock-closed-outline' color='#fff' size={25} />
+                          :
+                          <Ionicons name='lock-open-outline' color='#fff' size={25} />
+                        }
+                      </Pressable>
                 </View>
-
-                <View style={styles.infoCodigo}>
-                    <Text style={styles.login}>Login</Text>
-                    <Text style={styles.codigo}>{userCode}</Text>
-                </View>
-
-                <View style={styles.alteraSenha}>
-                    <View style={styles.inputArea}>
-                        <TextInput
-                            style={styles.input}
-                            value={senhaAtual}
-                            placeholder='Senha Atual'
-                            placeholderTextColor='#bbb'
-                            onChangeText={(senhaAtual) => setSenhaAtual(senhaAtual)}
-                            secureTextEntry={hideCurretPass}
-                        />
-                        <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
-                            {hideCurretPass ? (
-                                <Ionicons name='lock-closed-outline' color='#fff' size={25} />
-                            ) : (
-                                <Ionicons name='lock-open-outline' color='#fff' size={25} />
-                            )}
-                        </Pressable>
-                    </View>
-
-                    <View style={styles.inputArea}>
-                        <TextInput
-                            style={styles.input}
-                            value={novaSenha}
-                            placeholder='Nova Senha'
-                            placeholderTextColor='#bbb'
-                            onChangeText={(novaSenha) => setNovaSenha(novaSenha)}
-                            secureTextEntry={hideNewPass}
-                        />
-                        <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
-                            {hideNewPass ? (
-                                <Ionicons name='lock-closed-outline' color='#fff' size={25} />
-                            ) : (
-                                <Ionicons name='lock-open-outline' color='#fff' size={25} />
-                            )}
-                        </Pressable>
-                    </View>
-                </View>
-
-                <View style={styles.cont_Altera}>
-                    <Pressable style={styles.bntRedefinir}>
-                        <Link href='/telaMenu'>
-                            <Text style={styles.redefinirSenha}>Alterar Senha</Text>
-                        </Link>
-                    </Pressable>
-                </View>
-                {/* Fim navegação do app */}
-            </View>
-
-            {/* espaço vazio*/}
-            <View style={styles.cont2}></View>
-
-            <View style={styles.footer}>
-                <Link href='/telaMenu'>
-                    <Ionicons name="chevron-back-outline" size={24} color="#fff"/>
-                </Link>
-                <Pressable onPress={handleSair}>
-                    <Text style={styles.desconectar}>Desconectar</Text>
-               </Pressable>
-            </View>
+              </View>
+    
+              <View style={styles.cont_redefinir}>
+                <Pressable style={styles.bntRedefinir}>
+                  <Link href='/telaMenu'>
+                    <Text style={styles.redefinirSenha}>Alterar Senha</Text>
+                  </Link>
+                </Pressable>
+              </View>
+          </View>
+    
+           <View style={[styles.footer, {flex:0.5}]}>
+            <Link href='#'>
+                <Ionicons name="chevron-back-outline" size={24} color="#fff"/>
+            </Link>
+    
+            <Pressable onPress={handleSair}>
+              <Text style={styles.desconectar}>Desconectar</Text>
+            </Pressable>
+          </View>
         </View>
-    );
-};
+      );
+    }
 
 // Teste de implementação do LogOut
 const Cliques = () => {
