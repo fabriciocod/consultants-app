@@ -11,7 +11,7 @@ const telaMenu = () => {
       <View style={[
         styles.header,{flex:2}]}>
         <View style={styles.icones}>
-         <Ionicons name="qr-code-outline" size={24} color="#fff"/>
+          <Ionicons name="qr-code-outline" size={24} color="#fff"/>
           <Ionicons name="sync-outline" size={24} color="#fff"/>
           <Ionicons name="notifications" size={24} color="#fff"/>
         </View>

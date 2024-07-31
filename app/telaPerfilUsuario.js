@@ -30,81 +30,82 @@ const TelaPerfilUsuario = () => {
 
     return (
         <View style={styles.container}>
-            <View style={[styles.header, {flex:1}]}>
-            <Ionicons name="person-sharp" size={60} color="#fff" />
-            <Text style={styles.alterar}>Alterar foto</Text>
-          </View>
+
+            <View style={[styles.header, {flex:2}]}>
+                <Ionicons name="person-sharp" size={60} color="#fff" />
+                <Text style={styles.alterar}>Alterar foto</Text>
+            </View>
     
-           <View style={[styles.main, {flex:5}]}>
+            <View style={[styles.main, {flex:5}]}>
     
-              <View style={styles.infoStatus}>
-                <Text style={styles.textVoce}>Você</Text>
-                <Text style={styles.textColabora}>Admin</Text>
-              </View>
+                <View style={styles.infoStatus}>
+                    <Text style={styles.textVoce}>Você</Text>
+                    <Text style={styles.textColabora}>Admin</Text>
+                </View>
     
-              <View style={styles.infoCodigo}>
-                <Text style={styles.login}>Login</Text>
-                <Text style={styles.codigo}>ABC123</Text>  
-              </View>
+                <View style={styles.infoCodigo}>
+                    <Text style={styles.login}>Login</Text>
+                    <Text style={styles.codigo}>ABC123</Text>  
+                </View>
     
-              <View style={styles.alteraSenha}>
+                <View style={styles.alteraSenha}>
+                    <View style={styles.inputArea}>
+                    <TextInput
+                        style={styles.input}
+                        value={senhaAtual}
+                        onChangeText={setSenhaAtual}
+                        placeholder='Senha Atual'
+                        placeholderTextColor='#bbb'
+                        secureTextEntry={hideCurretPass}
+                        />
+                        <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
+                            {hideCurretPass ? 
+                            <Ionicons name='lock-closed-outline' color='#fff' size={25} />
+                            :
+                            <Ionicons name='lock-open-outline' color='#fff' size={25} />
+                            }
+                        </Pressable>
+                    </View>
+    
                 <View style={styles.inputArea}>
-                   <TextInput
-                      style={styles.input}
-                      value={senhaAtual}
-                      onChangeText={setSenhaAtual}
-                      placeholder='Senha Atual'
-                      placeholderTextColor='#bbb'
-                      secureTextEntry={hideCurretPass}
-                      />
-                      <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
-                        {hideCurretPass ? 
-                          <Ionicons name='lock-closed-outline' color='#fff' size={25} />
-                          :
-                          <Ionicons name='lock-open-outline' color='#fff' size={25} />
-                        }
-                      </Pressable>
+                    <TextInput
+                        style={styles.input}
+                        value={novaSenha}
+                        onChangeText={setNovaSenha}
+                        placeholder='Nova Senha'
+                        placeholderTextColor='#bbb'
+                        secureTextEntry={hideNewPass}
+                        />
+                        <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
+                            {hideNewPass ? 
+                            <Ionicons name='lock-closed-outline' color='#fff' size={25} />
+                            :
+                            <Ionicons name='lock-open-outline' color='#fff' size={25} />
+                            }
+                        </Pressable>
                 </View>
-    
-                 <View style={styles.inputArea}>
-                   <TextInput
-                      style={styles.input}
-                      value={novaSenha}
-                      onChangeText={setNovaSenha}
-                      placeholder='Nova Senha'
-                      placeholderTextColor='#bbb'
-                      secureTextEntry={hideNewPass}
-                      />
-                      <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
-                        {hideNewPass ? 
-                          <Ionicons name='lock-closed-outline' color='#fff' size={25} />
-                          :
-                          <Ionicons name='lock-open-outline' color='#fff' size={25} />
-                        }
-                      </Pressable>
                 </View>
-              </View>
-    
-              <View style={styles.cont_redefinir}>
-                <Pressable style={styles.bntRedefinir}>
-                  <Link href='/telaMenu'>
-                    <Text style={styles.redefinirSenha}>Alterar Senha</Text>
-                  </Link>
+        
+                <View style={styles.cont_redefinir}>
+                    <Pressable style={styles.bntRedefinir}>
+                    <Link href='/telaMenu'>
+                        <Text style={styles.redefinirSenha}>Alterar Senha</Text>
+                    </Link>
+                    </Pressable>
+                </View>
+            </View>
+        
+            <View style={[styles.footer, {flex:0.5}]}>
+                <Link href='#'>
+                    <Ionicons name="chevron-back-outline" size={24} color="#fff"/>
+                </Link>
+        
+                <Pressable onPress={handleSair}>
+                <Text style={styles.desconectar}>Desconectar</Text>
                 </Pressable>
-              </View>
-          </View>
-    
-           <View style={[styles.footer, {flex:0.5}]}>
-            <Link href='#'>
-                <Ionicons name="chevron-back-outline" size={24} color="#fff"/>
-            </Link>
-    
-            <Pressable onPress={handleSair}>
-              <Text style={styles.desconectar}>Desconectar</Text>
-            </Pressable>
-          </View>
+            </View>
         </View>
-      );
+        );
     }
 
 // Teste de implementação do LogOut

@@ -93,7 +93,7 @@ suporte: {
   fontSize: 15,
   fontWeight:'bold'
 },
-
+// Fim do Componente Footer
 });
 
 export default styles;
