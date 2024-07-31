@@ -67,10 +67,10 @@ const styles = StyleSheet.create({
     },
   
     bntEntrar: {
-      backgroundColor:'#044D8C',
-      borderRadius: 8,
       justifyContent:'center',
       alignItems:'center',
+      backgroundColor:'#044D8C',
+      borderRadius:8,
       marginBottom:25,
       width: 300,
       height: 50

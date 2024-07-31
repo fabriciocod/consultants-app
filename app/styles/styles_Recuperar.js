@@ -5,55 +5,49 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'#fff'
     },
 
     main: {
         flexDirection: 'column',
         justifyContent: 'center',
-        // alignItems: 'center',
-        backgroundColor:'#dcf',
+        alignItems: 'center',
     },
 
     texto:{
+        marginTop:20,
         marginBottom:25,
-        // backgroundColor: 'blue'
-        
-      },
+        backgroundColor:'#dcd'
+    },
     
-      titulo:{
-        fontSize: 24,
+    titulo:{
+        fontSize: 20,
         fontWeight:'bold',
         marginBottom: 25
-      },
+    },
     
-      paragrafo:{
+    paragrafo:{
         fontSize: 16,
-        // fontWeight:'bold',
         marginBottom: 25
-      },
+    },
 
     // Inicio do estilo do inputs
     inputArea:{
         flexDirection: 'row',
         alignItems: 'center',
-        borderRadius: 5,
         borderColor: '#000',
         borderBottomWidth: 1,
         marginBottom: 50,
         width: '90%',
         height: 50,
-        // backgroundColor:'yellow'
-        
     },
 
     input:{
+        alignItems: 'center',
+        // backgroundColor:'#fff',
+        color: '#000',
+        fontSize: 14,
         width: '85%',
         height: 50,
-        color: '#000',
-        // padding: 8,
-        fontSize: 14,
-        alignItems: 'center'
     },
 
     icon:{
@@ -64,9 +58,9 @@ const styles = StyleSheet.create({
     
     cont_Button:{
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor:'#fff' 
+        width:'90%' 
     },
 
     bntconfirmar:{
