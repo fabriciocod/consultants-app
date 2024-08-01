@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router'
 import styles from './styles/styles_Recuperar';
 
-const recuperaSenha = () => {
+const telaRecuperaSenha = () => {
     const [recuperaEmail, setRecuperaEmail] = useState("");
     
     return (
@@ -53,4 +53,4 @@ const recuperaSenha = () => {
         );
     }
 
-export default recuperaSenha
+export default telaRecuperaSenha
