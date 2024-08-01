@@ -1,20 +1,54 @@
 import { Ionicons } from '@expo/vector-icons';
+import { auth } from '../firebaseConfig';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from 'expo-router';
 import React, { useState} from 'react'
-import { View, Text, StyleSheet, Pressable, Image, TextInput, TouchableOpacity} from 'react-native';
+import { View, Alert, Text, Pressable, Image, TextInput } from 'react-native';
 import styles from './styles/styles_Cadastro';
 import { Link } from 'expo-router';
 
 
-
-
 const telaCadastro = () => {
-    const [nome, setNome] = useState("");
+    // const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [confirmarSenha, setConfirmaSenha] = useState("");
     const [ hideSenha, setHideSenha] = useState(true);
     const [ hideConfirmarSenha, setHideConfirmarSenha] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
+    // Implementação de logica de cadastro
+    const validarSenha = (senha1, senha2) => {
+        var validada = false;
+        if(senha1 !== senha2){
+            Alert.alert('Senhas divergentes', 'As duas senhas estão com conteúdos diferentes. Para realizar o cadastro, é preciso que elas sejam iguais.');
+        } else if(senha1.length < 6) {
+            Alert.alert('Senha fraca', 'A senha deve ter no mínimo 6 caracteres.');
+        } else {
+            validada = true;
+        }
+        return validada;
+      }
+    
+      const handleCadastrar = async () => {
+        try {
+            const validada = validarSenha(senha, confirmarSenha);
+            if(validada) {
+                setLoading(true);
+                await createUserWithEmailAndPassword(auth, email, senha);
+                setLoading(false);
+                Alert.alert('Cadastro realizado', 'Usuário cadastrado com sucesso!');
+                router.replace('/index');
+            }
+        } catch (error) {
+            console.error(error.code);
+            console.error(error.message);
+            setLoading(false);
+            Alert.alert('Erro de cadastro', 'Ocorreu um erro ao tentar cadastrar o usuário. Por favor, tente novamente.');
+        }
+      }
+      // Fim da logica de cadastro
     return (
         <View style={styles.container}>
 
@@ -32,7 +66,7 @@ const telaCadastro = () => {
 
             <View style={styles.main}>
 
-                <View style={styles.inputArea}>
+                {/* <View style={styles.inputArea}>
                     <TextInput
                     style={styles.input}
                     value={nome}
@@ -43,7 +77,7 @@ const telaCadastro = () => {
 
                     <Ionicons style={styles.icon} name='document-outline' color='#000' size={25} />
 
-                </View>
+                </View> */}
 
                 <View style={styles.inputArea}>
                     <TextInput
@@ -52,6 +86,7 @@ const telaCadastro = () => {
                     placeholder='Email'
                     placeholderTextColor='#000'
                     onChangeText={setEmail}
+                    keyboardType='email-address'
                     />
 
                     <Ionicons style={styles.icon} name='mail-outline' color='#000' size={25} />
@@ -66,6 +101,7 @@ const telaCadastro = () => {
                     placeholderTextColor='#000'
                     onChangeText={setSenha}
                     secureTextEntry={hideSenha}
+                    maxLength={6}
                     />
 
                 <Pressable style={styles.icon} onPress={() => setHideSenha(!hideSenha)}>
@@ -106,9 +142,9 @@ const telaCadastro = () => {
             <View style={styles.cont2}></View>
 
             <View style={styles.button}>
-            <TouchableOpacity style={styles.bntCadastrar}>
+            <Pressable style={styles.bntCadastrar} onPress={handleCadastrar} loading={loading}>
             <Text style={styles.cadastrar}>Cadastrar</Text>
-            </TouchableOpacity>
+            </Pressable>
             </View>
 
             {/* espaço vazio */}

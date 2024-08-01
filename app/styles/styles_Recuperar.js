@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     texto:{
         marginTop:20,
         marginBottom:25,
-        backgroundColor:'#dcd'
     },
     
     titulo:{

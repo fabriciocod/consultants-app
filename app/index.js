@@ -61,6 +61,7 @@ function App() {
             placeholderTextColor='#000'
             onChangeText={(senha) => setSenha(senha)}
             secureTextEntry={hidePass}
+            maxLength={10}
           />
           <Pressable style={styles.icon} onPress={() => setHidePass(!hidePass)}>
             { hidePass ? //Formatação condicional para estado do icones
@@ -90,7 +91,7 @@ function App() {
 
       <View style={[styles.footer, {flex:1}]}>
       
-        <Link href='/recuperaSenha'>
+        <Link href='/telaRecuperaSenha'>
           <Text style={styles.texto}>Recupera Senha</Text>
         </Link>
         

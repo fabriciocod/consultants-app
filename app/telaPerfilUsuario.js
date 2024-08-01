@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { auth } from '../firebaseConfig';
 import { signOut} from 'firebase/auth';
 import { Ionicons } from '@expo/vector-icons';
-import { Pressable, StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { Pressable, Text, View, TextInput, Alert } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import styles from './styles/styles_Perfil';
+import { EmailAuthProvider, reauthenticateWithCredential, updatePassword } from 'firebase/auth';
 
 const TelaPerfilUsuario = () => {
+    const [userName, setUserName] = useState('');
+    const [userCode, setUserCode] = useState('');
     const [senhaAtual, setSenhaAtual] = useState('');
     const [novaSenha, setNovaSenha] = useState('');
     const [hideCurretPass, setHideCurretPass] = useState(true);
     const [hideNewPass, setHideNewPass] = useState(true);
     const [avatar, setAvatar] = useState(null);
-    const [userRole, setUserRole] = useState('Admin'); // Exemplo de função do usuário
-    const [userCode, setUserCode] = useState('ABC123'); // Exemplo de código de usuário
     const router = useRouter();
 
+    //Implementação do usuário do codigo do usuário
+    useEffect(() => {
+        const user = auth.currentUser;
+        if (user) {
+            setUserName(user.email || 'Email'); // Se o nome não estiver disponível, exibe "Usuário"
+            setUserCode(user.uid); // Usando o UID do Firebase como código
+        }
+    }, []);
+    // Fim da implementação
+
+    // Implementação de logout
     const handleSair = async () => {
         try {
         await signOut(auth);
@@ -26,7 +38,35 @@ const TelaPerfilUsuario = () => {
         console.error(error.message);
         }
     }
+    // Fim da implementação 
 
+    // Implementação de atualizar senha do usuário
+    const handleChangePassword = async () => {
+        const user = auth.currentUser;
+
+        if (!user) {
+            Alert.alert('Erro', 'Nenhum usuário autenticado');
+            return;
+        }
+
+        // Reautenticar o usuário
+        const credential = EmailAuthProvider.credential(user.email, senhaAtual);
+
+        try {
+            await reauthenticateWithCredential(user, credential);
+            // Atualizar a senha
+            await updatePassword(user, novaSenha);
+            Alert.alert('Sucesso', 'Senha alterada com sucesso!');
+        } catch (error) {
+            console.error('Erro ao alterar a senha:', error);
+            if (error.code === 'auth/wrong-password') {
+                Alert.alert('Erro', 'A senha atual está incorreta.');
+            } else {
+                Alert.alert('Erro', 'Ocorreu um erro ao alterar a senha. Tente novamente.');
+            }
+        }
+    };
+    // Fim da Implementação
 
     return (
         <View style={styles.container}>
@@ -40,12 +80,12 @@ const TelaPerfilUsuario = () => {
     
                 <View style={styles.infoStatus}>
                     <Text style={styles.textVoce}>Você</Text>
-                    <Text style={styles.textColabora}>Admin</Text>
+                    <Text style={styles.textColabora}>{userName}</Text>
                 </View>
     
                 <View style={styles.infoCodigo}>
                     <Text style={styles.login}>Login</Text>
-                    <Text style={styles.codigo}>ABC123</Text>  
+                    <Text style={styles.codigo}>{userCode}</Text>  
                 </View>
     
                 <View style={styles.alteraSenha}>
@@ -57,6 +97,7 @@ const TelaPerfilUsuario = () => {
                         placeholder='Senha Atual'
                         placeholderTextColor='#bbb'
                         secureTextEntry={hideCurretPass}
+                        maxLength={10}
                         />
                         <Pressable style={styles.icon} onPress={() => setHideCurretPass(!hideCurretPass)}>
                             {hideCurretPass ? 
@@ -75,6 +116,7 @@ const TelaPerfilUsuario = () => {
                         placeholder='Nova Senha'
                         placeholderTextColor='#bbb'
                         secureTextEntry={hideNewPass}
+                        maxLength={10}
                         />
                         <Pressable style={styles.icon} onPress={() => setHideNewPass(!hideNewPass)}>
                             {hideNewPass ? 
@@ -87,7 +129,7 @@ const TelaPerfilUsuario = () => {
                 </View>
         
                 <View style={styles.cont_redefinir}>
-                    <Pressable style={styles.bntRedefinir}>
+                    <Pressable style={styles.bntRedefinir} onPress={handleChangePassword}>
                     <Link href='/telaMenu'>
                         <Text style={styles.redefinirSenha}>Alterar Senha</Text>
                     </Link>
