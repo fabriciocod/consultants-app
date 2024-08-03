@@ -33,6 +33,12 @@ const telaReceberEncomenda = () => {
                 <Text style={styles.textReceber}>+ Receber</Text>
               </Link>
             </Pressable>
+
+            <Pressable style={styles.bntReceber}>
+              <Link href='/form_Encomenda'>
+                <Text style={styles.textReceber}>+ Encomenda</Text>
+              </Link>
+            </Pressable>
           </View>
   
         {/* espaço vazio*/}
