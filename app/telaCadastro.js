@@ -29,9 +29,9 @@ const telaCadastro = () => {
             validada = true;
         }
         return validada;
-      }
+    }
     
-      const handleCadastrar = async () => {
+    const handleCadastrar = async () => {
         try {
             const validada = validarSenha(senha, confirmarSenha);
             if(validada) {
@@ -47,8 +47,9 @@ const telaCadastro = () => {
             setLoading(false);
             Alert.alert('Erro de cadastro', 'Ocorreu um erro ao tentar cadastrar o usuário. Por favor, tente novamente.');
         }
-      }
+    }
       // Fim da logica de cadastro
+
     return (
         <View style={styles.container}>
 

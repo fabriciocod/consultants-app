@@ -92,6 +92,14 @@ const styles = StyleSheet.create({
       paddingLeft:10,
       height:50
     },
+
+    tipo_Container:{
+      flexDirection:'row',
+      justifyContent:'space-around',
+      alignItems:'center',
+      marginLeft:16,
+      marginRight:16
+    },
   
     desc_Container:{
       justifyContent: 'center',
