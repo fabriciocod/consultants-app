@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Link, useRouter } from 'expo-router';
+import styles from './styles/styles_Cad_Contato';
 
 const form_Cad_Contato = () => {
   const [nomeContato, setNomeContato] = useState('');
@@ -25,7 +26,7 @@ const form_Cad_Contato = () => {
         </View>
       </View>
 
-      <View style={[styles.main, { flex: 5 }]}>
+      <View style={[styles.main, { flex: 4 }]}>
         <View style={styles.infoNomeContato}>
           <TextInput
             style={styles.inputNome}
@@ -45,6 +46,7 @@ const form_Cad_Contato = () => {
             placeholderTextColor="#000"
           />
           <View style={{width:20}}/>
+
           <TextInput
             style={styles.inputUnidade}
             value={unidade}

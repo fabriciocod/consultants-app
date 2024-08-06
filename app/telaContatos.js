@@ -42,7 +42,7 @@ const telaContatos = () => {
           </View>
           <View>
             <Pressable style={styles.bntContato}>
-              <Link href='/telaCadastroContatos'>
+              <Link href='/form_Cad_Contato'>
                 <Text style={styles.textContato}>+ Contato</Text>
               </Link>
             </Pressable>
