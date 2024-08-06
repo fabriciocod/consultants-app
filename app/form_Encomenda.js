@@ -1,4 +1,4 @@
-import React, { useState, Select } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, TextInput, View, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
@@ -9,6 +9,17 @@ const form_Encomenda = () => {
   const[checked, setChecked] = useState('alta');
   const[checkedEnco, setCheckedEnco] = useState('Encomenda');
   const[descricao, setDescricao] = useState('');
+
+  const[data, setData] = useState('');
+  const[hora, setHora] = useState('');
+
+  useEffect(() => {
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('pt-BR');
+    const formattedTime = now.toLocaleTimeString('pt-Br');
+    setData(formattedDate);
+    setHora(formattedTime);
+  }, []);
   
   return (
     <View style={styles.container}>
@@ -21,12 +32,12 @@ const form_Encomenda = () => {
             <View style={styles.data_hora_container}>
               <View style={styles.data}>
                 <Ionicons name="calendar" size={40} color="#808080" />
-                <Text>Data</Text>
+                <Text>{data}</Text>
               </View>
 
               <View style={styles.horas}>
                 <Ionicons name="time" size={40} color="#808080" />
-                <Text>Horas</Text>
+                <Text>{hora}</Text>
               </View>
             </View>
 
