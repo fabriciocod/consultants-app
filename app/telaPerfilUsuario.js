@@ -138,7 +138,7 @@ const TelaPerfilUsuario = () => {
             </View>
         
             <View style={[styles.footer, {flex:0.5}]}>
-                <Link href='#'>
+                <Link href='/telaMenu'>
                     <Ionicons name="chevron-back-outline" size={24} color="#fff"/>
                 </Link>
         

@@ -26,7 +26,7 @@ const form_Cad_Contato = () => {
         </View>
       </View>
 
-      <View style={[styles.main, { flex: 4 }]}>
+      <View style={[styles.main, { flex: 3 }]}>
         <View style={styles.infoNomeContato}>
           <TextInput
             style={styles.inputNome}
@@ -58,7 +58,7 @@ const form_Cad_Contato = () => {
       </View>
 
       <View style={[styles.footer, { flex: 0.5 }]}>
-        <Link href="/telaCadastroContatos">
+        <Link href="/telaContatos">
           <Ionicons name="chevron-back-outline" size={24} color="#fff" />
         </Link>
       </View>

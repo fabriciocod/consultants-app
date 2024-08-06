@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
       // padding: 8,
     },
 
+    cadContato: {
+        marginTop:15
+    },
+
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
     },
 
     inputNome: {
-        width:300,
+        width:313,
         padding:5
     },
 
@@ -76,25 +80,24 @@ const styles = StyleSheet.create({
     },
 
     inputContato: {
-        width:150,
+        width:154,
         borderBottomWidth: 1,
         borderColor:'#bbb',
-        padding:5
+        padding:10
     },
     inputUnidade: {
         width:150,
-        padding:5,
+        padding:10,
         borderBottomWidth: 1,
         borderColor:'#bbb'
     },
 
     footer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#579DD9',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
+        padding: 10,
         maxHeight: 50,
     },
 });

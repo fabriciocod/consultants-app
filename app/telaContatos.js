@@ -64,7 +64,7 @@ const telaContatos = () => {
       <View style={styles.cont2}></View>
 
       <View style={styles.footer}>
-        <Link href='/telaReceberEncomenda'>
+        <Link href='/telaMenu'>
             <Ionicons name="chevron-back" size={24} color="#fff" />
         </Link>
       </View>
