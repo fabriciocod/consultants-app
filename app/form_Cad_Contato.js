@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Link, useRouter } from 'expo-router';
-import styles from './styles/styles_Cad_Contato';
+import styles from './styles/styles_Form_Cad_Contato';
 
 const form_Cad_Contato = () => {
   const [nomeContato, setNomeContato] = useState('');
