@@ -53,32 +53,13 @@ const telaCadastro = () => {
     return (
         <View style={styles.container}>
 
-                {/* View vázia */}
-                <View style={styles.cont0}></View>
-
-            <View style={styles.header}>
+            <View style={[styles.header, {flex:1}]}>
                 <View style={styles.logo}>
                 <Image source={require('./../assets/logo.png')} />
                 </View>
             </View>
 
-                {/* espaço vazio */}
-                <View style={styles.cont1}></View>
-
-            <View style={styles.main}>
-
-                {/* <View style={styles.inputArea}>
-                    <TextInput
-                    style={styles.input}
-                    value={nome}
-                    placeholder='Nome'
-                    placeholderTextColor='#000'
-                    onChangeText={setNome}
-                    />
-
-                    <Ionicons style={styles.icon} name='document-outline' color='#000' size={25} />
-
-                </View> */}
+            <View style={[styles.main, {flex:5}]}>
 
                 <View style={styles.inputArea}>
                     <TextInput
@@ -137,21 +118,15 @@ const telaCadastro = () => {
 
                 </View>
 
+                <View style={styles.button}>
+                    <Pressable style={styles.bntCadastrar} onPress={handleCadastrar} loading={loading}>
+                    <Text style={styles.cadastrar}>Cadastrar</Text>
+                    </Pressable>
+                </View>
+
             </View>
-
-            {/* espaço vazio */}
-            <View style={styles.cont2}></View>
-
-            <View style={styles.button}>
-            <Pressable style={styles.bntCadastrar} onPress={handleCadastrar} loading={loading}>
-            <Text style={styles.cadastrar}>Cadastrar</Text>
-            </Pressable>
-            </View>
-
-            {/* espaço vazio */}
-            <View style={styles.cont3}></View>
-            
-            <View style={styles.footer}>
+           
+            <View style={[styles.footer, {flex:0.5}]}>
 
                 <Link href='/'>
                 <Ionicons name="chevron-back" size={25} color="#fff" />
@@ -159,7 +134,6 @@ const telaCadastro = () => {
 
             </View>
 
-            {/* </ImageBackground> */}
         </View>
     );
 }

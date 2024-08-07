@@ -7,30 +7,18 @@ const styles = StyleSheet.create({
       // justifyContent: 'space-around',
     },
   
-    imageBackground: {
-      flex: 1,
-      resizeMode: "cover",
-      justifyContent: "center",
-      width: '100%'
-    },
-  
     header: {
       flexDirection: 'row',
       justifyContent: 'center',
-      padding: 20,
       alignItems: 'center',
-      // backgroundColor:'blue'   
     },
     
     main: {
       flexDirection: 'column',
-      // justifyContent:'space-between',
-      // gap: 5,
+      justifyContent:'flex-start',
       alignItems: 'center',
-      // backgroundColor: '#dcf',
-      marginTop: 50,
-      marginBottom: 50
-              
+       // marginTop: 50,
+      // marginBottom: 50
     },
   
   // Inicio do estilo do inputs
@@ -91,14 +79,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#044D8C',
     paddingLeft: 10,
     paddingRight: 10,
-    paddingTop: 1,
-    paddingBottom: 1,
-    maxHeight: 50
+    
   
   },
   
   texto: {
-    color:'white',
+    color:'#fff',
     fontSize: 15,
     fontWeight:'bold'
   }

@@ -8,8 +8,7 @@ const telaMenu = () => {
   return (
     <View style={styles.container}>
 
-      <View style={[
-        styles.header,{flex:2}]}>
+      <View style={[styles.header,{flex:1}]}>
         <View style={styles.icones}>
           <Ionicons name="qr-code-outline" size={24} color="#fff"/>
           <Ionicons name="sync-outline" size={24} color="#fff"/>
@@ -30,7 +29,7 @@ const telaMenu = () => {
         </View>
       </View>
       
-      <View style={[styles.main, {flex:10}]}>
+      <View style={[styles.main, {flex:5}]}>
         <Link href='/telaReceberEncomenda'>
             <View style={styles.card}>
             < Ionicons name="cube" size={40} color="#579DD9" style={styles.icon_topico}/>
@@ -53,7 +52,7 @@ const telaMenu = () => {
           </Link>
       </View>
 
-      <View style={[styles.footer, {flex:1}]}>
+      <View style={[styles.footer, {flex:0.5}]}>
         <Link href='#'>
           <Text style={styles.suporte}>Suporte</Text>
         </Link>

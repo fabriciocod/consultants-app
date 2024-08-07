@@ -14,7 +14,7 @@ const telaAlterarSenha = () => {
   return (
     
     <View style={styles.container}>
-      <View style={styles.main}>
+      <View style={[styles.main, {flex:0.5}]}>
 
         <View style={styles.texto}>
 

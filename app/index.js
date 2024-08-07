@@ -32,7 +32,7 @@ function App() {
   return (
     <View style={styles.container}>
       
-      <View style={[styles.header, {flex:1}]}>
+      <View style={[styles.header, {flex:2}]}>
         <Image source={require('./../assets/logo.png')}
         style={styles.marca}
         />
@@ -81,22 +81,20 @@ function App() {
           </Pressable>
 
           <Pressable onPress={() => {handleLogin(email, senha, router);}} loading={loading} style={styles.bntEntrar}>
-            {/* <Link href='/telaMenu'> */}
               <Text style={styles.entrar}>Login</Text>
-            {/* </Link> */}
           </Pressable>
 
         </View>
       </View>
 
-      <View style={[styles.footer, {flex:1}]}>
+      <View style={[styles.footer, {flex:0.7}]}>
       
         <Link href='/telaRecuperaSenha'>
           <Text style={styles.texto}>Recupera Senha</Text>
         </Link>
         
             
-        <Link href="/telaCadastro">
+        <Link href="/telaCadastroUsuario">
           <Text style={styles.texto}>Cadastrar</Text>
         </Link>  
 

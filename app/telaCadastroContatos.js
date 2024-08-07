@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View, TextInput } from 'react-native';
 import { Link } from 'expo-router';
-import styles from './styles/styles_CadastroContatos.js';
+import styles from './styles/styles_Contatos.js';
 
 const telaCadastroContato = () => {
   const [nome, setNome] = useState('');
