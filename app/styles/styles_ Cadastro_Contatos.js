@@ -90,7 +90,7 @@ footer: {
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#579DD9',
-    padding: 10,
+    // padding: 2,
     height: 50,
 },
 });

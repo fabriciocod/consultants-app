@@ -87,7 +87,7 @@ function App() {
         </View>
       </View>
 
-      <View style={[styles.footer, {flex:0.7}]}>
+      <View style={[styles.footer, {flex:0.5}]}>
       
         <Link href='/telaRecuperaSenha'>
           <Text style={styles.texto}>Recupera Senha</Text>
