@@ -1,14 +1,38 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Pressable, TextInput } from 'react-native';
+import { Text, View,Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Link, useRouter } from 'expo-router';
+import { Link, useRouter} from 'expo-router';
 import styles from './styles/styles_Cad_Contato';
+import { addDoc, colletion } from 'firebase/firestore';
+import { auth, db } from '../firebaseConfig'
 
 const form_Cad_Contato = () => {
   const [nomeContato, setNomeContato] = useState('');
-  const [contato, setContato] = useState('');
+  const [numeroContato, setNumeroContato] = useState('');
   const [unidade, setUnidade] = useState('');
   const router = useRouter();
+  const user = auth.currentUser;
+
+  const handleCriar = async () => {
+    try {
+        setLoading(true);
+        await addDoc(collection(db, "contato"), {
+            // Os nomes do lado esquerdo (key) serão usados para armazenar o dado no Firestore.
+            // Lado direito (value) é o valor que será armazenado. Apontam para um state ou valor fixo.
+            nomeContato: nomeContato,
+            numeroContato: numeroContato,
+            unidade: unidade,
+            concluida: false, // Por padrão, todas as tarefas são criadas não concluídas.
+            idUsuario: user.uid
+        });
+        router.replace('/contato');
+    } catch (error) {
+        console.error(error.code);
+        console.error(error.message);
+    } finally {
+        setLoading(false);
+    }
+}
 
   return (
     <View style={styles.container}>
@@ -18,7 +42,7 @@ const form_Cad_Contato = () => {
         </View>
 
         <View style={styles.bntAddContato}>
-          <Pressable style={styles.bntContato}>
+          <Pressable style={styles.bntContato} onPress={handleCriar}>
             <Link href="#">
               <Text style={styles.textContato}>+ Contato</Text>
             </Link>
@@ -40,8 +64,8 @@ const form_Cad_Contato = () => {
         <View style={styles.infoContUni}>
           <TextInput
             style={styles.inputContato}
-            value={contato}
-            onChangeText={setContato}
+            value={numeroContato}
+            onChangeText={setNumeroContato}
             placeholder="Contato"
             placeholderTextColor="#000"
           />
