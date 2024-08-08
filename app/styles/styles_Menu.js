@@ -71,12 +71,17 @@ card:{
   shadowRadius: 3.84,
   elevation: 5,
 },
+
+icon_topico:{
+  flexDirection:'column',
+  justifyContent:'center',
+  alignItems:'center',
+},
 // Fim do Componente Main
 
 // Inicio do Componente Footer
 
 footer:{
-  // flex:1,
   flexDirection: 'row',
   justifyContent: 'flex-end',
   alignItems: 'center',
