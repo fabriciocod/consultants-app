@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { Text, View,Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-<<<<<<< HEAD
-import { Link, useRouter} from 'expo-router';
-import styles from './styles/styles_Cad_Contato';
 import { addDoc, colletion } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig'
-=======
 import { Link, useRouter } from 'expo-router';
 import styles from './styles/styles_Form_Cad_Contato';
->>>>>>> c40f9627e07b3440dddd13cc7bc54b87a50f1036
+6
 
 const form_Cad_Contato = () => {
   const [nomeContato, setNomeContato] = useState('');
