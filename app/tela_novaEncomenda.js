@@ -3,7 +3,7 @@ import { Text, TextInput, View, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
 import { Link, useRouter } from 'expo-router';
-import styles from './styles/styles_Form_Encomenda'
+import styles from './styles/styles_novaEncomenda'
 
 const form_Encomenda = () => {
   const[checked, setChecked] = useState('alta');

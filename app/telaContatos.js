@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { Pressable, StyleSheet, Text, View, TextInput } from 'react-native';
-import { Link } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { Pressable, Text, View, TextInput } from 'react-native';
+import { Link, useRouter } from 'expo-router';
 import styles from './styles/styles_Contatos';
 
 const telaContatos = () => {
   const [searchText, setSearchText] = React.useState('');
+  const router = useRouter();
 
   const handleSearch = () => {
     // Lógica de busca
@@ -34,21 +35,23 @@ const telaContatos = () => {
             />
           </View>
         
-
         <View style={styles.InfoTitulo}>
           <View>
             <Text style={styles.infoContato}>Contatos</Text>
             
           </View>
           <View>
-            <Pressable style={styles.bntContato}>
-              <Link href='/form_Cad_Contato'>
-                <Text style={styles.textContato}>+ Contato</Text>
-              </Link>
+            <Pressable 
+              style={styles.bntContato}
+              onPress={() => {
+                router.push('/tela_cadastroContato');
+              }}
+              >
+              <Ionicons name="person-add" size={16} color="#fff" />
+              <Text style={styles.textContato}>Contato</Text>
             </Pressable>
           </View>
         </View>
-
         
       </View>
       {/* Fim do Header */}

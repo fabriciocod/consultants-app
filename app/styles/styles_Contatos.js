@@ -21,8 +21,10 @@ const styles = StyleSheet.create({
     },
     
     infoContato: {
-        fontSize: 19,
         color: '#000',
+        fontSize: 25,
+        fontWeight:'bold',
+        
     },
     
     searchContainer: {
@@ -47,17 +49,21 @@ const styles = StyleSheet.create({
     },
     
     bntContato: {
-        backgroundColor: '#579DD9',
-        borderRadius: 10,
+        flexDirection:'row',
         alignItems: 'center',
-        paddingVertical: 5,
-        paddingHorizontal: 10,
+        backgroundColor: '#579DD9',
+        borderRadius: 4,
+        gap:5,
         marginLeft: 16,
+        paddingVertical: 10,
+        paddingHorizontal: 25,
+        
     },
     
     textContato: {
         color: '#fff',
         fontSize: 16,
+        fontWeight:'bold'
     },
     
     main: {

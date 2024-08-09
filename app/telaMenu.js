@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, useRouter} from 'expo-router';
 import styles from './styles/styles_Menu.js';
 
 const telaMenu = () => {
+  const router = useRouter();
   return (
     <View style={styles.container}>
 

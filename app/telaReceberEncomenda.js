@@ -32,7 +32,7 @@ const telaReceberEncomenda = () => {
               </Pressable>
 
               <Pressable style={styles.bntReceber}>
-                <Link href='/form_Encomenda'>
+                <Link href='/tela_novaEncomenda'>
                   <Text style={styles.textReceber}>+ Encomenda</Text>
                 </Link>
               </Pressable>
