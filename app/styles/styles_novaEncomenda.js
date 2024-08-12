@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 
   tipo_Prioridade: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    // justifyContent: 'space-around',
     alignItems: 'center',
     marginLeft: 16,
     marginRight: 16,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   
   tipo_Encomenda:{
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    // justifyContent: 'space-around',
     alignItems: 'center',
     marginLeft: 16,
     marginRight: 16,
@@ -89,15 +89,21 @@ const styles = StyleSheet.create({
   cont_descricao: {
     borderColor: 'gray',
     borderRadius: 4,
-    borderWidth: 1,
+    borderWidth: 2,
     padding: 10,
     marginLeft: 16,
     marginRight: 16,
     marginTop: 30,
     height: 100,
-    textAlignVertical: 'top',
+    // textAlignVertical: 'top',
   },
-  
+
+  descricao:{
+    fontSize: 15
+  },
+// Fim do main
+
+// Inicio do footer
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  
+// Fim do footer
   });
 
   export default styles;
