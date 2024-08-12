@@ -13,6 +13,7 @@ const telaCadastroContato = () => {
   return (
     <View style={styles.container}>
       <View style={[styles.header, {flex:2}]}>
+        
         <View style={styles.cadContato}>
           <Ionicons name="person" size={50} color="#579DD9"/> 
           <Text style={styles.contato}>Cadastro de Contato</Text>
@@ -50,24 +51,31 @@ const telaCadastroContato = () => {
             placeholder="Nome Contato"
             placeholderTextColor="#000"
           />
+
+          <Ionicons style={styles.icon} name='create-outline' color='#000' size={25} />
         </View>
 
         <View style={styles.infoContUni}>
-          <TextInput
-            style={styles.inputContato}
-            value={contato}
-            onChangeText={setContato}
-            placeholder="Contato"
-            placeholderTextColor="#000"
-          />
-          <View style={{width:20}}/>
-          <TextInput
-            style={styles.inputUnidade}
-            value={unidade}
-            onChangeText={setUnidade}
-            placeholder='Unidade'
-            placeholderTextColor="#000"
-          />
+          <View style={styles.inputContato}>
+            <TextInput
+              value={contato}
+              onChangeText={setContato}
+              placeholder="Contato"
+              placeholderTextColor="#000"
+            />
+            <Ionicons style={styles.icon} name='call-outline' color='#000' size={25} />
+          </View>
+
+          <View style={styles.inputUnidade}>
+            <TextInput
+              value={unidade}
+              onChangeText={setUnidade}
+              placeholder='Unidade'
+              placeholderTextColor="#000"
+            />
+            <Ionicons style={styles.icon} name='business-outline' color='#000' size={25} />
+          </View>
+
         </View>
       </View>
 

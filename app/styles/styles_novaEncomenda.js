@@ -8,35 +8,25 @@ const styles = StyleSheet.create({
   
     //Inicio do header
     header:{
-      flexDirection:'column',
-      justifyContent:'center',
-      backgroundColor:'#fff'
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 5,
     },
   
-    titulo:{
-      // color:'#fff',
-      fontSize:25,
-      fontWeight:'bold',
-      marginLeft:16,
-      marginBottom:10
+    text_Titulo: {
+      fontSize: 20,
+      fontWeight: 'bold',
     },
   
-    info_contato:{
-      color:'#808080',
-      fontSize:15,
-      fontWeight:'bold',
-      marginLeft:16,
-      
+    text_Nome: {
+      color: '#808080',
+      fontSize: 12,
+      fontWeight: 'bold',
     },
     //Fim do header
   
     //Inicio do Main
-    main:{
-      flexDirection:'column',
-      justifyContent:'flex-start',
-      
-    },
-    
+        
     data_hora_container:{
       flexDirection:'row',
       justifyContent:'space-around',
@@ -58,75 +48,70 @@ const styles = StyleSheet.create({
       marginRight:16
     },
   
-    prioridade_container:{
-      flexDirection:'column',
-      marginBottom:20,
-      backgroundColor:'#'
-  
-    },
-  
-  text_topico:{
-    fontSize:18,
-    fontWeight:'bold',
-    marginLeft:16,
-    marginBottom:15
+  prioridade:{
+    marginTop:25,
+  },
+
+  tipo_Prioridade: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginLeft: 16,
+    marginRight: 16,
+    marginTop:10
   },
   
-    tipo_prioridade:{
-      flexDirection:'row',
-      justifyContent:'space-around',
-      alignItems:'center',
-      marginLeft:16,
-      marginRight:16
-    },
+  text_Prioridade:{
+    fontSize:16,
+    fontWeight:'bold',
+    marginLeft: 16
+  },
   
-    tipo:{
-      borderRadius:8,
-      borderColor:'#000',
-      borderBottomWidth:1,
-      marginTop:15,
-      marginLeft:16,
-      marginRight:16,
-      paddingLeft:10,
-      height:50
-    },
+  encomenda:{
+    marginTop:25
+  },
+  
+  tipo_Encomenda:{
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginLeft: 16,
+    marginRight: 16,
+    marginTop:10
+  },
 
-    tipo_Container:{
-      flexDirection:'row',
-      justifyContent:'space-around',
-      alignItems:'center',
-      marginLeft:16,
-      marginRight:16
-    },
+  text_Encomenda:{
+    fontSize:16,
+    fontWeight:'bold',
+    marginLeft: 16
+  },
   
-    desc_Container:{
-      justifyContent: 'center',
-      padding: 16,
-    },
+  cont_descricao: {
+    borderColor: 'gray',
+    borderRadius: 4,
+    borderWidth: 1,
+    padding: 10,
+    marginLeft: 16,
+    marginRight: 16,
+    marginTop: 30,
+    height: 100,
+    textAlignVertical: 'top',
+  },
   
-    descricao:{
-      height: 100,
-      borderColor: 'gray',
-      borderWidth: 1,
-      padding: 10,
-      textAlignVertical: 'top', // Isso faz com que o texto comece no topo
-    },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#579DD9',
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
   
-    footer:{
-      flexDirection: 'row',
-        justifyContent: "space-between",
-        alignItems: 'center',
-        backgroundColor: '#044d8c',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        maxHeight:50
-    },
-  
-    bnt_Salvar:{
-      color: '#fff',
-      fontSize: 16,
-      fontWeight:'bold'
-    }
+  text_Salvar: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   
   });
 

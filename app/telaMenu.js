@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { Text, View } from 'react-native';
+import { Text, View, Pressable } from 'react-native';
 import { Link, useRouter} from 'expo-router';
 import styles from './styles/styles_Menu.js';
 
@@ -31,26 +31,34 @@ const telaMenu = () => {
       </View>
       
       <View style={[styles.main, {flex:5}]}>
-        <Link href='/telaReceberEncomenda'>
-            <View style={styles.card}>
-            < Ionicons name="cube" size={40} color="#579DD9" style={styles.icon_topico}/>
-            <Text style={styles.topico}>Receber</Text>
-            </View>
-          </Link>
-
-          <Link href='/telaContatos'>
-            <View style={styles.card}>
-            < Ionicons name="person-sharp" size={40} color="#579DD9" style={styles.icon_topico}/>
-            <Text style={styles.topico}>Contatos</Text>
-            </View>
-          </Link>
-
-          <Link href='#'>
-            <View style={styles.card}>
+        
+          <View>
+            <Pressable style={styles.card} onPress={() => {
+                router.push('/telaReceberEncomenda');
+                }}>
+              <Ionicons name="cube" size={40} color="#579DD9" style={styles.icon_topico}/>
+              <Text style={styles.topico}>Receber Encomenda</Text>
+              </Pressable>
+          </View>
+                  
+          <View>
+            <Pressable style={styles.card} onPress={() => {
+              router.push('/telaContatos');
+            }}>
+            <Ionicons name="person-sharp" size={40} color="#579DD9" style={styles.icon_topico}/>
+            <Text style={styles.topico}>Cadastrar Contatos</Text>
+            </Pressable>
+          </View>
+                   
+          <View>
+            <Pressable style={styles.card} onPress={() => {
+              router.push('#');
+            }}>
             < Ionicons name="reader" size={40} color="#579DD9" style={styles.icon_topico}/>
-            <Text style={styles.topico}>Relatório</Text>
-            </View>
-          </Link>
+            <Text style={styles.topico}>Relatório Encomenda</Text>
+            </Pressable>
+          </View>
+          
       </View>
 
       <View style={[styles.footer, {flex:0.5}]}>

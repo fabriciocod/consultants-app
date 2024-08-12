@@ -11,8 +11,6 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'column',
     justifyContent: 'space-around',
-    borderColor:'#808080',
-    borderBottomWidth:2,
     marginLeft: 16,
     marginRight:16,
   },
@@ -22,22 +20,20 @@ const styles = StyleSheet.create({
     alignItems:'center',
     marginTop: 25,
     marginBottom: 20
-    
   },
+
   contato: {
     fontSize: 25,
     fontWeight:'bold',
     color: '#000',
-    
   },
-
+// Inicio dos Botões
   bntAddContato: {
     flexDirection: 'row',
     justifyContent:'flex-end',
     gap:10,
     marginRight:5,
     marginBottom:16
-    
   },
 
   bntContato: {
@@ -66,12 +62,14 @@ const styles = StyleSheet.create({
     fontWeight:'bold'
     
   },
+// Fim dos Botões
 
   main: {
     flexDirection: 'column',
     alignItems: 'center',
   },
 
+// Inicio dos Input
   infoNomeContato: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -79,37 +77,46 @@ const styles = StyleSheet.create({
     padding: 5,
     borderBottomWidth: 1,
     borderColor: '#bbb',
+    width:340,
     marginTop: 25,
     marginBottom: 20,
   },
 
   inputNome: {
-    width:360,
-    padding:5
+    width:300,
   },
 
   infoContUni: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    justifyContent: 'space-between',
     borderColor:'#bbb',
-    padding: 5,
     marginTop: 15,
     marginBottom: 20,
+    width:350,
   },
 
   inputContato: {
-    width:180,
+    flexDirection:'row',
+    justifyContent:'space-around',
+    alignItems:'center',
     borderBottomWidth: 1,
     borderColor:'#bbb',
-    padding:5
+    fontSize: 14,
+    width:150,
+    height:45
   },
+
   inputUnidade: {
-    width:168,
-    padding:5,
+    flexDirection:'row',
+    justifyContent:'space-around',
+    alignItems:'center',
+    borderColor:'#bbb',
     borderBottomWidth: 1,
-    borderColor:'#bbb'
+    fontSize:14,
+    width:120,
+    height:45
   },
+// Fim dos Input
 
   footer: {
     flexDirection: 'row',

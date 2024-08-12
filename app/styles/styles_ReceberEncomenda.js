@@ -17,22 +17,15 @@ const styles = StyleSheet.create({
         padding: 10,
         marginLeft: 10,
         gap: 5,
-      },
+    },
 
-      titulo_button: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginRight: 10,
-      },
-    
     InfoTitulo: {
-      flexDirection: 'column',
-      justifyContent: 'flex-start',
-    //   alignItems: 'center',
+      flexDirection:'row',
+      alignItems:'center',
       gap: 5,
       paddingLeft: 16,
     },
-  
+
     infoEncomenda: {
       fontSize: 25,
       fontWeight: 'bold',
@@ -40,24 +33,27 @@ const styles = StyleSheet.create({
     },
   
     infoDia: {
-      fontSize: 20,
+      fontSize: 15,
       fontWeight: 'bold',
       color: '#848282',
     },
-  
-   
-  
-    button:{
-      marginLeft: 16,
+
+    titulo_button:{
+      flexDirection:'row',
+      justifyContent:'flex-end',
+      marginLeft: 10,
+      gap:10,
     },
-  
+
     bntReceber:{
+      flexDirection: 'row',
+      justifyContent:'center',
+      gap:5,
       backgroundColor: '#579DD9',
-      borderRadius: 10,
+      borderRadius: 4,
       alignItems: 'center',
       marginTop: 20,
-      paddingTop: 5,
-      paddingBottom:5,
+      padding:10,
       width: 125,
       heght: 30
     },
@@ -65,6 +61,7 @@ const styles = StyleSheet.create({
     textReceber:{
       color: '#fff',
       fontSize: 16,
+      fontWeight:'bold'
       
     },
   

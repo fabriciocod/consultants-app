@@ -77,6 +77,10 @@ icon_topico:{
   justifyContent:'center',
   alignItems:'center',
 },
+
+topico:{
+  textAlign:'center'
+},
 // Fim do Componente Main
 
 // Inicio do Componente Footer

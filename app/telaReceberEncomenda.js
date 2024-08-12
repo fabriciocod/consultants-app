@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Pressable, Text, View } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import styles from './styles/styles_ReceberEncomenda.js';
 
 const telaReceberEncomenda = () => {
+  const router = useRouter();
   return (
       <View style={styles.container}>
         {/* Inicio do Header */}
@@ -17,26 +18,35 @@ const telaReceberEncomenda = () => {
             <Ionicons name="refresh" size={24} color="#808080" />
           </View>
 
-          <View style={styles.titulo_button}>
-
-          <View style={styles.InfoTitulo}>            
-              <Text style={styles.infoEncomenda}>Encomendas</Text>
-              <Text style={styles.infoDia}>Hoje</Text>
+          <View style={styles.InfoTitulo}>
+            <View>
+              <Ionicons name="cube-outline" size={50} color="#579DD9"/>
+            </View>
+            <View>            
+            <Text style={styles.infoEncomenda}>Encomendas</Text>
+            <Text style={styles.infoDia}>Hoje</Text>
+            </View>
           </View>
 
-            <View style={styles.button}>
-              <Pressable style={styles.bntReceber}>
-                <Link href='/telaContatos'>
-                  <Text style={styles.textReceber}>+ Receber</Text>
-                </Link>
+          <View style={styles.titulo_button}>
+              <Pressable style={styles.bntReceber}
+              onPress={() =>{
+                router.push('/telaContatos')
+              }}>
+
+              <Ionicons name="cube" size={24} color="#fff" />  
+              <Text style={styles.textReceber}>Receber</Text>
               </Pressable>
 
-              <Pressable style={styles.bntReceber}>
-                <Link href='/tela_novaEncomenda'>
-                  <Text style={styles.textReceber}>+ Encomenda</Text>
-                </Link>
+              <Pressable style={styles.bntReceber}
+              onPress={() =>{
+                router.push('/tela_novaEncomenda')
+              }}>
+
+              <Ionicons name="cube" size={24} color="#fff" />
+              <Text style={styles.textReceber}>Encomenda</Text>
               </Pressable>
-            </View>
+            
           </View>
 
         </View>
