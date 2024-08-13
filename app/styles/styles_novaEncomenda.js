@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
   
     text_Titulo: {
-      fontSize: 20,
+      fontSize: 25,
       fontWeight: 'bold',
     },
   

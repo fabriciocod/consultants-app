@@ -32,7 +32,7 @@ gap: 15
 
 usuario: {
 color: '#fff',
-fontSize: 19,
+fontSize: 25,
 fontWeight:'bold'
 
 },

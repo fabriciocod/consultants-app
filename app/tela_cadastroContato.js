@@ -2,14 +2,35 @@ import React, { useState } from 'react';
 import { Text, View, Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Link, useRouter } from 'expo-router';
-import styles from './styles/styles_cadastroContato'
+import styles from './styles/styles_cadastroContato';
+import { addDoc, collection} from 'firebase/firestore';
+import { auth, db } from '../firebaseConfig';
 
 const telaCadastroContato = () => {
   const [nomeContato, setNomeContato] = useState('');
   const [contato, setContato] = useState('');
   const [unidade, setUnidade] = useState('');
   const router = useRouter();
+  const user = auth.currentUser;
 
+  const handleCriar = async () => {
+    try {
+        // setLoading(true);
+        await addDoc(collection(db, "contatos"), {
+            nomeContato: nomeContato,
+            contato: contato,
+            unidade: unidade,
+            concluida: false, // Por padrão, todas as tarefas são criadas não c
+            idUsuario: user.uid
+        });
+        router.replace('/telaContatos');
+    } catch (error) {
+        console.error(error.code);
+        console.error(error.message);
+    } //finally {
+    //     setLoading(false);
+    // }
+}
   return (
     <View style={styles.container}>
       <View style={[styles.header, {flex:2}]}>
@@ -22,9 +43,7 @@ const telaCadastroContato = () => {
         <View style={styles.bntAddContato}>
           <Pressable 
                 style={styles.bntContato}
-                onPress={() => {
-                  router.push('/');
-                }}
+                onPress={handleCriar}
                 >
                 <Ionicons name="person-add" size={16} color="#fff" />
                 <Text style={styles.textContato}>Contato</Text>

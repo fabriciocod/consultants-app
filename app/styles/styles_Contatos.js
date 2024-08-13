@@ -12,21 +12,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         paddingHorizontal: 16,
     },
-    
-    InfoTitulo: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 16
-    },
-    
-    infoContato: {
-        color: '#000',
-        fontSize: 25,
-        fontWeight:'bold',
-        
-    },
-    
+
     searchContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -46,6 +32,20 @@ const styles = StyleSheet.create({
     
     searchIcon: {
         marginLeft: 10,
+    },
+    
+    InfoTitulo: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 16
+    },
+    
+    infoContato: {
+        color: '#000',
+        fontSize: 25,
+        fontWeight:'bold',
+        
     },
     
     bntContato: {
