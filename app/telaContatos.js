@@ -62,7 +62,6 @@ useEffect(() => {
         <View style={styles.InfoTitulo}>
           <View>
             <Text style={styles.infoContato}>Contatos</Text>
-            
           </View>
           <View>
             <Pressable 
