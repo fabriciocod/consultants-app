@@ -5,7 +5,7 @@ import { Link, useRouter } from 'expo-router';
 import styles from './styles/styles_Contatos';
 import { collection, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
-import { List } from 'react-native-paper';
+// import { List } from 'react-native-paper';
 // import { useEffect, useState } from 'react/cjs/react.production.min';
 
 const telaContatos = () => {
@@ -17,10 +17,11 @@ const telaContatos = () => {
   // const user = auth.currentUser;
 
   const handleSearch = () => {
-    // Lógica de busca
+  // Lógica de busca
     console.log(`Buscando por: ${searchText}`);
   };
 
+  // Incio do create contatos
   const getAllContatos = async () => {
     try {
         const querySnapshot = await getDocs(query(collection(db, "contatos")));
@@ -36,6 +37,42 @@ const telaContatos = () => {
 useEffect(() => {
     getAllContatos();
 }, []);
+
+// Fim do create contato
+const Contato = ({title, description, unit}) => (
+  <View style={styles.container_cards}>
+    <View style={styles.container_contatos}>
+      <View style={styles.info_contato}>
+        <View style={styles.contato}>
+        <View>
+              <Text style={styles.title}>{title}</Text>
+            </View>
+
+            <View style={styles.rotulos}>
+              <Text style={styles.label}>Contato</Text>
+              <Text style={styles.label}>Unidade</Text>
+            </View>
+
+            <View style={styles.contact_unit}>
+              <Text style={styles.contact}>{description}</Text>
+              <Text style={styles.unit}>{unit}</Text>
+            </View>
+        </View>
+
+        <View style={styles.nova_encomenda}>
+          <Ionicons name="chevron-forward" size={24} color="#888888" />
+        </View>
+      </View>
+
+        <View style={styles.bnt_editar_excluir}>
+          <Ionicons name="create-outline" style={styles.editar} size={20} color="#000" />
+          <Ionicons name="trash-outline" style={styles.excluir} size={20} color="#000" /> 
+        </View>
+    </View>
+  </View>
+)
+// Inicio do card contato
+
 
   return (
     <View style={styles.container}>
@@ -87,7 +124,7 @@ useEffect(() => {
         <FlatList
             data={contatos}
             renderItem={({item}) => (
-              <List.Item 
+              <Contato 
                 title={item.nomeContato}
                 description={item.contato}
                 />

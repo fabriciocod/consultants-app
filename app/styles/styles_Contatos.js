@@ -81,6 +81,85 @@ const styles = StyleSheet.create({
         height: 50
     },
     
+    // Styles CardContatos
+    container_Card:{
+        flexDirection:'column',
+        // backgroundColor: 'gray',
+        padding: 10,
+    },
+      
+    card_contato:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center',
+        borderColor:'#808080',
+        borderBottomWidth:2,
+        // backgroundColor:'#fff',   
+    },
+      
+    info_contato:{
+        flexDirection:'column',
+        // backgroundColor:'red',
+        paddingVertical:20,
+        width:'90%',
+          // height:100
+    },
+      
+    nova_encomenda:{
+        justifyContent:'center',
+        alignItems:'center',
+        // backgroundColor:'red'
+    },
+      
+    container_editar_excluir:{
+        flexDirection:'row',
+        justifyContent:'flex-end',
+        alignItems:'center',
+        // backgroundColor:'yellow',
+        gap:20,
+        paddingVertical:25,
+        height: 40
+    },
+      
+    title:{
+        // backgroundColor:'#fff',
+        fontSize:20,
+        fontWeight:'bold'
+    },
+      
+    rotulos:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+         paddingVertical:8,
+        // backgroundColor:'gray'
+    },
+      
+    label:{
+        fontSize:12,
+        fontWeight:'bold'
+    },
+      
+    contact_unit:{
+        flexDirection:'row',
+        justifyContent:'flex-end',
+        // backgroundColor:'blue'
+    },
+        
+    editar:{
+        backgroundColor:'#579DD9',
+        borderRadius: 4,
+        paddingVertical:4,
+        paddingHorizontal:4
+    },
+        
+    excluir:{
+        backgroundColor:'#6D0909',
+        borderRadius: 4,
+        paddingVertical:4,
+        paddingHorizontal:4
+    }
+      
     });
+ 
 
 export default styles;
