@@ -4,11 +4,14 @@ import { Ionicons } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
 import { Link, useRouter } from 'expo-router';
 import styles from './styles/styles_novaEncomenda'
+import { addDoc, collection} from 'firebase/firestore';
+import { auth, db } from '../firebaseConfig';
 
 const form_Encomenda = () => {
   const[checkedPrioridade, setCheckedPrioridade] = useState('alta');
   const[checkedEncomenda, setCheckedEncomenda] = useState('encomenda');
   const[descricao, setDescricao] = useState('');
+  const user = auth.currentUser;
 
   const router = useRouter('');
   const[data, setData] = useState('');
@@ -22,6 +25,27 @@ const form_Encomenda = () => {
     setHora(formattedTime);
   }, []);
   
+  const handleEncomendas = async () => {
+    try {
+        // setLoading(true);
+        await addDoc(collection(db, "encomendas"), {
+            nomeContato: nomeContato,
+            data: data,
+            hora: hora,
+            prioridade: checkedPrioridade,
+            tipo: checkedEncomenda,
+            descricaoEncomenda: descricao,
+            concluida: false, // Por padrão, todas as tarefas são criadas não c
+            idUsuario: user.uid
+        });
+        router.replace('/telaReceberEncomenda');
+    } catch (error) {
+        console.error(error.code);
+        console.error(error.message);
+    } //finally {
+    //     setLoading(false);
+    // }
+}
   return (
     <View style={styles.container}>
       <View style={[styles.header, {flex:1}]}>
@@ -124,13 +148,16 @@ const form_Encomenda = () => {
       </View>
 
       <View style={[styles.footer, { flex: 0.5 }]}>
-          <Ionicons name="chevron-back-outline" size={24} color="#fff" />
+          <Pressable
+              onPres={() => {
+              router.push('/');
+              }}>
+            <Ionicons name="chevron-back-outline" size={24} color="#fff" />
+          </Pressable>
 
           <Pressable
             style={styles.bnt_Salvar}
-            onPres={() => {
-              router.push('/');
-            }}>
+            onPress={handleEncomendas}>
             <Text style={styles.text_Salvar}>Salvar</Text>
           </Pressable>
       </View>

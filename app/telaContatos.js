@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Pressable, Text, View, TextInput, FlatList, ActivityIndicator } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import styles from './styles/styles_Contatos';
-import { collection, getDoc, getDocs, query, where } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
 // import { List } from 'react-native-paper';
 // import { useEffect, useState } from 'react/cjs/react.production.min';
@@ -15,6 +15,7 @@ const telaContatos = () => {
 
   const [contatos, setContatos] = useState([]);
   // const user = auth.currentUser;
+  const [deleteContato, setDeleteContato] = useState(null)
 
   const handleSearch = () => {
   // Lógica de busca
@@ -22,7 +23,7 @@ const telaContatos = () => {
   };
 
   // Incio do create contatos
-  const getAllContatos = async () => {
+  const getAllRecuperaContatos = async () => {
     try {
         const querySnapshot = await getDocs(query(collection(db, "contatos")));
         let array = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
@@ -35,39 +36,62 @@ const telaContatos = () => {
 };
 
 useEffect(() => {
-    getAllContatos();
-}, []);
+    getAllRecuperaContatos();
+}, [deleteContato]);
+// Fim do creater
+
+// Inicio do delete
+const handleDeleteContatos = async (id) => {
+  try {
+      setLoading(true);
+      await deleteDoc(doc(db, "contatos", id));
+      setDeletedDate(new Date());
+  } catch (error) {
+      console.error(error);
+  } finally {
+      setLoading(false);
+  }
+}
+// Fim do delete
 
 // Fim do create contato
 const Contato = ({title, description, unit}) => (
   <View style={styles.container_cards}>
     <View style={styles.container_contatos}>
+
       <View style={styles.info_contato}>
         <View style={styles.contato}>
-        <View>
-              <Text style={styles.title}>{title}</Text>
-            </View>
+          <View>
+            <Text style={styles.title}>{title}</Text>
+          </View>
 
-            <View style={styles.rotulos}>
-              <Text style={styles.label}>Contato</Text>
-              <Text style={styles.label}>Unidade</Text>
-            </View>
+          <View style={styles.rotulos}>
+            <Text style={styles.label}>Contato</Text>
+            <Text style={styles.label}>Unidade</Text>
+          </View>
 
-            <View style={styles.contact_unit}>
-              <Text style={styles.contact}>{description}</Text>
-              <Text style={styles.unit}>{unit}</Text>
-            </View>
+          <View style={styles.contato_unidade}>
+            <Text style={styles.dados_contato}>{description}</Text>
+            <Text style={styles.dados_contato}>{unit}</Text>
+          </View>
         </View>
 
         <View style={styles.nova_encomenda}>
+          <Pressable onPress={() => {
+            router.push('/tela_novaEncomenda')
+          }}>
           <Ionicons name="chevron-forward" size={24} color="#888888" />
+          </Pressable>
         </View>
       </View>
 
-        <View style={styles.bnt_editar_excluir}>
-          <Ionicons name="create-outline" style={styles.editar} size={20} color="#000" />
-          <Ionicons name="trash-outline" style={styles.excluir} size={20} color="#000" /> 
-        </View>
+      <View style={styles.bnt_editar_excluir}>
+          <Ionicons name="create-outline" style={styles.editar} size={24} color="#fff" />
+          
+          <Pressable onPress={() => handleDeleteContatos(id)}> 
+            <Ionicons name="trash-outline" style={styles.excluir} size={24} color="#fff" /> 
+          </Pressable>
+      </View>
     </View>
   </View>
 )
@@ -124,11 +148,15 @@ const Contato = ({title, description, unit}) => (
         <FlatList
             data={contatos}
             renderItem={({item}) => (
-              <Contato 
+              <Contato
+                id={item.uid}
                 title={item.nomeContato}
                 description={item.contato}
+                unit={item.unidade}
+                setDeleteContato={setDeleteContato}
                 />
             )}
+
           />
   )}
       </View>
