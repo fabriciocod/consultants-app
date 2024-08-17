@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Link, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import styles from './styles/styles_cadastroContato';
 import { addDoc, collection} from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
@@ -13,7 +13,18 @@ const telaCadastroContato = () => {
   const router = useRouter();
   const user = auth.currentUser;
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const handleCriar = async () => {
+    if (!nomeContato || !contato || !unidade) {
+      alert("Todos os campos devem ser preenchidos!");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
     try {
         // setLoading(true);
         await addDoc(collection(db, "contatos"), {
@@ -27,9 +38,9 @@ const telaCadastroContato = () => {
     } catch (error) {
         console.error(error.code);
         console.error(error.message);
-    } //finally {
-    //     setLoading(false);
-    // }
+    } finally {
+      setLoading(false);
+    }
 }
   return (
     <View style={styles.container}>
@@ -99,9 +110,11 @@ const telaCadastroContato = () => {
       </View>
 
       <View style={[styles.footer, { flex: 0.5 }]}>
-        <Link href='telaMenu'>
+        <Pressable onPress={() => 
+          router.push('/telaMenu')
+          }>
           <Ionicons name='chevron-back-outline' size={24} color="#fff" />
-        </Link>
+        </Pressable>
       </View>
     </View>
     );

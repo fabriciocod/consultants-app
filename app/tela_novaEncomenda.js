@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Text, TextInput, View, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
-import { useRouter, useSearchParams } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import styles from './styles/styles_novaEncomenda'
 import { addDoc, collection} from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
 
 const form_Encomenda = () => {
-  const [nomeContato, setNomeContato] = useState('');
+  // const [nomeContato, setNomeContato] = useState('null');
   const[checkedPrioridade, setCheckedPrioridade] = useState('alta');
   const[checkedEncomenda, setCheckedEncomenda] = useState('encomenda');
   const[descricao, setDescricao] = useState('');
@@ -17,6 +17,7 @@ const form_Encomenda = () => {
   const router = useRouter('');
   const[data, setData] = useState('');
   const[hora, setHora] = useState('');
+  const{ idContato, nomeContato } = useLocalSearchParams();
 
   useEffect(() => {
     const now = new Date();
@@ -25,9 +26,11 @@ const form_Encomenda = () => {
     setData(formattedDate);
     setHora(formattedTime);
   
-  }, []);
+  },[]);
   
   const handleEncomendas = async () => {
+    // setLoading(true);
+    // setErro(null);
     try {
         // setLoading(true);
         await addDoc(collection(db, "encomendas"), {
@@ -38,15 +41,16 @@ const form_Encomenda = () => {
             tipo: checkedEncomenda,
             descricaoEncomenda: descricao,
             concluida: false, // Por padrão, todas as tarefas são criadas não c
-            idUsuario: user.uid
+            idUsuario: user.uid,
+            idContato: idContato
         });
         router.replace('/telaReceberEncomenda');
     } catch (error) {
         console.error(error.code);
         console.error(error.message);
-    } //finally {
-    //     setLoading(false);
-    // }
+    } finally {
+        setLoading(false);
+    }
 }
   return (
     <View style={styles.container}>
@@ -59,7 +63,9 @@ const form_Encomenda = () => {
 
         <View>
             <Text style={styles.text_Titulo}>Nova Encomenda</Text>
-            <Text style={styles.text_Nome}>Nome Morador</Text>
+            {nomeContato && (
+            <Text style={styles.text_Nome}>{nomeContato}</Text>)}
+            
         </View>
       </View>
 
@@ -151,7 +157,7 @@ const form_Encomenda = () => {
 
       <View style={[styles.footer, { flex: 0.5 }]}>
           <Pressable
-              onPres={() => {
+              onPress={() => {
               router.push('/');
               }}>
             <Ionicons name="chevron-back-outline" size={24} color="#fff" />

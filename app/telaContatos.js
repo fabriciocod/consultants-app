@@ -15,7 +15,7 @@ const telaContatos = () => {
 
   const [contatos, setContatos] = useState([]);
   // const user = auth.currentUser;
-  const [deleteContato, setDeleteContato] = useState(null)
+  const [deleteContato, setDeleteContato] = useState(null);
 
   const handleSearch = () => {
   // Lógica de busca
@@ -44,18 +44,31 @@ useEffect(() => {
 const handleDeleteContatos = async (id) => {
   try {
       setLoading(true);
+
+      // Recuperar encomendas associadas ao contato
+      const encomendasQuery = query(collection(db, "encomendas"), where("idContato", "==", id));
+      const encomendasSnapshot = await getDocs(encomendasQuery);
+
+      // Deletar cada encomenda associada
+      const deleteEncomendasPromises = encomendasSnapshot.docs.map(async (encomendaDoc) => {
+        await deleteDoc(doc(db, "encomendas", encomendaDoc.id));
+      });
+      await Promise.all(deleteEncomendasPromises);
+      
+      // Deletar o contato
       await deleteDoc(doc(db, "contatos", id));
-      setDeletedDate(new Date());
+      setDeleteContato(new Date());
+
   } catch (error) {
       console.error(error);
   } finally {
       setLoading(false);
   }
-}
+};
 // Fim do delete
 
-// Fim do create contato
-const Contato = ({title, description, unit}) => (
+// Inicio do CardContato
+const Contato = ({id, title, description, setDeleteContato, unit, router}) => (
   <View style={styles.container_cards}>
     <View style={styles.container_contatos}>
 
@@ -78,8 +91,8 @@ const Contato = ({title, description, unit}) => (
 
         <View style={styles.nova_encomenda}>
           <Pressable onPress={() => {
-            router.push('/tela_novaEncomenda')
-          }}>
+            router.push({ pathname: '/tela_novaEncomenda', params: { idContato: id, nomeContato: title } });
+            }}>
           <Ionicons name="chevron-forward" size={30} color="#888888" />
           </Pressable>
         </View>
@@ -95,7 +108,7 @@ const Contato = ({title, description, unit}) => (
     </View>
   </View>
 )
-// Inicio do card contato
+// Fim do cardContato
 
 
   return (
@@ -149,11 +162,12 @@ const Contato = ({title, description, unit}) => (
             data={contatos}
             renderItem={({item}) => (
               <Contato
-                id={item.uid}
+                id={item.id}
                 title={item.nomeContato}
                 description={item.contato}
                 unit={item.unidade}
-                setDeleteContato={setDeleteContato}
+                setDeleteContatos={setDeleteContato}
+                router={(router)}
                 />
             )}
 
@@ -163,7 +177,7 @@ const Contato = ({title, description, unit}) => (
     
       <View style={[styles.footer, {flex:0.5}]}>
         <Pressable onPress={() => {
-          router.push('/telaMenu')
+          router.push('/telaMenu');
         }}>
             <Ionicons name="chevron-back" size={24} color="#fff" />
         </Pressable>
