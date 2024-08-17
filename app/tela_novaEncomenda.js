@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Text, TextInput, View, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
-import { Link, useRouter } from 'expo-router';
+import { useRouter, useSearchParams } from 'expo-router';
 import styles from './styles/styles_novaEncomenda'
 import { addDoc, collection} from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
 
 const form_Encomenda = () => {
+  const [nomeContato, setNomeContato] = useState('');
   const[checkedPrioridade, setCheckedPrioridade] = useState('alta');
   const[checkedEncomenda, setCheckedEncomenda] = useState('encomenda');
   const[descricao, setDescricao] = useState('');
@@ -23,6 +24,7 @@ const form_Encomenda = () => {
     const formattedTime = now.toLocaleTimeString('pt-BR');
     setData(formattedDate);
     setHora(formattedTime);
+  
   }, []);
   
   const handleEncomendas = async () => {

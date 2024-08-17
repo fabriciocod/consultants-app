@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     titulo_button:{
       flexDirection:'row',
       justifyContent:'flex-end',
-      marginLeft: 10,
+      marginRight: 10,
       gap:10,
     },
 
@@ -67,10 +67,97 @@ const styles = StyleSheet.create({
   
   
     main: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
+      flexDirection: 'column',
+      justifyContent:'center',
+      
     },
-  
+  // Inicio CardStatus
+  container_status: {
+    flexDirection:'column',
+    // backgroundColor: 'gray',
+    padding:5,
+  },
+
+  container_Status:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    borderLeftColor:'#579DD9',
+    borderBottomColor:'#808080',
+    borderLeftWidth:4,
+    borderBottomWidth:2,
+    // backgroundColor:'red',
+  },
+
+  info_contact_e_hours:{
+    flexDirection:'column',
+    // backgroundColor:'red',
+    paddingVertical:5,
+    paddingLeft:8,
+    width:'90%',
+  },
+
+  title_hours:{
+  flexDirection:'row',
+  justifyContent:'space-between',
+  alignItems:'center',
+  marginBottom:10
+  },
+
+  title:{
+    fontSize:20,
+    fontWeight:'bold'
+  },
+
+  hours:{
+    fontSize:15,
+    fontWeight:'bold'
+  },
+
+  description:{
+    color:'#888888',
+    fontSize:15,
+    fontWeight:'bold'
+  },
+
+  bnt_novaEncomenda:{
+    justifyContent:'center',
+    alignItems:'center',
+    // backgroundColor:'red'
+  },
+
+  id_e_status:{
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+    // backgroundColor:'yellow',
+    gap:25,
+    marginTop:15,
+    // paddingVertical:10,
+    height: 40
+  },
+
+  id:{
+    color:'#888888',
+    borderColor:'#888888',
+    borderRadius: 4,
+    borderWidth:3,
+    fontSize:12,
+    fontWeight:'bold',
+    paddingVertical:5,
+    paddingHorizontal:25
+  },
+  status:{
+    color:'#6D0909',
+    borderColor:'#6D0909',
+    borderRadius: 4,
+    borderWidth:3,
+    fontSize:12,
+    fontWeight:'bold',
+    paddingVertical:5,
+    paddingHorizontal:35
+  },
+  // Fim CardStatus
     footer: {
       flexDirection: 'row',
       justifyContent: 'flex-end',

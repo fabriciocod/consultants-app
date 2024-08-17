@@ -1,11 +1,67 @@
-import * as React from 'react';
+import React, { useState, useEffect} from 'react';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import styles from './styles/styles_ReceberEncomenda.js';
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
+import { auth, db } from '../firebaseConfig';
+
 
 const telaReceberEncomenda = () => {
+  const[encomendas, setEncomendas] = useState([]);
+  const[loading, setLoading] = useState(true);
   const router = useRouter();
+
+    // Incio do recupera encomenda
+    const getAllRecuperaEncomendas = async () => {
+      try {
+          const querySnapshot = await getDocs(query(collection(db, "encomendas")));
+          let array = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          setEncomendas(array);
+      } catch (error) {
+          console.error(error);
+      } finally {
+          setLoading(false);
+        }
+  };
+  
+  useEffect(() => {
+      getAllRecuperaEncomendas();
+  }, []);
+  // Fim do recupera encomendas
+  
+  // Inicio card status
+
+  const Encomenda = ({title, description, hours}) => (
+    <View style={styles.container_status}>
+  
+      <View style={styles.container_Status}>
+  
+        <View style={styles.info_contact_e_hours}>
+  
+          <View style={styles.title_hours}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.hours}>{hours}h</Text>
+          </View>
+  
+          <View style={styles.description}>
+            <Text style={styles.description}>{description}</Text>
+          </View>
+        
+          <View style={styles.id_e_status}>    
+              <Text style={styles.id}>ID: xxxx-xxxx</Text>
+              <Text style={styles.status}>Aguardando</Text>
+          </View>
+  
+        </View>
+          
+          <Ionicons name="chevron-forward" style={styles.bnt_novaEncomenda} size={24} color="#888888" />  
+                
+      </View>
+    </View>
+  );
+  // Fim card status
+
   return (
       <View style={styles.container}>
         {/* Inicio do Header */}
@@ -36,24 +92,31 @@ const telaReceberEncomenda = () => {
 
               <Ionicons name="cube" size={24} color="#fff" />  
               <Text style={styles.textReceber}>Receber</Text>
-              </Pressable>
-
-              <Pressable style={styles.bntReceber}
-              onPress={() =>{
-                router.push('/tela_novaEncomenda')
-              }}>
-
-              <Ionicons name="cube" size={24} color="#fff" />
-              <Text style={styles.textReceber}>Encomenda</Text>
-              </Pressable>
-            
+              </Pressable>   
           </View>
 
         </View>
         {/* Fim do Header */}
   
         <View style={[styles.main, {flex:5}]}>
-          {/* Conteúdo principal, sem cards */}
+          {loading ? (
+
+          <ActivityIndicator size ='large' color='#579DD9'/>
+          ) : (
+        <FlatList
+            data={encomendas}
+            renderItem={({item}) => (
+              <Encomenda
+                id={item.uid}
+                title={item.nomeContato}
+                description={item.descricaoEncomenda}
+                hours={item.hora}
+                
+                />
+            )}
+
+          />
+  )}
         </View>
   
         <View style={[styles.footer, {flex:0.5}]}>

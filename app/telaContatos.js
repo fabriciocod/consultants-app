@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, Text, View, TextInput, FlatList, ActivityIndicator } from 'react-native';
-import { Link, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import styles from './styles/styles_Contatos';
 import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
@@ -22,7 +22,7 @@ const telaContatos = () => {
     console.log(`Buscando por: ${searchText}`);
   };
 
-  // Incio do create contatos
+  // Incio do recupera contatos
   const getAllRecuperaContatos = async () => {
     try {
         const querySnapshot = await getDocs(query(collection(db, "contatos")));
@@ -38,7 +38,7 @@ const telaContatos = () => {
 useEffect(() => {
     getAllRecuperaContatos();
 }, [deleteContato]);
-// Fim do creater
+// Fim do recupera contatos
 
 // Inicio do delete
 const handleDeleteContatos = async (id) => {
@@ -80,7 +80,7 @@ const Contato = ({title, description, unit}) => (
           <Pressable onPress={() => {
             router.push('/tela_novaEncomenda')
           }}>
-          <Ionicons name="chevron-forward" size={24} color="#888888" />
+          <Ionicons name="chevron-forward" size={30} color="#888888" />
           </Pressable>
         </View>
       </View>
@@ -101,7 +101,7 @@ const Contato = ({title, description, unit}) => (
   return (
     <View style={styles.container}>
       {/* Inicio do Header */}
-      <View style={[styles.header, {flex:2}]}>
+      <View style={[styles.header, {flex:1.5}]}>
 
         <View style={styles.searchContainer}>
             <TextInput
@@ -162,9 +162,11 @@ const Contato = ({title, description, unit}) => (
       </View>
     
       <View style={[styles.footer, {flex:0.5}]}>
-        <Link href='/telaMenu'>
+        <Pressable onPress={() => {
+          router.push('/telaMenu')
+        }}>
             <Ionicons name="chevron-back" size={24} color="#fff" />
-        </Link>
+        </Pressable>
       </View>
     </View>
   );
