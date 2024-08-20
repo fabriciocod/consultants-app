@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
   
     text_Titulo: {
       fontSize: 25,
-      fontWeight: 'bold',
+      fontFamily: 'JejuGothic-Regular',
     },
   
     text_Nome: {
       color: '#808080',
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: 'JejuGothic-Regular',
     },
     //Fim do header
   
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   
   text_Prioridade:{
     fontSize:16,
-    fontWeight:'bold',
+    fontFamily: 'JejuGothic-Regular',
     marginLeft: 16
   },
   
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 
   text_Encomenda:{
     fontSize:16,
-    fontWeight:'bold',
+    fontFamily: 'JejuGothic-Regular',
     marginLeft: 16
   },
   
@@ -99,7 +99,8 @@ const styles = StyleSheet.create({
   },
 
   descricao:{
-    fontSize: 15
+    fontSize: 15,
+    fontFamily: 'JejuGothic-Regular',
   },
 // Fim do main
 
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   text_Salvar: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'JejuGothic-Regular',
   },
 // Fim do footer
   });

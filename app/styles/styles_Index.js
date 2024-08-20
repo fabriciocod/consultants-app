@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
       color: '#000',
       padding: 8,
       fontSize: 14,
+      fontFamily: 'JejuGothic-Regular',
       
     },
   
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     entrar: {
       color:'#fff',
       fontSize: 17,
-      fontWeight:'bold'
+      fontFamily: 'JejuGothic-Regular',
     },
   
   
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   texto: {
     color:'#fff',
     fontSize: 15,
-    fontWeight:'bold'
+    fontFamily: 'JejuGothic-Regular',
   }
   
   });

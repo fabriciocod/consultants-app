@@ -20,12 +20,14 @@ const styles = StyleSheet.create({
     
     titulo:{
         fontSize: 20,
-        fontWeight:'bold',
+        //fontWeight:'bold',
+        fontFamily: 'JejuGothic-Regular',
         marginBottom: 25
     },
     
     paragrafo:{
         fontSize: 16,
+        fontFamily: 'JejuGothic-Regular',
         marginBottom: 25
     },
 
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
         // backgroundColor:'#fff',
         color: '#000',
         fontSize: 14,
+        fontFamily: 'JejuGothic-Regular',
         width: '85%',
         height: 50,
     },
@@ -72,7 +75,8 @@ const styles = StyleSheet.create({
     },
     
     confirmar: {
-        color:'#fff'
+        color:'#fff',
+        fontFamily: 'JejuGothic-Regular'
     },
 
     bntCancelar: {
@@ -85,7 +89,8 @@ const styles = StyleSheet.create({
     },
     
     cancelar: {
-        color:'#fff'
+        color:'#fff',
+        fontFamily: 'JejuGothic-Regular'
     },
 });
 

@@ -83,7 +83,7 @@ const telaCadastro = () => {
                     placeholderTextColor='#000'
                     onChangeText={setSenha}
                     secureTextEntry={hideSenha}
-                    maxLength={6}
+                    maxLength={10}
                     />
 
                 <Pressable style={styles.icon} onPress={() => setHideSenha(!hideSenha)}>

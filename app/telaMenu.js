@@ -49,10 +49,10 @@ const telaMenu = () => {
             <Text style={styles.topico}>Cadastrar Contatos</Text>
             </Pressable>
           </View>
-                   
+          
           <View>
             <Pressable style={styles.card} onPress={() => {
-              router.push('#');
+              router.push('/telaRelatorio');
             }}>
             < Ionicons name="reader" size={40} color="#579DD9" style={styles.icon_topico}/>
             <Text style={styles.topico}>Relatório Encomenda</Text>

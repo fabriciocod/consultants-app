@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
   contato: {
     fontSize: 25,
-    fontWeight:'bold',
+    fontFamily:'JejuGothic-Regular',
     color: '#000',
   },
 // Inicio dos Botões
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   textContato: {
     color: '#fff',
     fontSize: 15,
-    fontWeight:'bold'
+    fontFamily: 'JejuGothic-Regular'
     
   },
 // Fim dos Botões
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
 
   inputNome: {
     width:300,
+    fontFamily: 'JejuGothic-Regular',
   },
 
   infoContUni: {
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor:'#bbb',
     fontSize: 14,
+    fontFamily: 'JejuGothic-Regular',
     width:150,
     height:45
   },
@@ -113,6 +115,7 @@ const styles = StyleSheet.create({
     borderColor:'#bbb',
     borderBottomWidth: 1,
     fontSize:14,
+    fontFamily:'jejuGothic-Regular',
     width:120,
     height:45
   },
