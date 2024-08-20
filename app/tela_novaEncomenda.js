@@ -48,9 +48,10 @@ const form_Encomenda = () => {
     } catch (error) {
         console.error(error.code);
         console.error(error.message);
-    } finally {
-        setLoading(false);
-    }
+    } 
+    // finally {
+    //     setLoading(false);
+    // }
 }
   return (
     <View style={styles.container}>
