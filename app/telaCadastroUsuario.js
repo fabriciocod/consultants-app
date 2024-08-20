@@ -39,7 +39,7 @@ const telaCadastro = () => {
                 await createUserWithEmailAndPassword(auth, email, senha);
                 setLoading(false);
                 Alert.alert('Cadastro realizado', 'Usuário cadastrado com sucesso!');
-                router.replace('/index');
+                router.replace('/');
             }
         } catch (error) {
             console.error(error.code);
@@ -83,7 +83,8 @@ const telaCadastro = () => {
                     placeholderTextColor='#000'
                     onChangeText={setSenha}
                     secureTextEntry={hideSenha}
-                    maxLength={10}
+                    maxLength={6}
+                    keyboardType='number-pad'
                     />
 
                 <Pressable style={styles.icon} onPress={() => setHideSenha(!hideSenha)}>
@@ -105,6 +106,7 @@ const telaCadastro = () => {
                     placeholderTextColor='#000'
                     onChangeText={setConfirmaSenha}
                     secureTextEntry={hideConfirmarSenha}
+                    keyboardType='number-pad'
                     />
 
                     <Pressable style={styles.icon} onPress={() => setHideConfirmarSenha(!hideConfirmarSenha)}>
@@ -125,7 +127,7 @@ const telaCadastro = () => {
                 </View>
 
             </View>
-           
+            
             <View style={[styles.footer, {flex:0.5}]}>
 
                 <Link href='/'>

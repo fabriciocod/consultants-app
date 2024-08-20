@@ -57,7 +57,7 @@ const telaCadastroContato = () => {
                 onPress={handleCriar}
                 >
                 <Ionicons name="person-add" size={16} color="#fff" />
-                <Text style={styles.textContato}>Contato</Text>
+                <Text style={styles.textContato}>Cadastrar</Text>
               </Pressable>
 
               <Pressable 
@@ -92,6 +92,7 @@ const telaCadastroContato = () => {
               onChangeText={setContato}
               placeholder="Contato"
               placeholderTextColor="#000"
+              keyboardType='phone-pad'
             />
             <Ionicons style={styles.icon} name='call-outline' color='#000' size={25} />
           </View>
@@ -102,6 +103,7 @@ const telaCadastroContato = () => {
               onChangeText={setUnidade}
               placeholder='Unidade'
               placeholderTextColor="#000"
+              keyboardType='number-pad'
             />
             <Ionicons style={styles.icon} name='business-outline' color='#000' size={25} />
           </View>
