@@ -53,7 +53,7 @@ const telaCadastro = () => {
     return (
         <View style={styles.container}>
 
-            <View style={[styles.header, {flex:1}]}>
+            <View style={[styles.header, {flex:2}]}>
                 <View style={styles.logo}>
                 <Image source={require('./../assets/logo.png')} />
                 </View>

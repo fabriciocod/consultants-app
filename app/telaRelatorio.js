@@ -17,7 +17,7 @@ const telaRelatorio = () => {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.header, { flex: 1 }]}>
+      <View style={[styles.header, { flex: 1}]}>
         <View style={styles.seachContainer}>
           <Ionicons
             name="search"

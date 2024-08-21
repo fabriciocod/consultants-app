@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
       alignItems: 'center',
       gap: 1,
-      marginBottom:5
+      marginBottom:16
     },
   
     bntAguardando: {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      marginLeft: '7%',
+      marginLeft: '9%',
     },
   
     textoPendente: {
