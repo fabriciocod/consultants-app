@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Text, View, Pressable, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Link, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import styles from './styles/styles_Relatorio';
 
 const telaRelatorio = () => {
   const [searchText, setSearchText] = useState('');
-  const [nomeContato, setNomeContato] = useState('');
-  const [contato, setContato] = useState('');
-  const [unidade, setUnidade] = useState('');
+  // const [nomeContato, setNomeContato] = useState('');
+  // const [contato, setContato] = useState('');
+  // const [unidade, setUnidade] = useState('');
   const router = useRouter();
 
   const handleSearch = () => {
@@ -53,10 +53,11 @@ const telaRelatorio = () => {
           <Text style={styles.textoBuscar}> Buscar por: </Text>
         </View>
 
-        <View style={styles.bntAE}>
+        <View style={styles.bnt_Status}>
           <Pressable style={styles.bntAguardando}>
             <Text style={styles.textoAguardando}>Aguardando</Text>
           </Pressable>
+
           <Pressable style={styles.bntEntregue}>
             <Text style={styles.textoEntregue}>Entregue</Text>
           </Pressable>
@@ -70,9 +71,12 @@ const telaRelatorio = () => {
       </View>
 
       <View style={[styles.footer, { flex: 0.5 }]}>
-        <Link href="#">
+        <Pressable onPress={() => {
+            router.push('/telaMenu');
+          }}>
           <Ionicons name="chevron-back-outline" size={24} color="#fff" />
-        </Link>
+        
+        </Pressable>
       </View>
     </View>
   );

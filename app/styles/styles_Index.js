@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
       color: '#000',
       padding: 8,
       fontSize: 14,
-      fontFamily: 'JejuGothic-Regular',
       
     },
   

@@ -52,7 +52,7 @@ const telaMenu = () => {
           
           <View>
             <Pressable style={styles.card} onPress={() => {
-              router.push('/telaRelatorio');
+              router.push('telaRelatorio');
             }}>
             < Ionicons name="reader" size={40} color="#579DD9" style={styles.icon_topico}/>
             <Text style={styles.topico}>Relatório Encomenda</Text>

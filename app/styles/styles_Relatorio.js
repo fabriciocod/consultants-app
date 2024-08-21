@@ -80,12 +80,12 @@ const styles = StyleSheet.create({
       color: '#808080',
     },
   
-    bntAE: {
+    bnt_Status: {
       flexDirection: 'row',
       justifyContent: 'space-around',
       alignItems: 'center',
-      gap: '1%',
-      marginBottom: '5%',
+      gap: 1,
+      marginBottom:5
     },
   
     bntAguardando: {

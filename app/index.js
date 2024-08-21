@@ -61,7 +61,7 @@ function App() {
             placeholderTextColor='#000'
             onChangeText={(senha) => setSenha(senha)}
             secureTextEntry={hidePass}
-            maxLength={10}
+            maxLength={6}
           />
           <Pressable style={styles.icon} onPress={() => setHidePass(!hidePass)}>
             { hidePass ? //Formatação condicional para estado do icones
