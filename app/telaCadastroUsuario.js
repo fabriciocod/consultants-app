@@ -106,6 +106,7 @@ const telaCadastro = () => {
                     placeholderTextColor='#000'
                     onChangeText={setConfirmaSenha}
                     secureTextEntry={hideConfirmarSenha}
+                    maxLength={6}
                     keyboardType='number-pad'
                     />
 

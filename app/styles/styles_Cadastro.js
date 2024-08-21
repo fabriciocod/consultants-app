@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         color: '#000',
         padding: 8,
         fontSize: 14,
-        fontFamily: 'JejuGothic-Regular'
+        fontWeight:'bold',
     },
 
     icon:{
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     cadastrar: {
         color:'#fff',
         fontSize: 18,
-        fontFamily: 'JejuGothic-Regular',
+        fontWeight:'bold',
     },
 
     footer:{
