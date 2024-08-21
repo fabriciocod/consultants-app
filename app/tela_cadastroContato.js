@@ -101,7 +101,7 @@ const telaCadastroContato = () => {
             <TextInput
               value={unidade}
               onChangeText={setUnidade}
-              placeholder='Unidade'
+              placeholder='Casa / Apto.'
               placeholderTextColor="#000"
               keyboardType='number-pad'
             />
