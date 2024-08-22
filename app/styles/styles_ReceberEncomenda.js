@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   
     header: {
       flexDirection: 'column',
+      marginTop:25
     },
 
     icones: {
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     // backgroundColor:'red',
     paddingVertical:5,
     paddingLeft:8,
-    width:'90%',
+    width:'100%',
   },
 
   title_hours:{
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
   },
 
   hours:{
-    fontSize:15,
+    fontSize:13,
     fontWeight:'bold'
   },
 
@@ -126,15 +127,34 @@ const styles = StyleSheet.create({
     // backgroundColor:'red'
   },
 
+  id_status_finalizar:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    backgroundColor:'gray',
+    width:'100%'
+  },
+
   id_e_status:{
     flexDirection:'row',
-    justifyContent:'center',
+    justifyContent:'space-between',
     alignItems:'center',
-    // backgroundColor:'yellow',
-    gap:25,
+    backgroundColor:'yellow',
+    gap:10,
     marginTop:15,
-    // paddingVertical:10,
+    widht:'60%',
     height: 40
+  },
+
+  checkoutEncomenda:{
+    flexDirection:'row',
+    marginTop:15,
+    justifyContent:'flex-start',
+    alignItems:'center',
+    backgroundColor:'orange',
+    widht: '40%',
+    height:40
+    
   },
 
   id:{
@@ -142,22 +162,37 @@ const styles = StyleSheet.create({
     borderColor:'#888888',
     borderRadius: 4,
     borderWidth:3,
-    fontSize:12,
+    fontSize:10,
     fontWeight:'bold',
-    paddingVertical:5,
-    paddingHorizontal:25
+    paddingVertical:4,
+    paddingHorizontal:15
   },
   status:{
+    // color:'#6D0909',
+    // borderColor:'#6D0909',
+    backgroundColor:'#6D0909',
+    borderRadius: 4,
+    // borderWidth:3,
+    // fontSize:10,
+    // fontWeight:'bold',
+    // paddingVertical:4,
+    // paddingHorizontal:4
+    width:15,
+    height:15
+  },
+
+  bnt_finalizar:{
     color:'#6D0909',
     borderColor:'#6D0909',
     borderRadius: 4,
     borderWidth:3,
-    fontSize:12,
+    fontSize:10,
     fontWeight:'bold',
-    paddingVertical:5,
+    paddingVertical:10,
     paddingHorizontal:35
   },
   // Fim CardStatus
+
     footer: {
       flexDirection: 'row',
       justifyContent: 'flex-end',
