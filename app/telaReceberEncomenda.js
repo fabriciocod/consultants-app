@@ -48,15 +48,20 @@ const telaReceberEncomenda = () => {
             <Text style={styles.description}>{description}</Text>
           </View>
         
-          <View style={styles.id_e_status}>    
+          <View style={styles.id_status_finalizar}>
+            <View style={styles.id_e_status}>    
               <Text style={styles.id}>ID: xxxx-xxxx</Text>
-              <Text style={styles.status}>Aguardando</Text>
+              <Text style={styles.status}></Text>
+            </View>
+
+            <View style={styles.checkoutEncomenda}>
+              <Pressable>
+              <Text style={styles.bnt_finalizar}>Finalizar</Text>
+              </Pressable>
+            </View>
           </View>
-  
-        </View>
           
-          <Ionicons name="chevron-forward" style={styles.bnt_novaEncomenda} size={24} color="#888888" />  
-                
+        </View>
       </View>
     </View>
   );
@@ -128,6 +133,6 @@ const telaReceberEncomenda = () => {
     );
   }
   
- 
+
 
 export default telaReceberEncomenda;
