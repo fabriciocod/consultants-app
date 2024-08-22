@@ -34,36 +34,63 @@ const telaReceberEncomenda = () => {
 
   const Encomenda = ({title, description, hours}) => (
     <View style={styles.container_status}>
-  
-      <View style={styles.container_Status}>
-  
-        <View style={styles.info_contact_e_hours}>
-  
-          <View style={styles.title_hours}>
+      <View style={styles.container_cardStatus}>
+        <View style={styles.info_encomenda}>
+          <View style={styles.contato_horas}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.hours}>{hours}h</Text>
           </View>
-  
-          <View style={styles.description}>
+          
+          <View styles={styles.descrição}>
             <Text style={styles.description}>{description}</Text>
           </View>
-        
-          <View style={styles.id_status_finalizar}>
-            <View style={styles.id_e_status}>    
-              <Text style={styles.id}>ID: xxxx-xxxx</Text>
-              <Text style={styles.status}></Text>
-            </View>
 
-            <View style={styles.checkoutEncomenda}>
-              <Pressable>
-              <Text style={styles.bnt_finalizar}>Finalizar</Text>
-              </Pressable>
-            </View>
+          <View style={styles.statusEncomenda}>
+            <Text>ID</Text>
+          <Text>Status</Text>
           </View>
-          
+        </View>
+
+        <View style={styles.finalizar_encomenda}>
+        <Ionicons name="chevron-forward" style={styles.bnt_novaEncomenda} size={24} color="#000" />  
         </View>
       </View>
+
+      
+
     </View>
+    
+    
+    
+    // <View style={styles.container_status}>
+  
+    //   <View style={styles.container_bordeStatus}>
+  
+    //     <View style={styles.info_contact_e_hours}>
+    //       <View>
+    //         <View style={styles.title_hours}>
+    //           <Text style={styles.title}>{title}</Text>
+    //           <Text style={styles.hours}>{hours}h</Text>
+    //         </View>
+    
+    //         <View style={styles.description}>
+    //           <Text style={styles.description}>{description}</Text>
+    //         </View>
+    //       </View>
+
+    //       <View style={styles.checkoutEncomenda}>
+    //         <Pressable>
+    //           <Ionicons name="chevron-forward" style={styles.bnt_finalizar} size={24} color="#888888" />  
+    //         </Pressable>
+    //       </View>
+          
+    //       <View style={styles.id_e_status}>    
+    //           <Text style={styles.id}>ID: xxxx-xxxx</Text>
+    //           <Text style={styles.status}></Text>
+    //       </View>
+    //     </View>
+    //   </View>
+    // </View>
   );
   // Fim card status
 

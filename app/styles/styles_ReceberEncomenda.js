@@ -67,11 +67,10 @@ const styles = StyleSheet.create({
     },
   
   
-    main: {
-      flexDirection: 'column',
-      justifyContent:'center',
-      
-    },
+  main: {
+    flexDirection: 'column',
+    justifyContent:'center',
+  },
   // Inicio CardStatus
   container_status: {
     flexDirection:'column',
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     padding:5,
   },
 
-  container_Status:{
+  container_cardStatus:{
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
@@ -87,110 +86,106 @@ const styles = StyleSheet.create({
     borderBottomColor:'#808080',
     borderLeftWidth:4,
     borderBottomWidth:2,
-    // backgroundColor:'red',
+    backgroundColor:'red'
   },
 
-  info_contact_e_hours:{
-    flexDirection:'column',
-    // backgroundColor:'red',
-    paddingVertical:5,
-    paddingLeft:8,
-    width:'100%',
-  },
-
-  title_hours:{
-  flexDirection:'row',
-  justifyContent:'space-between',
-  alignItems:'center',
-  marginBottom:10
-  },
-
-  title:{
-    fontSize:20,
-    fontWeight:'bold'
-  },
-
-  hours:{
-    fontSize:13,
-    fontWeight:'bold'
-  },
-
-  description:{
-    color:'#888888',
-    fontSize:15,
-    fontWeight:'bold'
-  },
-
-  bnt_novaEncomenda:{
+  finalizar_encomenda:{
+    flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-    // backgroundColor:'red'
+    backgroundColor:'yellow'
   },
+  // info_contact_e_hours:{
+  //   flexDirection:'column',
+  //   // backgroundColor:'red',
+  //   paddingVertical:5,
+  //   paddingLeft:8,
+  //   width:'100%',
+  // },
 
-  id_status_finalizar:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    backgroundColor:'gray',
-    width:'100%'
-  },
+  // title_hours:{
+  // flexDirection:'row',
+  // justifyContent:'space-between',
+  // alignItems:'center',
+  // marginBottom:10
+  // },
 
-  id_e_status:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    backgroundColor:'yellow',
-    gap:10,
-    marginTop:15,
-    widht:'60%',
-    height: 40
-  },
+  // title:{
+  //   fontSize:20,
+  //   fontWeight:'bold'
+  // },
 
-  checkoutEncomenda:{
-    flexDirection:'row',
-    marginTop:15,
-    justifyContent:'flex-start',
-    alignItems:'center',
-    backgroundColor:'orange',
-    widht: '40%',
-    height:40
+  // hours:{
+  //   fontSize:13,
+  //   fontWeight:'bold'
+  // },
+
+  // description:{
+  //   color:'#888888',
+  //   fontSize:15,
+  //   fontWeight:'bold'
+  // },
+
+  // bnt_novaEncomenda:{
+  //   justifyContent:'center',
+  //   alignItems:'center',
+  //   // backgroundColor:'red'
+  // },
+
+  // id_status_finalizar:{
+  //   flexDirection:'row',
+  //   justifyContent:'space-between',
+  //   alignItems:'center',
+  //   backgroundColor:'gray',
+  //   width:'100%'
+  // },
+
+  // id_e_status:{
+  //   flexDirection:'row',
+  //   justifyContent:'space-between',
+  //   alignItems:'center',
+  //   backgroundColor:'yellow',
+  //   gap:10,
+  //   marginTop:15,
+  //   widht:'60%',
+  //   height: 40
+  // },
+
+  // checkoutEncomenda:{
+  //   flexDirection:'row',
+  //   marginTop:15,
+  //   justifyContent:'flex-end',
+  //   alignItems:'center',
+  //   backgroundColor:'orange',
+  //   widht: '15%',
+  //   height:40
     
-  },
+  // },
 
-  id:{
-    color:'#888888',
-    borderColor:'#888888',
-    borderRadius: 4,
-    borderWidth:3,
-    fontSize:10,
-    fontWeight:'bold',
-    paddingVertical:4,
-    paddingHorizontal:15
-  },
-  status:{
-    // color:'#6D0909',
-    // borderColor:'#6D0909',
-    backgroundColor:'#6D0909',
-    borderRadius: 4,
-    // borderWidth:3,
-    // fontSize:10,
-    // fontWeight:'bold',
-    // paddingVertical:4,
-    // paddingHorizontal:4
-    width:15,
-    height:15
-  },
+  // id:{
+  //   color:'#888888',
+  //   borderColor:'#888888',
+  //   borderRadius: 4,
+  //   borderWidth:3,
+  //   fontSize:10,
+  //   fontWeight:'bold',
+  //   paddingVertical:4,
+  //   paddingHorizontal:15
+  // },
+  // status:{
+  //   // color:'#6D0909',
+  //   // borderColor:'#6D0909',
+  //   backgroundColor:'#6D0909',
+  //   borderRadius: 4,
+  //   // borderWidth:3,
+  //   // fontSize:10,
+  //   // fontWeight:'bold',
+  //   // paddingVertical:4,
+  //   // paddingHorizontal:4
+  //   width:15,
+  //   height:15
+  // },
 
-  bnt_finalizar:{
-    color:'#6D0909',
-    borderColor:'#6D0909',
-    borderRadius: 4,
-    borderWidth:3,
-    fontSize:10,
-    fontWeight:'bold',
-    paddingVertical:10,
-    paddingHorizontal:35
-  },
   // Fim CardStatus
 
     footer: {
