@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
 // Inicio do Componente Header
 header:{
 backgroundColor:'#044d8c',
-maxHeight: 400
+maxHeight: 400,
+marginTop: 25
 },
 
 icones:{

@@ -36,23 +36,24 @@ const telaReceberEncomenda = () => {
     <View style={styles.container_status}>
       <View style={styles.container_cardStatus}>
         <View style={styles.info_encomenda}>
+          
           <View style={styles.contato_horas}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.hours}>{hours}h</Text>
+            <Text style={styles.contato}>{title}</Text>
+            <Text style={styles.horas}>{hours}h</Text>
           </View>
           
-          <View styles={styles.descrição}>
+          <View styles={styles.descricao}>
             <Text style={styles.description}>{description}</Text>
           </View>
 
           <View style={styles.statusEncomenda}>
-            <Text>ID</Text>
-          <Text>Status</Text>
+          <Text style={styles.id}>ID: xxxx-xxxx</Text>
+          <Text style={styles.status}>Aguardando</Text>
           </View>
         </View>
 
         <View style={styles.finalizar_encomenda}>
-        <Ionicons name="chevron-forward" style={styles.bnt_novaEncomenda} size={24} color="#000" />  
+        <Ionicons name="chevron-forward" size={24} color="#000" />  
         </View>
       </View>
 

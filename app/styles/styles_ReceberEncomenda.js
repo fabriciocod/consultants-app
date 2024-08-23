@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
       color: '#fff',
       fontSize: 16,
       fontWeight:'bold'
-      
     },
   
   
@@ -71,6 +70,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent:'center',
   },
+
   // Inicio CardStatus
   container_status: {
     flexDirection:'column',
@@ -86,106 +86,81 @@ const styles = StyleSheet.create({
     borderBottomColor:'#808080',
     borderLeftWidth:4,
     borderBottomWidth:2,
-    backgroundColor:'red'
+    // paddingHorizontal:15
+    // backgroundColor:'red'
   },
 
   finalizar_encomenda:{
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'yellow'
+    // marginLeft:5
+    // backgroundColor:'yellow'
   },
-  // info_contact_e_hours:{
-  //   flexDirection:'column',
-  //   // backgroundColor:'red',
-  //   paddingVertical:5,
-  //   paddingLeft:8,
-  //   width:'100%',
-  // },
+  
+  info_encomenda:{
+    flexDirection:'column',
+    // backgroundColor:'red',
+    paddingVertical:5,
+    paddingLeft:8,
+    width:'95%',
+  },
 
-  // title_hours:{
-  // flexDirection:'row',
-  // justifyContent:'space-between',
-  // alignItems:'center',
-  // marginBottom:10
-  // },
+  contato_horas:{
+  flexDirection:'row',
+  justifyContent:'space-between',
+  alignItems:'center',
+  marginBottom:10,
+  width:'95%'
+  },
 
-  // title:{
-  //   fontSize:20,
-  //   fontWeight:'bold'
-  // },
+  contato:{
+    fontSize:20,
+    fontWeight:'bold'
+  },
 
-  // hours:{
-  //   fontSize:13,
-  //   fontWeight:'bold'
-  // },
+  horas:{
+    fontSize:13,
+    fontWeight:'bold'
+  },
 
-  // description:{
-  //   color:'#888888',
-  //   fontSize:15,
-  //   fontWeight:'bold'
-  // },
+  description:{
+    color:'#888888',
+    fontSize:15,
+    fontWeight:'bold'
+  },
 
-  // bnt_novaEncomenda:{
-  //   justifyContent:'center',
-  //   alignItems:'center',
-  //   // backgroundColor:'red'
-  // },
+  statusEncomenda:{
+    flexDirection:'row',
+    justifyContent:'flex-start',
+    alignItems:'center',
+    // backgroundColor:'yellow',
+    gap:10,
+    marginTop:15,
+    height: 40
+  },
 
-  // id_status_finalizar:{
-  //   flexDirection:'row',
-  //   justifyContent:'space-between',
-  //   alignItems:'center',
-  //   backgroundColor:'gray',
-  //   width:'100%'
-  // },
-
-  // id_e_status:{
-  //   flexDirection:'row',
-  //   justifyContent:'space-between',
-  //   alignItems:'center',
-  //   backgroundColor:'yellow',
-  //   gap:10,
-  //   marginTop:15,
-  //   widht:'60%',
-  //   height: 40
-  // },
-
-  // checkoutEncomenda:{
-  //   flexDirection:'row',
-  //   marginTop:15,
-  //   justifyContent:'flex-end',
-  //   alignItems:'center',
-  //   backgroundColor:'orange',
-  //   widht: '15%',
-  //   height:40
-    
-  // },
-
-  // id:{
-  //   color:'#888888',
-  //   borderColor:'#888888',
-  //   borderRadius: 4,
-  //   borderWidth:3,
-  //   fontSize:10,
-  //   fontWeight:'bold',
-  //   paddingVertical:4,
-  //   paddingHorizontal:15
-  // },
-  // status:{
-  //   // color:'#6D0909',
-  //   // borderColor:'#6D0909',
-  //   backgroundColor:'#6D0909',
-  //   borderRadius: 4,
-  //   // borderWidth:3,
-  //   // fontSize:10,
-  //   // fontWeight:'bold',
-  //   // paddingVertical:4,
-  //   // paddingHorizontal:4
-  //   width:15,
-  //   height:15
-  // },
-
+  id:{
+    color:'#888888',
+    borderColor:'#888888',
+    borderRadius: 4,
+    borderWidth:3,
+    fontSize:10,
+    fontWeight:'bold',
+    paddingVertical:4,
+    paddingHorizontal:15
+  },
+  status:{
+    color:'#6D0909',
+    borderColor:'#6D0909',
+    borderRadius: 4,
+    borderWidth:3,
+    fontSize:10,
+    fontWeight:'bold',
+    paddingVertical:4,
+    paddingHorizontal:15
+  
+  },
   // Fim CardStatus
 
     footer: {
