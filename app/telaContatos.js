@@ -205,6 +205,7 @@ const telaContatos = () => {
                 router={router}
               />
             )}
+            ListEmptyComponent={<Text style={styles.notificacao}>Sem Contatos Cadastrados</Text>}  
           />
         )}
       </View>

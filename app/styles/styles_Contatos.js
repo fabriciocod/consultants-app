@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
         marginLeft: 16,
         paddingVertical: 10,
         paddingHorizontal: 25,
-        
     },
     
     textContato: {
@@ -68,9 +67,15 @@ const styles = StyleSheet.create({
     
     main: {
         flexDirection: 'column',
-        
     },
 
+    notificacao:{
+        textAlign:'center',
+        textAlignVertical:'center',
+        textAlignHorizontl:'center',
+        fontSize:15,
+        color:'#808080'
+    },
     // Inicio CardContatos
     container_cards:{
         flexDirection:'column',

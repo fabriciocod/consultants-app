@@ -86,16 +86,12 @@ const styles = StyleSheet.create({
     borderBottomColor:'#808080',
     borderLeftWidth:4,
     borderBottomWidth:2,
-    // paddingHorizontal:15
-    // backgroundColor:'red'
   },
 
   finalizar_encomenda:{
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-    // marginLeft:5
-    // backgroundColor:'yellow'
   },
   
   info_encomenda:{
@@ -150,6 +146,7 @@ const styles = StyleSheet.create({
     paddingVertical:4,
     paddingHorizontal:15
   },
+
   status:{
     color:'#6D0909',
     borderColor:'#6D0909',
@@ -159,9 +156,17 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     paddingVertical:4,
     paddingHorizontal:15
-  
   },
   // Fim CardStatus
+
+  notificacao:{
+    // alignItems:'center',
+    textAlign:'center',
+    textAlignVertical:'center',
+    textAlignHorizontl:'center',
+    fontSize:15,
+    color:'#808080'
+  },
 
     footer: {
       flexDirection: 'row',

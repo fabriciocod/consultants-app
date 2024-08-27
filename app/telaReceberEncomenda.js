@@ -56,42 +56,8 @@ const telaReceberEncomenda = () => {
         <Ionicons name="chevron-forward" size={24} color="#000" />  
         </View>
       </View>
-
-      
-
     </View>
     
-    
-    
-    // <View style={styles.container_status}>
-  
-    //   <View style={styles.container_bordeStatus}>
-  
-    //     <View style={styles.info_contact_e_hours}>
-    //       <View>
-    //         <View style={styles.title_hours}>
-    //           <Text style={styles.title}>{title}</Text>
-    //           <Text style={styles.hours}>{hours}h</Text>
-    //         </View>
-    
-    //         <View style={styles.description}>
-    //           <Text style={styles.description}>{description}</Text>
-    //         </View>
-    //       </View>
-
-    //       <View style={styles.checkoutEncomenda}>
-    //         <Pressable>
-    //           <Ionicons name="chevron-forward" style={styles.bnt_finalizar} size={24} color="#888888" />  
-    //         </Pressable>
-    //       </View>
-          
-    //       <View style={styles.id_e_status}>    
-    //           <Text style={styles.id}>ID: xxxx-xxxx</Text>
-    //           <Text style={styles.status}></Text>
-    //       </View>
-    //     </View>
-    //   </View>
-    // </View>
   );
   // Fim card status
 
@@ -144,10 +110,9 @@ const telaReceberEncomenda = () => {
                 title={item.nomeContato}
                 description={item.descricaoEncomenda}
                 hours={item.hora}
-                
-                />
+              />
             )}
-
+            ListEmptyComponent={<Text style={styles.notificacao}>Sem Encomenda</Text>}            
           />
   )}
         </View>
