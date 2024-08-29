@@ -51,7 +51,11 @@ return (
     </View>
 
     <View style={styles.container_bntEntregar}>
+        <Pressable onPress={() => 
+        router.push('/tela_Assinatura')
+        }>
         <Text style={styles.bntEntregar}>Entrega</Text>
+        </Pressable>
     </View>
     </View>
 
