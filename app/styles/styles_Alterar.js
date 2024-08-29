@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
+  import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
       height: 50,
             
     },
-  
+
     input:{
       color: '#000',
       fontSize: 14,
@@ -66,9 +66,9 @@ const styles = StyleSheet.create({
       width: '65%',
       height: 50,
     },
-  
+
     icon:{
-     width: 30,
+      width: 30,
       height: 25,
     },
   // Fim do estilo input
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 30
   },
-  
+
   bntConfirmar:{
     backgroundColor:'#044D8C',
     borderRadius: 8,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     textAlign:'center'
 
   }
-});
+  });
 
 
-export default styles;
+  export default styles;

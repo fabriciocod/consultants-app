@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Pressable, Text, View, FlatList, ActivityIndicator } from 'react-native';
-import { Link, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import styles from './styles/styles_ReceberEncomenda.js';
 import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
@@ -53,7 +53,11 @@ const telaReceberEncomenda = () => {
         </View>
 
         <View style={styles.finalizar_encomenda}>
-        <Ionicons name="chevron-forward" size={24} color="#000" />  
+        <Pressable onPress={() => {
+          router.push('/tela_Entrega_Encomenda');
+        }}>
+        <Ionicons name="chevron-forward" size={24} color="#000" />
+        </Pressable>  
         </View>
       </View>
     </View>
@@ -118,9 +122,11 @@ const telaReceberEncomenda = () => {
         </View>
   
         <View style={[styles.footer, {flex:0.5}]}>
-          <Link href='/telaMenu'>
-            <Text style={styles.suporte}>Menu</Text>
-          </Link>
+          <Pressable onPress={() => {
+            router.push('/telaMenu');
+          }}>
+              <Text style={styles.suporte}>Menu</Text>
+          </Pressable>  
         </View>
       </View>
     );

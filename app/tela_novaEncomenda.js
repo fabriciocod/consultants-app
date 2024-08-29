@@ -148,7 +148,6 @@ const form_Encomenda = () => {
           <TextInput
             style={styles.descricao}
             multiline
-            numberOfLines={4}
             value={descricao}
             onChangeText={setDescricao}
             placeholder="Descrição"
@@ -159,7 +158,7 @@ const form_Encomenda = () => {
       <View style={[styles.footer, { flex: 0.5 }]}>
           <Pressable
               onPress={() => {
-              router.push('/');
+              router.push('/telaContatos');
               }}>
             <Ionicons name="chevron-back-outline" size={24} color="#fff" />
           </Pressable>
